@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WOKIPASTA</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <a href="#home" class="logo">
+            WOKIPASTA
+        </a>
+
+        <nav class="nav">
+
+            <a
+                href="#home"
+                data-ru="Главная"
+                data-kz="Басты бет"
+                data-en="Home"
+            >
+                Главная
+            </a>
+
+            <a
+                href="#menu"
+                data-ru="Меню"
+                data-kz="Мәзір"
+                data-en="Menu"
+            >
+                Меню
+            </a>
+
+            <a
+                href="#sets"
+                data-ru="Сеты"
+                data-kz="Сеттер"
+                data-en="Sets"
+            >
+                Сеты
+            </a>
+
+            <a
+                href="#contact"
+                data-ru="Контакты"
+                data-kz="Байланыс"
+                data-en="Contact"
+            >
+                Контакты
+            </a>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <div class="languages">
+
+                <button
+                    type="button"
+                    class="language active"
+                    onclick="changeLanguage('ru')"
+                >
+                    RU
+                </button>
+
+                <button
+                    type="button"
+                    class="language"
+                    onclick="changeLanguage('kz')"
+                >
+                    KZ
+                </button>
+
+                <button
+                    type="button"
+                    class="language"
+                    onclick="changeLanguage('en')"
+                >
+                    EN
+                </button>
+
+            </div>
+
+            <button
+                type="button"
+                class="cart-button"
+                onclick="openCart()"
+            >
+
+                🛒
+
+                <span
+                    data-ru="Корзина"
+                    data-kz="Себет"
+                    data-en="Cart"
+                >
+                    Корзина
+                </span>
+
+                <span id="cart-count">
+                    0
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-text">
+
+                <span
+                    class="hero-label"
+                    data-ru="WOK • SUSHI • BURGER • PIZZA"
+                    data-kz="WOK • SUSHI • BURGER • PIZZA"
+                    data-en="WOK • SUSHI • BURGER • PIZZA"
+                >
+                    WOK • SUSHI • BURGER • PIZZA
+                </span>
+
+                <h1
+                    data-ru="Вкус, который хочется повторить"
+                    data-kz="Қайта жегің келетін дәм"
+                    data-en="A taste you'll want again"
+                >
+                    Вкус, который хочется повторить
+                </h1>
+
+                <p
+                    data-ru="Паназиатская кухня, бургеры, паста и пицца"
+                    data-kz="Паназиялық тағамдар, бургерлер, паста және пицца"
+                    data-en="Pan-Asian food, burgers, pasta and pizza"
+                >
+                    Паназиатская кухня, бургеры, паста и пицца
+                </p>
+
+                <a
+                    href="#menu"
+                    class="hero-button"
+                    data-ru="Смотреть меню"
+                    data-kz="Мәзірді көру"
+                    data-en="View menu"
+                >
+                    Смотреть меню
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="city-section">
+
+        <div class="container">
+
+            <div class="city-box">
+
+                <span
+                    data-ru="Ваш город"
+                    data-kz="Сіздің қалаңыз"
+                    data-en="Your city"
+                >
+                    Ваш город
+                </span>
+
+                <strong>
+                    Astana
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="menu-section" id="menu">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span
+                    class="section-label"
+                    data-ru="НАШЕ МЕНЮ"
+                    data-kz="БІЗДІҢ МӘЗІР"
+                    data-en="OUR MENU"
+                >
+                    НАШЕ МЕНЮ
+                </span>
+
+                <h2
+                    data-ru="Выбирай любимое"
+                    data-kz="Сүйікті тағамыңызды таңдаңыз"
+                    data-en="Choose your favorite"
+                >
+                    Выбирай любимое
+                </h2>
+
+            </div>
+
+
+            <div class="search-wrapper">
+
+                <input
+                    id="menu-search"
+                    type="text"
+                    placeholder="Поиск..."
+                    data-placeholder-ru="Поиск..."
+                    data-placeholder-kz="Іздеу..."
+                    data-placeholder-en="Search..."
+                >
+
+            </div>
+
+
+            <div class="categories">
+
+                <button
+                    type="button"
+                    class="category active"
+                    onclick="filterMenu('all', this)"
+                    data-ru="Все"
+                    data-kz="Барлығы"
+                    data-en="All"
+                >
+                    Все
+                </button>
+
+                <button
+                    type="button"
+                    class="category"
+                    onclick="filterMenu('sushi', this)"
+                    data-ru="Роллы"
+                    data-kz="Роллдар"
+                    data-en="Sushi"
+                >
+                    Роллы
+                </button>
+
+                <button
+                    type="button"
+                    class="category"
+                    onclick="filterMenu('wok', this)"
+                    data-ru="WOK"
+                    data-kz="WOK"
+                    data-en="WOK"
+                >
+                    WOK
+                </button>
+
+                <button
+                    type="button"
+                    class="category"
+                    onclick="filterMenu('burgers', this)"
+                    data-ru="Бургеры"
+                    data-kz="Бургерлер"
+                    data-en="Burgers"
+                >
+                    Бургеры
+                </button>
+
+                <button
+                    type="button"
+                    class="category"
+                    onclick="filterMenu('pizza', this)"
+                    data-ru="Пицца"
+                    data-kz="Пицца"
+                    data-en="Pizza"
+                >
+                    Пицца
+                </button>
+
+                <button
+                    type="button"
+                    class="category"
+                    onclick="filterMenu('pasta', this)"
+                    data-ru="Паста"
+                    data-kz="Паста"
+                    data-en="Pasta"
+                >
+                    Паста
+                </button>
+
+                <button
+                    type="button"
+                    class="category"
+                    onclick="filterMenu('soups', this)"
+                    data-ru="Супы"
+                    data-kz="Сорпалар"
+                    data-en="Soups"
+                >
+                    Супы
+                </button>
+
+                <button
+                    type="button"
+                    class="category"
+                    onclick="filterMenu('salads', this)"
+                    data-ru="Салаты"
+                    data-kz="Салаттар"
+                    data-en="Salads"
+                >
+                    Салаты
+                </button>
+
+                <button
+                    type="button"
+                    class="category"
+                    onclick="filterMenu('sides', this)"
+                    data-ru="Гарниры"
+                    data-kz="Гарнирлер"
+                    data-en="Sides"
+                >
+                    Гарниры
+                </button>
+
+                <button
+                    type="button"
+                    class="category"
+                    onclick="filterMenu('drinks', this)"
+                    data-ru="Напитки"
+                    data-kz="Сусындар"
+                    data-en="Drinks"
+                >
+                    Напитки
+                </button>
+
+                <button
+                    type="button"
+                    class="category"
+                    onclick="filterMenu('sets', this)"
+                    data-ru="Сеты"
+                    data-kz="Сеттер"
+                    data-en="Sets"
+                >
+                    Сеты
+                </button>
+
+            </div>
+
+
+            <div
+                class="products-grid"
+                id="products"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <section class="sets-section" id="sets">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span
+                    class="section-label"
+                    data-ru="ФИРМЕННЫЕ СЕТЫ"
+                    data-kz="ФИРМАЛЫҚ СЕТТЕР"
+                    data-en="SIGNATURE SETS"
+                >
+                    ФИРМЕННЫЕ СЕТЫ
+                </span>
+
+                <h2
+                    data-ru="Большие наборы"
+                    data-kz="Үлкен сеттер"
+                    data-en="Big sets"
+                >
+                    Большие наборы
+                </h2>
+
+            </div>
+
+
+            <div
+                class="sets-grid"
+                id="sets-grid"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact-section" id="contact">
+
+        <div class="container">
+
+            <div class="contact-heading">
+
+                <span
+                    class="section-label"
+                    data-ru="КОНТАКТЫ"
+                    data-kz="БАЙЛАНЫС"
+                    data-en="CONTACT US"
+                >
+                    КОНТАКТЫ
+                </span>
+
+                <h2
+                    data-ru="Свяжитесь с нами"
+                    data-kz="Бізбен байланысыңыз"
+                    data-en="Contact us"
+                >
+                    Свяжитесь с нами
+                </h2>
+
+                <p
+                    data-ru="Есть вопрос? Напишите нам или позвоните."
+                    data-kz="Сұрағыңыз бар ма? Бізге жазыңыз немесе қоңырау шалыңыз."
+                    data-en="Have a question? Email us or give us a call."
+                >
+                    Есть вопрос? Напишите нам или позвоните.
+                </p>
+
+            </div>
+
+
+            <div class="contact-grid">
+
+                <a
+                    href="mailto:wokipasta@gmail.com"
+                    class="contact-card"
+                >
+
+                    <div class="contact-icon">
+                        📧
+                    </div>
+
+                    <div class="contact-card-text">
+
+                        <strong
+                            data-ru="Написать на почту"
+                            data-kz="Электрондық поштаға жазу"
+                            data-en="Email us"
+                        >
+                            Написать на почту
+                        </strong>
+
+                        <span>
+                            wokipasta@gmail.com
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="tel:+77000000000"
+                    class="contact-card"
+                >
+
+                    <div class="contact-icon">
+                        📞
+                    </div>
+
+                    <div class="contact-card-text">
+
+                        <strong
+                            data-ru="Позвонить нам"
+                            data-kz="Бізге қоңырау шалу"
+                            data-en="Call us"
+                        >
+                            Позвонить нам
+                        </strong>
+
+                        <span>
+                            +7 700 000 00 00
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- PRODUCT MODAL -->
+
+<div
+    class="modal"
+    id="product-modal"
+>
+
+    <div class="modal-content">
+
+        <button
+            type="button"
+            class="modal-close"
+            onclick="closeProduct()"
+        >
+            ✕
+        </button>
+
+
+        <div class="modal-left">
+
+            <img
+                id="modal-image"
+                src=""
+                alt=""
+            >
+
+            <button
+                id="modal-add"
+                class="modal-add"
+                type="button"
+            >
+                Добавить в корзину
+            </button>
+
+        </div>
+
+
+        <div class="modal-info">
+
+            <h2 id="modal-title"></h2>
+
+            <p id="modal-description"></p>
+
+            <strong id="modal-price"></strong>
+
+            <div id="reviews-container"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- CART MODAL -->
+
+<div
+    class="modal"
+    id="cart-modal"
+>
+
+    <div class="cart-modal-content">
+
+        <button
+            type="button"
+            class="modal-close"
+            onclick="closeCart()"
+        >
+            ✕
+        </button>
+
+
+        <div class="cart-header">
+
+            <h2
+                data-ru="Корзина"
+                data-kz="Себет"
+                data-en="Cart"
+            >
+                Корзина
+            </h2>
+
+        </div>
+
+
+        <div
+            id="cart-items"
+            class="cart-items"
+        ></div>
+
+
+        <div class="cart-footer">
+
+            <div class="cart-total-row">
+
+                <span
+                    data-ru="Итого"
+                    data-kz="Барлығы"
+                    data-en="Total"
+                >
+                    Итого
+                </span>
+
+                <strong id="cart-total">
+                    0 ₸
+                </strong>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="checkout-button"
+                onclick="checkout()"
+                data-ru="Оформить заказ"
+                data-kz="Тапсырыс беру"
+                data-en="Checkout"
+            >
+                Оформить заказ
+            </button>
+
+
+            <button
+                type="button"
+                class="clear-cart"
+                onclick="clearCart()"
+                data-ru="Очистить корзину"
+                data-kz="Себетті тазалау"
+                data-en="Clear cart"
+            >
+                Очистить корзину
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="container footer-inner">
+
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+                WOKIPASTA
+            </div>
+
+            <p
+                data-ru="WOK • SUSHI • BURGER • PIZZA"
+                data-kz="WOK • SUSHI • BURGER • PIZZA"
+                data-en="WOK • SUSHI • BURGER • PIZZA"
+            >
+                WOK • SUSHI • BURGER • PIZZA
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a
+                href="#home"
+                data-ru="Главная"
+                data-kz="Басты бет"
+                data-en="Home"
+            >
+                Главная
+            </a>
+
+            <a
+                href="#menu"
+                data-ru="Меню"
+                data-kz="Мәзір"
+                data-en="Menu"
+            >
+                Меню
+            </a>
+
+            <a
+                href="#sets"
+                data-ru="Сеты"
+                data-kz="Сеттер"
+                data-en="Sets"
+            >
+                Сеты
+            </a>
+
+            <a
+                href="#contact"
+                data-ru="Контакты"
+                data-kz="Байланыс"
+                data-en="Contact Us"
+            >
+                Контакты
+            </a>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <strong
+                data-ru="Связаться с нами"
+                data-kz="Бізбен байланысу"
+                data-en="Contact us"
+            >
+                Связаться с нами
+            </strong>
+
+            <a href="mailto:wokipasta@gmail.com">
+                📧 wokipasta@gmail.com
+            </a>
+
+            <a href="tel:+77000000000">
+                📞 +7 700 000 00 00
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
