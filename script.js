@@ -73,7 +73,7 @@ const products = [
         id: 20,
         category: "sushi",
         price: 3590,
-        image: "images/philadelphia-light.png",
+        image: "./images/philadelphia-light.png",
         name: {
             ru: "Филадельфия лайт",
             kz: "Филадельфия лайт",
@@ -90,7 +90,7 @@ const products = [
         id: 21,
         category: "sushi",
         price: 2590,
-        image: "images/california.png",
+        image: "./images/california.png",
         name: {
             ru: "Калифорния ролл",
             kz: "Калифорния роллы",
@@ -107,7 +107,7 @@ const products = [
         id: 22,
         category: "sushi",
         price: 3590,
-        image: "images/dragon.png",
+        image: "./images/dragon.png",
         name: {
             ru: "Дракон",
             kz: "Айдаһар",
@@ -124,7 +124,7 @@ const products = [
         id: 23,
         category: "sushi",
         price: 2990,
-        image: "images/tasty-roll.png",
+        image: "./images/tasty-roll.png",
         name: {
             ru: "Вкусный ролл",
             kz: "Дәмді ролл",
@@ -141,7 +141,7 @@ const products = [
         id: 24,
         category: "sushi",
         price: 2890,
-        image: "images/murakami.png",
+        image: "./images/murakami.png",
         name: {
             ru: "Ролл Мураками",
             kz: "Мураками роллы",
@@ -158,7 +158,7 @@ const products = [
         id: 25,
         category: "sushi",
         price: 3090,
-        image: "images/caesar-roll.png",
+        image: "./images/caesar-roll.png",
         name: {
             ru: "Ролл Цезарь",
             kz: "Цезарь роллы",
@@ -175,7 +175,7 @@ const products = [
         id: 26,
         category: "sushi",
         price: 2790,
-        image: "images/yin-yang.png",
+        image: "./images/yin-yang.png",
         name: {
             ru: "Ролл Инь Янь",
             kz: "Инь Янь роллы",
@@ -192,7 +192,7 @@ const products = [
         id: 27,
         category: "sushi",
         price: 1900,
-        image: "images/vegan-roll.png",
+        image: "./images/vegan-roll.png",
         name: {
             ru: "Ролл Веган",
             kz: "Веган роллы",
@@ -209,7 +209,7 @@ const products = [
         id: 28,
         category: "sushi",
         price: 3890,
-        image: "images/geisha-kiss.png",
+        image: "./images/geisha-kiss.png",
         name: {
             ru: "Поцелуй гейши",
             kz: "Гейшаның сүйісі",
@@ -226,7 +226,7 @@ const products = [
         id: 29,
         category: "sushi",
         price: 3390,
-        image: "images/ebi-tempura.png",
+        image: "./images/ebi-tempura.png",
         name: {
             ru: "Эби темпура ролл жареный",
             kz: "Эби темпура қуырылған роллы",
@@ -243,7 +243,7 @@ const products = [
         id: 30,
         category: "sushi",
         price: 3190,
-        image: "images/sake-tempura.png",
+        image: "./images/sake-tempura.png",
         name: {
             ru: "Сяке темпура",
             kz: "Сяке темпура",
@@ -260,7 +260,7 @@ const products = [
         id: 31,
         category: "sushi",
         price: 2890,
-        image: "images/kani-tempura.png",
+        image: "./images/kani-tempura.png",
         name: {
             ru: "Кани темпура",
             kz: "Кани темпура",
@@ -277,7 +277,7 @@ const products = [
         id: 32,
         category: "sushi",
         price: 3090,
-        image: "images/kani-wok-baked.png",
+        image: "./images/kani-wok-baked.png",
         name: {
             ru: "Кани вок запеченный",
             kz: "Кани вок пісірілген",
@@ -294,7 +294,7 @@ const products = [
         id: 33,
         category: "sushi",
         price: 3890,
-        image: "images/philadelphia-grill.png",
+        image: "./images/philadelphia-grill.png",
         name: {
             ru: "Филадельфия гриль",
             kz: "Филадельфия гриль",
@@ -311,7 +311,7 @@ const products = [
         id: 34,
         category: "sushi",
         price: 2390,
-        image: "images/unagi-maki.png",
+        image: "./images/unagi-maki.png",
         name: {
             ru: "Хосомаки унаги",
             kz: "Унаги хосомаки",
@@ -328,7 +328,7 @@ const products = [
         id: 35,
         category: "sushi",
         price: 2890,
-        image: "images/sake-maki.png",
+        image: "./images/sake-maki.png",
         name: {
             ru: "Хосомаки сяке",
             kz: "Сяке хосомаки",
@@ -345,7 +345,7 @@ const products = [
         id: 36,
         category: "sushi",
         price: 1490,
-        image: "images/kappa-maki.png",
+        image: "./images/kappa-maki.png",
         name: {
             ru: "Хосомаки каппа",
             kz: "Каппа хосомаки",
@@ -362,7 +362,7 @@ const products = [
         id: 37,
         category: "sushi",
         price: 3190,
-        image: "images/new-york.png",
+        image: "./images/new-york.png",
         name: {
             ru: "Нью-Йорк",
             kz: "Нью-Йорк",
@@ -379,7 +379,7 @@ const products = [
         id: 38,
         category: "sushi",
         price: 3090,
-        image: "images/sake-kunsei.png",
+        image: "./images/sake-kunsei.png",
         name: {
             ru: "Сяке кунсей",
             kz: "Сяке кунсей",
@@ -396,7 +396,7 @@ const products = [
         id: 39,
         category: "sushi",
         price: 2590,
-        image: "images/chicken-donut.png",
+        image: "./images/chicken-donut.png",
         name: {
             ru: "Пончик ролл с курицей",
             kz: "Тауықты пончик роллы",
@@ -413,7 +413,7 @@ const products = [
         id: 40,
         category: "wok",
         price: 3290,
-        image: "images/wok-chicken-udon.png",
+        image: "./images/wok-chicken-udon.png",
         name: {
             ru: "Вок с курицей с соусом удон",
             kz: "Тауық еті қосылған удон вок",
@@ -430,7 +430,7 @@ const products = [
         id: 41,
         category: "wok",
         price: 3290,
-        image: "images/wok-chicken-sichuan.png",
+        image: "./images/wok-chicken-sichuan.png",
         name: {
             ru: "Вок удон с курицей в сычуанском соусе",
             kz: "Сычуань соусындағы тауықты удон",
@@ -447,7 +447,7 @@ const products = [
         id: 42,
         category: "wok",
         price: 3690,
-        image: "images/wok-seafood-udon.png",
+        image: "./images/wok-seafood-udon.png",
         name: {
             ru: "Вок удон с морепродуктами под соусом унаги",
             kz: "Унаги соусындағы теңіз өнімдері бар удон",
@@ -464,7 +464,7 @@ const products = [
         id: 43,
         category: "wok",
         price: 3490,
-        image: "images/wok-beef.png",
+        image: "./images/wok-beef.png",
         name: {
             ru: "Вок с говядиной и гречневой лапшой",
             kz: "Сиыр еті мен қарақұмық кеспесі бар вок",
@@ -481,7 +481,7 @@ const products = [
         id: 44,
         category: "wok",
         price: 3290,
-        image: "images/wok-chicken-buckwheat.png",
+        image: "./images/wok-chicken-buckwheat.png",
         name: {
             ru: "Вок с курицей и гречневой лапшой",
             kz: "Тауық еті мен қарақұмық кеспесі бар вок",
@@ -498,7 +498,7 @@ const products = [
         id: 45,
         category: "wok",
         price: 3690,
-        image: "images/wok-shrimp-buckwheat.png",
+        image: "./images/wok-shrimp-buckwheat.png",
         name: {
             ru: "Вок с королевскими креветками и гречневой лапшой",
             kz: "Корольдік асшаяндар мен қарақұмық кеспесі бар вок",
@@ -515,7 +515,7 @@ const products = [
         id: 46,
         category: "wok",
         price: 3690,
-        image: "images/wok-seafood-buckwheat.png",
+        image: "./images/wok-seafood-buckwheat.png",
         name: {
             ru: "Вок с морепродуктами и гречневой лапшой",
             kz: "Теңіз өнімдері мен қарақұмық кеспесі бар вок",
@@ -532,7 +532,7 @@ const products = [
         id: 47,
         category: "wok",
         price: 3290,
-        image: "images/wok-chicken-egg.png",
+        image: "./images/wok-chicken-egg.png",
         name: {
             ru: "Вок с курицей и яичной лапшой",
             kz: "Тауық еті мен жұмыртқалы кеспесі бар вок",
@@ -549,7 +549,7 @@ const products = [
         id: 48,
         category: "wok",
         price: 3690,
-        image: "images/wok-rice-shrimp.png",
+        image: "./images/wok-rice-shrimp.png",
         name: {
             ru: "Рис с королевскими креветками",
             kz: "Корольдік асшаяндар қосылған күріш",
@@ -566,7 +566,7 @@ const products = [
         id: 49,
         category: "wok",
         price: 3690,
-        image: "images/wok-rice-seafood.png",
+        image: "./images/wok-rice-seafood.png",
         name: {
             ru: "Рис с морепродуктами",
             kz: "Теңіз өнімдері қосылған күріш",
@@ -583,7 +583,7 @@ const products = [
         id: 50,
         category: "wok",
         price: 3290,
-        image: "images/wok-rice-chicken.png",
+        image: "./images/wok-rice-chicken.png",
         name: {
             ru: "Рис с курицей",
             kz: "Тауық еті қосылған күріш",
@@ -600,7 +600,7 @@ const products = [
         id: 51,
         category: "wok",
         price: 3690,
-        image: "images/wok-noodles-seafood.png",
+        image: "./images/wok-noodles-seafood.png",
         name: {
             ru: "Яичная лапша с морепродуктами",
             kz: "Теңіз өнімдері қосылған жұмыртқалы кеспе",
@@ -617,7 +617,7 @@ const products = [
         id: 52,
         category: "wok",
         price: 3690,
-        image: "images/wok-shrimp-egg.png",
+        image: "./images/wok-shrimp-egg.png",
         name: {
             ru: "Вок с креветками и яичной лапшой",
             kz: "Асшаяндар мен жұмыртқалы кеспе бар вок",
@@ -634,7 +634,7 @@ const products = [
         id: 60,
         category: "burgers",
         price: 2890,
-        image: "images/beverly-hills.png",
+        image: "./images/beverly-hills.png",
         name: {
             ru: "Беверлли Хилз",
             kz: "Беверли Хиллз",
@@ -651,7 +651,7 @@ const products = [
         id: 61,
         category: "burgers",
         price: 3190,
-        image: "images/burger-california.png",
+        image: "./images/burger-california.png",
         name: {
             ru: "Бургер Калифорния",
             kz: "Калифорния бургері",
@@ -668,7 +668,7 @@ const products = [
         id: 62,
         category: "burgers",
         price: 2890,
-        image: "images/street-burger.png",
+        image: "./images/street-burger.png",
         name: {
             ru: "Стрит бургер",
             kz: "Стрит бургер",
@@ -685,7 +685,7 @@ const products = [
         id: 63,
         category: "burgers",
         price: 3190,
-        image: "images/manhattan.png",
+        image: "./images/manhattan.png",
         name: {
             ru: "Манхэттен",
             kz: "Манхэттен",
@@ -702,7 +702,7 @@ const products = [
         id: 64,
         category: "burgers",
         price: 2690,
-        image: "images/street-chicken.png",
+        image: "./images/street-chicken.png",
         name: {
             ru: "Стрит куриный",
             kz: "Стрит тауық бургері",
@@ -719,7 +719,7 @@ const products = [
         id: 65,
         category: "burgers",
         price: 2890,
-        image: "images/chinatown.png",
+        image: "./images/chinatown.png",
         name: {
             ru: "Чайна таун",
             kz: "Чайна Таун",
@@ -736,7 +736,7 @@ const products = [
         id: 70,
         category: "pizza",
         price: 3090,
-        image: "images/margarita.png",
+        image: "./images/margarita.png",
         name: {
             ru: "Маргарита",
             kz: "Маргарита",
@@ -753,7 +753,7 @@ const products = [
         id: 71,
         category: "pizza",
         price: 4190,
-        image: "images/four-cheese.png",
+        image: "./images/four-cheese.png",
         name: {
             ru: "Пицца 4 сыра",
             kz: "4 ірімшік пиццасы",
@@ -770,7 +770,7 @@ const products = [
         id: 72,
         category: "pizza",
         price: 3090,
-        image: "images/pepperoni.png",
+        image: "./images/pepperoni.png",
         name: {
             ru: "Пепперони",
             kz: "Пепперони",
@@ -787,7 +787,7 @@ const products = [
         id: 73,
         category: "pizza",
         price: 4290,
-        image: "images/hoisin-chicken.png",
+        image: "./images/hoisin-chicken.png",
         name: {
             ru: "Курица хойсин",
             kz: "Хойсин тауық пиццасы",
@@ -804,7 +804,7 @@ const products = [
         id: 74,
         category: "pizza",
         price: 4190,
-        image: "images/minced-meat.png",
+        image: "./images/minced-meat.png",
         name: {
             ru: "Пицца с фаршем",
             kz: "Фарш қосылған пицца",
@@ -821,7 +821,7 @@ const products = [
         id: 75,
         category: "pizza",
         price: 3790,
-        image: "images/four-seasons.png",
+        image: "./images/four-seasons.png",
         name: {
             ru: "Пицца Четыре сезона",
             kz: "Төрт маусым пиццасы",
@@ -838,7 +838,7 @@ const products = [
         id: 76,
         category: "pizza",
         price: 4190,
-        image: "images/caesar-pizza.png",
+        image: "./images/caesar-pizza.png",
         name: {
             ru: "Пицца Цезарь",
             kz: "Цезарь пиццасы",
@@ -855,7 +855,7 @@ const products = [
         id: 80,
         category: "pasta",
         price: 3290,
-        image: "images/pasta-mushroom-cream.png",
+        image: "./images/pasta-mushroom-cream.png",
         name: {
             ru: "Паста с грибами в сливочном соусе",
             kz: "Кілегейлі саңырауқұлақ пастасы",
@@ -872,7 +872,7 @@ const products = [
         id: 81,
         category: "pasta",
         price: 3290,
-        image: "images/pasta-chicken-cream.png",
+        image: "./images/pasta-chicken-cream.png",
         name: {
             ru: "Паста с курицей в сливочном соусе",
             kz: "Кілегейлі тауық пастасы",
@@ -889,7 +889,7 @@ const products = [
         id: 82,
         category: "pasta",
         price: 3290,
-        image: "images/pasta-mix-mushrooms.png",
+        image: "./images/pasta-mix-mushrooms.png",
         name: {
             ru: "Паста микс грибы",
             kz: "Саңырауқұлақ микс пастасы",
@@ -906,7 +906,7 @@ const products = [
         id: 83,
         category: "pasta",
         price: 3290,
-        image: "images/pasta-chicken-tomato.png",
+        image: "./images/pasta-chicken-tomato.png",
         name: {
             ru: "Паста с курицей в томатном соусе",
             kz: "Томат соусындағы тауық пастасы",
@@ -923,7 +923,7 @@ const products = [
         id: 84,
         category: "pasta",
         price: 3690,
-        image: "images/pasta-seafood-tomato.png",
+        image: "./images/pasta-seafood-tomato.png",
         name: {
             ru: "Паста с морепродуктами в томатном соусе",
             kz: "Томат соусындағы теңіз өнімдері пастасы",
@@ -940,7 +940,7 @@ const products = [
         id: 85,
         category: "pasta",
         price: 3690,
-        image: "images/pasta-seafood-cream.png",
+        image: "./images/pasta-seafood-cream.png",
         name: {
             ru: "Паста с морепродуктами в сливочном соусе",
             kz: "Кілегейлі теңіз өнімдері пастасы",
@@ -957,7 +957,7 @@ const products = [
         id: 90,
         category: "soups",
         price: 3000,
-        image: "images/ramen-chicken.png",
+        image: "./images/ramen-chicken.png",
         name: {
             ru: "Рамён с курицей",
             kz: "Тауықты рамен",
@@ -974,7 +974,7 @@ const products = [
         id: 91,
         category: "soups",
         price: 3690,
-        image: "images/tom-yam.png",
+        image: "./images/tom-yam.png",
         name: {
             ru: "Том ям с морепродуктами и рисом",
             kz: "Теңіз өнімдері мен күріші бар том ям",
@@ -991,7 +991,7 @@ const products = [
         id: 92,
         category: "salads",
         price: 2590,
-        image: "images/fresh-asia.png",
+        image: "./images/fresh-asia.png",
         name: {
             ru: "Салат свежие овощи Азия",
             kz: "Азиялық жаңа көкөніс салаты",
@@ -1008,7 +1008,7 @@ const products = [
         id: 93,
         category: "salads",
         price: 2790,
-        image: "images/chuka.png",
+        image: "./images/chuka.png",
         name: {
             ru: "Чука салат",
             kz: "Чука салаты",
@@ -1025,7 +1025,7 @@ const products = [
         id: 94,
         category: "salads",
         price: 2590,
-        image: "images/tutti-frutti.png",
+        image: "./images/tutti-frutti.png",
         name: {
             ru: "Салат Тутти-Фрутти",
             kz: "Тутти-Фрутти салаты",
@@ -1042,7 +1042,7 @@ const products = [
         id: 95,
         category: "salads",
         price: 1900,
-        image: "images/coleslaw.png",
+        image: "./images/coleslaw.png",
         name: {
             ru: "Салат Коул Слоу",
             kz: "Коул Слоу салаты",
@@ -1059,7 +1059,7 @@ const products = [
         id: 96,
         category: "salads",
         price: 3590,
-        image: "images/nicoise.png",
+        image: "./images/nicoise.png",
         name: {
             ru: "Салат Нисуаз",
             kz: "Нисуаз салаты",
@@ -1076,7 +1076,7 @@ const products = [
         id: 97,
         category: "salads",
         price: 3290,
-        image: "images/caesar-chicken.png",
+        image: "./images/caesar-chicken.png",
         name: {
             ru: "Цезарь с курицей",
             kz: "Тауықты Цезарь салаты",
@@ -1093,7 +1093,7 @@ const products = [
         id: 100,
         category: "sides",
         price: 1400,
-        image: "images/fries.png",
+        image: "./images/fries.png",
         name: {
             ru: "Картофель фри",
             kz: "Картоп фри",
@@ -1110,7 +1110,7 @@ const products = [
         id: 101,
         category: "sides",
         price: 3100,
-        image: "images/chicken-wings.png",
+        image: "./images/chicken-wings.png",
         name: {
             ru: "Крылья жареные хрустящие 10 шт",
             kz: "Қытырлақ қуырылған қанаттар 10 дана",
@@ -1127,7 +1127,7 @@ const products = [
         id: 102,
         category: "sides",
         price: 100,
-        image: "images/bun.png",
+        image: "./images/bun.png",
         name: {
             ru: "Булочка",
             kz: "Тоқаш",
@@ -1144,7 +1144,7 @@ const products = [
         id: 110,
         category: "drinks",
         price: 1290,
-        image: "images/berry-mors.png",
+        image: "./images/berry-mors.png",
         name: {
             ru: "Морс ягодный 500 мл",
             kz: "Жидек морсы 500 мл",
@@ -1161,7 +1161,7 @@ const products = [
         id: 111,
         category: "drinks",
         price: 1000,
-        image: "images/coca-cola.png",
+        image: "./images/coca-cola.png",
         name: {
             ru: "Coca-Cola 330 мл",
             kz: "Coca-Cola 330 мл",
@@ -1178,7 +1178,7 @@ const products = [
         id: 112,
         category: "drinks",
         price: 1000,
-        image: "images/coca-cola-zero.png",
+        image: "./images/coca-cola-zero.png",
         name: {
             ru: "Coca-Cola Zero Sugar 330 мл",
             kz: "Coca-Cola Zero Sugar 330 мл",
@@ -1195,7 +1195,7 @@ const products = [
         id: 113,
         category: "drinks",
         price: 1000,
-        image: "images/fanta.png",
+        image: "./images/fanta.png",
         name: {
             ru: "Fanta 330 мл",
             kz: "Fanta 330 мл",
@@ -1216,7 +1216,7 @@ const sets = [
         id: 1,
         category: "sets",
         price: 8600,
-        image: "images/seoul.png",
+        image: "./images/seoul.png",
         name: {
             ru: "SEOUL",
             kz: "SEOUL",
@@ -1233,7 +1233,7 @@ const sets = [
         id: 2,
         category: "sets",
         price: 8800,
-        image: "images/Hanai.png",
+        image: "./images/Hanai.png",
         name: {
             ru: "HANAI",
             kz: "HANAI",
@@ -1250,7 +1250,7 @@ const sets = [
         id: 3,
         category: "sets",
         price: 6500,
-        image: "images/Tokyo.png",
+        image: "./images/Tokyo.png",
         name: {
             ru: "TOKYO",
             kz: "TOKYO",
@@ -1267,7 +1267,7 @@ const sets = [
         id: 4,
         category: "sets",
         price: 8600,
-        image: "images/Shanghai.png",
+        image: "./images/Shanghai.png",
         name: {
             ru: "SHANGHAI",
             kz: "SHANGHAI",
@@ -1284,7 +1284,7 @@ const sets = [
         id: 5,
         category: "sets",
         price: 9900,
-        image: "images/HongKong.png",
+        image: "./images/HongKong.png",
         name: {
             ru: "HONG KONG",
             kz: "HONG KONG",
@@ -1301,7 +1301,7 @@ const sets = [
         id: 6,
         category: "sets",
         price: 11900,
-        image: "images/Osaka.png",
+        image: "./images/Osaka.png",
         name: {
             ru: "OSAKA",
             kz: "OSAKA",
@@ -1318,7 +1318,7 @@ const sets = [
         id: 8,
         category: "sets",
         price: 16900,
-        image: "images/Jakarta.png",
+        image: "./images/Jakarta.png",
         name: {
             ru: "JAKARTA",
             kz: "JAKARTA",
@@ -1335,7 +1335,7 @@ const sets = [
         id: 9,
         category: "sets",
         price: 12700,
-        image: "images/Bangkok.png",
+        image: "./images/Bangkok.png",
         name: {
             ru: "BANGKOK",
             kz: "BANGKOK",
@@ -1352,7 +1352,7 @@ const sets = [
         id: 10,
         category: "sets",
         price: 14500,
-        image: "images/Beijing.png",
+        image: "./images/Beijing.png",
         name: {
             ru: "BEIJING",
             kz: "BEIJING",
@@ -1369,7 +1369,7 @@ const sets = [
         id: 11,
         category: "sets",
         price: 9900,
-        image: "images/Busan.png",
+        image: "./images/Busan.png",
         name: {
             ru: "BUSAN",
             kz: "BUSAN",
@@ -1386,7 +1386,7 @@ const sets = [
         id: 12,
         category: "sets",
         price: 8100,
-        image: "images/Kyoto.png",
+        image: "./images/Kyoto.png",
         name: {
             ru: "KYOTO",
             kz: "KYOTO",
@@ -1403,7 +1403,7 @@ const sets = [
         id: 13,
         category: "sets",
         price: 13000,
-        image: "images/Suwon.png",
+        image: "./images/Suwon.png",
         name: {
             ru: "SUWON",
             kz: "SUWON",
