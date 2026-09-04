@@ -1233,7 +1233,7 @@ const sets = [
         id: 2,
         category: "sets",
         price: 8800,
-        image: "images/hanai.png",
+        image: "images/Hanai.png",
         name: {
             ru: "HANAI",
             kz: "HANAI",
@@ -1250,7 +1250,7 @@ const sets = [
         id: 3,
         category: "sets",
         price: 6500,
-        image: "images/tokyo.png",
+        image: "images/Tokyo.png",
         name: {
             ru: "TOKYO",
             kz: "TOKYO",
@@ -1267,7 +1267,7 @@ const sets = [
         id: 4,
         category: "sets",
         price: 8600,
-        image: "images/shanghai.png",
+        image: "images/Shanghai.png",
         name: {
             ru: "SHANGHAI",
             kz: "SHANGHAI",
@@ -1284,7 +1284,7 @@ const sets = [
         id: 5,
         category: "sets",
         price: 9900,
-        image: "images/hongkong.png",
+        image: "images/HongKong.png",
         name: {
             ru: "HONG KONG",
             kz: "HONG KONG",
@@ -1301,7 +1301,7 @@ const sets = [
         id: 6,
         category: "sets",
         price: 11900,
-        image: "images/osaka.png",
+        image: "images/Osaka.png",
         name: {
             ru: "OSAKA",
             kz: "OSAKA",
@@ -1318,7 +1318,7 @@ const sets = [
         id: 8,
         category: "sets",
         price: 16900,
-        image: "images/jakarta.png",
+        image: "images/Jakarta.png",
         name: {
             ru: "JAKARTA",
             kz: "JAKARTA",
@@ -1335,7 +1335,7 @@ const sets = [
         id: 9,
         category: "sets",
         price: 12700,
-        image: "images/bangkok.png",
+        image: "images/Bangkok.png",
         name: {
             ru: "BANGKOK",
             kz: "BANGKOK",
@@ -1352,7 +1352,7 @@ const sets = [
         id: 10,
         category: "sets",
         price: 14500,
-        image: "images/beijing.png",
+        image: "images/Beijing.png",
         name: {
             ru: "BEIJING",
             kz: "BEIJING",
@@ -1369,7 +1369,7 @@ const sets = [
         id: 11,
         category: "sets",
         price: 9900,
-        image: "images/busan.png",
+        image: "images/Busan.png",
         name: {
             ru: "BUSAN",
             kz: "BUSAN",
@@ -1386,7 +1386,7 @@ const sets = [
         id: 12,
         category: "sets",
         price: 8100,
-        image: "images/kyoto.png",
+        image: "images/Kyoto.png",
         name: {
             ru: "KYOTO",
             kz: "KYOTO",
@@ -1403,7 +1403,7 @@ const sets = [
         id: 13,
         category: "sets",
         price: 13000,
-        image: "images/suwon.png",
+        image: "images/Suwon.png",
         name: {
             ru: "SUWON",
             kz: "SUWON",
