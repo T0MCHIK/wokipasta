@@ -6,10 +6,12 @@ let currentProduct = null;
 let currentCategory = "all";
 let currentImageIndex = 0;
 let reviews = [];
+let currentVariant = null;
 
 /* UI */
 
 const ui = {
+
     ru: {
         add: "Добавить в корзину",
         cart: "Корзина",
@@ -30,7 +32,9 @@ const ui = {
         promo: "АКЦИЯ",
         promoText: "Берёшь 2 любых WOK — WOK с курицей и яичной лапшой бесплатно",
         promoTime: "По будням с 15:00 до 17:00",
-        free: "БЕСПЛАТНО"
+        free: "БЕСПЛАТНО",
+        choose: "Выберите вариант",
+        combo: "Вариант"
     },
 
     kz: {
@@ -53,7 +57,9 @@ const ui = {
         promo: "АКЦИЯ",
         promoText: "Кез келген 2 WOK ал — тауық пен жұмыртқалы кеспесі бар WOK тегін",
         promoTime: "Жұмыс күндері 15:00-ден 17:00-ге дейін",
-        free: "ТЕГІН"
+        free: "ТЕГІН",
+        choose: "Нұсқаны таңдаңыз",
+        combo: "Нұсқа"
     },
 
     en: {
@@ -76,7 +82,9 @@ const ui = {
         promo: "PROMOTION",
         promoText: "Buy any 2 WOKs — get Chicken Egg Noodle WOK free",
         promoTime: "Weekdays from 15:00 to 17:00",
-        free: "FREE"
+        free: "FREE",
+        choose: "Choose an option",
+        combo: "Option"
     }
 };
 
@@ -89,9 +97,7 @@ const products = [
         category: "sushi",
         price: 3590,
         image: "images/philadelphia-light.png",
-        images: [
-            "images/philadelphia-light.png"
-        ],
+        images: ["images/philadelphia-light.png"],
         name: {
             ru: "Филадельфия лайт",
             kz: "Филадельфия лайт",
@@ -109,9 +115,7 @@ const products = [
         category: "sushi",
         price: 2590,
         image: "images/california.png",
-        images: [
-            "images/california.png"
-        ],
+        images: ["images/california.png"],
         name: {
             ru: "Калифорния ролл",
             kz: "Калифорния роллы",
@@ -129,9 +133,7 @@ const products = [
         category: "sushi",
         price: 3590,
         image: "images/dragon.png",
-        images: [
-            "images/dragon.png"
-        ],
+        images: ["images/dragon.png"],
         name: {
             ru: "Дракон",
             kz: "Айдаһар",
@@ -149,9 +151,7 @@ const products = [
         category: "sushi",
         price: 2990,
         image: "images/tasty-roll.png",
-        images: [
-            "images/tasty-roll.png"
-        ],
+        images: ["images/tasty-roll.png"],
         name: {
             ru: "Вкусный ролл",
             kz: "Дәмді ролл",
@@ -169,9 +169,7 @@ const products = [
         category: "sushi",
         price: 2890,
         image: "images/murakami.png",
-        images: [
-            "images/murakami.png"
-        ],
+        images: ["images/murakami.png"],
         name: {
             ru: "Ролл Мураками",
             kz: "Мураками роллы",
@@ -189,9 +187,7 @@ const products = [
         category: "sushi",
         price: 3090,
         image: "images/caesar-roll.png",
-        images: [
-            "images/caesar-roll.png"
-        ],
+        images: ["images/caesar-roll.png"],
         name: {
             ru: "Ролл Цезарь",
             kz: "Цезарь роллы",
@@ -209,9 +205,7 @@ const products = [
         category: "sushi",
         price: 2790,
         image: "images/yin-yang.png",
-        images: [
-            "images/yin-yang.png"
-        ],
+        images: ["images/yin-yang.png"],
         name: {
             ru: "Ролл Инь Янь",
             kz: "Инь Янь роллы",
@@ -229,9 +223,7 @@ const products = [
         category: "sushi",
         price: 1900,
         image: "images/vegan-roll.png",
-        images: [
-            "images/vegan-roll.png"
-        ],
+        images: ["images/vegan-roll.png"],
         name: {
             ru: "Ролл Веган",
             kz: "Веган роллы",
@@ -249,9 +241,7 @@ const products = [
         category: "sushi",
         price: 3890,
         image: "images/geisha-kiss.png",
-        images: [
-            "images/geisha-kiss.png"
-        ],
+        images: ["images/geisha-kiss.png"],
         name: {
             ru: "Поцелуй гейши",
             kz: "Гейшаның сүйісі",
@@ -269,9 +259,7 @@ const products = [
         category: "sushi",
         price: 3390,
         image: "images/ebi-tempura.png",
-        images: [
-            "images/ebi-tempura.png"
-        ],
+        images: ["images/ebi-tempura.png"],
         name: {
             ru: "Эби темпура ролл жареный",
             kz: "Эби темпура қуырылған роллы",
@@ -289,9 +277,7 @@ const products = [
         category: "sushi",
         price: 3190,
         image: "images/sake-tempura.png",
-        images: [
-            "images/sake-tempura.png"
-        ],
+        images: ["images/sake-tempura.png"],
         name: {
             ru: "Сяке темпура",
             kz: "Сяке темпура",
@@ -309,9 +295,7 @@ const products = [
         category: "sushi",
         price: 2890,
         image: "images/kani-tempura.png",
-        images: [
-            "images/kani-tempura.png"
-        ],
+        images: ["images/kani-tempura.png"],
         name: {
             ru: "Кани темпура",
             kz: "Кани темпура",
@@ -329,9 +313,7 @@ const products = [
         category: "sushi",
         price: 3090,
         image: "images/kani-wok-baked.png",
-        images: [
-            "images/kani-wok-baked.png"
-        ],
+        images: ["images/kani-wok-baked.png"],
         name: {
             ru: "Кани вок запеченный",
             kz: "Кани вок пісірілген",
@@ -349,9 +331,7 @@ const products = [
         category: "sushi",
         price: 3890,
         image: "images/philadelphia-grill.png",
-        images: [
-            "images/philadelphia-grill.png"
-        ],
+        images: ["images/philadelphia-grill.png"],
         name: {
             ru: "Филадельфия гриль",
             kz: "Филадельфия гриль",
@@ -369,9 +349,7 @@ const products = [
         category: "sushi",
         price: 2390,
         image: "images/unagi-maki.png",
-        images: [
-            "images/unagi-maki.png"
-        ],
+        images: ["images/unagi-maki.png"],
         name: {
             ru: "Хосомаки унаги",
             kz: "Унаги хосомаки",
@@ -389,9 +367,7 @@ const products = [
         category: "sushi",
         price: 2890,
         image: "images/sake-maki.png",
-        images: [
-            "images/sake-maki.png"
-        ],
+        images: ["images/sake-maki.png"],
         name: {
             ru: "Хосомаки сяке",
             kz: "Сяке хосомаки",
@@ -409,9 +385,7 @@ const products = [
         category: "sushi",
         price: 1490,
         image: "images/kappa-maki.png",
-        images: [
-            "images/kappa-maki.png"
-        ],
+        images: ["images/kappa-maki.png"],
         name: {
             ru: "Хосомаки каппа",
             kz: "Каппа хосомаки",
@@ -429,9 +403,7 @@ const products = [
         category: "sushi",
         price: 3190,
         image: "images/new-york.png",
-        images: [
-            "images/new-york.png"
-        ],
+        images: ["images/new-york.png"],
         name: {
             ru: "Нью-Йорк",
             kz: "Нью-Йорк",
@@ -449,9 +421,7 @@ const products = [
         category: "sushi",
         price: 3090,
         image: "images/sake-kunsei.png",
-        images: [
-            "images/sake-kunsei.png"
-        ],
+        images: ["images/sake-kunsei.png"],
         name: {
             ru: "Сяке кунсей",
             kz: "Сяке кунсей",
@@ -475,15 +445,44 @@ const products = [
             "images/DonutRoll3.webp"
         ],
         name: {
-            ru: "Пончик ролл с курицей",
-            kz: "Тауықты пончик роллы",
-            en: "Chicken Donut Roll"
+            ru: "Пончик ролл",
+            kz: "Пончик роллы",
+            en: "Donut Roll"
         },
         description: {
-            ru: "Фирменный ролл с курицей",
-            kz: "Тауық қосылған фирмалық ролл",
-            en: "Signature chicken roll"
-        }
+            ru: "Фирменный пончик ролл",
+            kz: "Фирмалық пончик роллы",
+            en: "Signature donut roll"
+        },
+        options: [
+            {
+                id: "chicken",
+                label: {
+                    ru: "С курицей",
+                    kz: "Тауықпен",
+                    en: "Chicken"
+                },
+                price: 2590
+            },
+            {
+                id: "shrimp",
+                label: {
+                    ru: "С креветками",
+                    kz: "Асшаянмен",
+                    en: "Shrimp"
+                },
+                price: 3090
+            },
+            {
+                id: "salmon",
+                label: {
+                    ru: "С лососем",
+                    kz: "Албыртпен",
+                    en: "Salmon"
+                },
+                price: 3290
+            }
+        ]
     },
 
     /* WOK */
@@ -493,9 +492,7 @@ const products = [
         category: "wok",
         price: 3290,
         image: "images/wok-chicken-udon.png",
-        images: [
-            "images/wok-chicken-udon.png"
-        ],
+        images: ["images/wok-chicken-udon.png"],
         name: {
             ru: "Вок с курицей с соусом удон",
             kz: "Тауық еті қосылған удон вок",
@@ -513,9 +510,7 @@ const products = [
         category: "wok",
         price: 3290,
         image: "images/wok-chicken-sichuan.png",
-        images: [
-            "images/wok-chicken-sichuan.png"
-        ],
+        images: ["images/wok-chicken-sichuan.png"],
         name: {
             ru: "Вок удон с курицей в сычуанском соусе",
             kz: "Сычуань соусындағы тауықты удон",
@@ -533,9 +528,7 @@ const products = [
         category: "wok",
         price: 3690,
         image: "images/wok-seafood-udon.png",
-        images: [
-            "images/wok-seafood-udon.png"
-        ],
+        images: ["images/wok-seafood-udon.png"],
         name: {
             ru: "Вок удон с морепродуктами под соусом унаги",
             kz: "Унаги соусындағы теңіз өнімдері бар удон",
@@ -553,9 +546,7 @@ const products = [
         category: "wok",
         price: 3490,
         image: "images/wok-beef.png",
-        images: [
-            "images/wok-beef.png"
-        ],
+        images: ["images/wok-beef.png"],
         name: {
             ru: "Вок с говядиной и гречневой лапшой",
             kz: "Сиыр еті мен қарақұмық кеспесі бар вок",
@@ -573,9 +564,7 @@ const products = [
         category: "wok",
         price: 3290,
         image: "images/wok-chicken-buckwheat.png",
-        images: [
-            "images/wok-chicken-buckwheat.png"
-        ],
+        images: ["images/wok-chicken-buckwheat.png"],
         name: {
             ru: "Вок с курицей и гречневой лапшой",
             kz: "Тауық еті мен қарақұмық кеспесі бар вок",
@@ -593,9 +582,7 @@ const products = [
         category: "wok",
         price: 3690,
         image: "images/wok-shrimp-buckwheat.png",
-        images: [
-            "images/wok-shrimp-buckwheat.png"
-        ],
+        images: ["images/wok-shrimp-buckwheat.png"],
         name: {
             ru: "Вок с королевскими креветками и гречневой лапшой",
             kz: "Корольдік асшаяндар мен қарақұмық кеспесі бар вок",
@@ -613,9 +600,7 @@ const products = [
         category: "wok",
         price: 3690,
         image: "images/wok-seafood-buckwheat.png",
-        images: [
-            "images/wok-seafood-buckwheat.png"
-        ],
+        images: ["images/wok-seafood-buckwheat.png"],
         name: {
             ru: "Вок с морепродуктами и гречневой лапшой",
             kz: "Теңіз өнімдері мен қарақұмық кеспесі бар вок",
@@ -658,9 +643,7 @@ const products = [
         category: "wok",
         price: 3690,
         image: "images/wok-rice-shrimp.png",
-        images: [
-            "images/wok-rice-shrimp.png"
-        ],
+        images: ["images/wok-rice-shrimp.png"],
         name: {
             ru: "Рис с королевскими креветками",
             kz: "Корольдік асшаяндар қосылған күріш",
@@ -678,9 +661,7 @@ const products = [
         category: "wok",
         price: 3690,
         image: "images/wok-rice-seafood.png",
-        images: [
-            "images/wok-rice-seafood.png"
-        ],
+        images: ["images/wok-rice-seafood.png"],
         name: {
             ru: "Рис с морепродуктами",
             kz: "Теңіз өнімдері қосылған күріш",
@@ -698,9 +679,7 @@ const products = [
         category: "wok",
         price: 3290,
         image: "images/wok-rice-chicken.png",
-        images: [
-            "images/wok-rice-chicken.png"
-        ],
+        images: ["images/wok-rice-chicken.png"],
         name: {
             ru: "Рис с курицей",
             kz: "Тауық еті қосылған күріш",
@@ -718,9 +697,7 @@ const products = [
         category: "wok",
         price: 3690,
         image: "images/wok-noodles-seafood.png",
-        images: [
-            "images/wok-noodles-seafood.png"
-        ],
+        images: ["images/wok-noodles-seafood.png"],
         name: {
             ru: "Яичная лапша с морепродуктами",
             kz: "Теңіз өнімдері қосылған жұмыртқалы кеспе",
@@ -728,7 +705,7 @@ const products = [
         },
         description: {
             ru: "Яичная лапша, морепродукты, овощи",
-            kz: "Жұмыртқалы кеспе, теңіз өнімдері, көкөністер",
+            kz: "Жұмыртқалы кеспе, теңіз өнімдері",
             en: "Egg noodles, seafood, vegetables"
         }
     },
@@ -738,9 +715,7 @@ const products = [
         category: "wok",
         price: 3690,
         image: "images/wok-shrimp-egg.png",
-        images: [
-            "images/wok-shrimp-egg.png"
-        ],
+        images: ["images/wok-shrimp-egg.png"],
         name: {
             ru: "Вок с креветками и яичной лапшой",
             kz: "Асшаяндар мен жұмыртқалы кеспе бар вок",
@@ -758,7 +733,7 @@ const products = [
     {
         id: 60,
         category: "burgers",
-        price: 2890,
+        price: 2790,
         image: "images/Beverly.webp",
         images: [
             "images/Beverly.webp",
@@ -766,21 +741,46 @@ const products = [
             "images/Beverly3.webp"
         ],
         name: {
-            ru: "Беверлли Хилз",
+            ru: "Беверли Хилз",
             kz: "Беверли Хиллз",
             en: "Beverly Hills"
         },
         description: {
-            ru: "Говяжья котлета, черная картофельная булочка, соус чипотле, гуакамоле",
-            kz: "Сиыр котлетасы, қара картоп булочкасы, чипотле соусы, гуакамоле",
-            en: "Beef patty, black potato bun, chipotle sauce, guacamole"
-        }
+            ru: "Котлета из говядины, черная булочка, фирменный соус, салат айсберг, маринованный лук, карамелизированный лук, соленные огурцы, сыр чеддер",
+            kz: "Сиыр котлетасы, қара тоқаш, фирмалық соус, айсберг, маринадталған пияз, карамельденген пияз, тұздалған қияр, чеддер",
+            en: "Beef patty, black bun, signature sauce, iceberg lettuce, pickled onion, caramelized onion, pickles, cheddar"
+        },
+        options: [
+            {
+                id: "burger",
+                label: {
+                    ru: "Бургер",
+                    kz: "Бургер",
+                    en: "Burger"
+                },
+                price: 2790
+            },
+            {
+                id: "combo",
+                label: {
+                    ru: "Комбо",
+                    kz: "Комбо",
+                    en: "Combo"
+                },
+                extra: {
+                    ru: "Фри + напиток",
+                    kz: "Фри + сусын",
+                    en: "Fries + drink"
+                },
+                price: 4190
+            }
+        ]
     },
 
     {
         id: 61,
         category: "burgers",
-        price: 3190,
+        price: 2790,
         image: "images/California.webp",
         images: [
             "images/California.webp",
@@ -795,13 +795,38 @@ const products = [
             ru: "Куриная котлета, креветки, авокадо, салат микс, соус карри",
             kz: "Тауық котлетасы, асшаян, авокадо, салат миксі, карри соусы",
             en: "Chicken patty, shrimp, avocado, salad mix, curry sauce"
-        }
+        },
+        options: [
+            {
+                id: "burger",
+                label: {
+                    ru: "Бургер",
+                    kz: "Бургер",
+                    en: "Burger"
+                },
+                price: 2790
+            },
+            {
+                id: "combo",
+                label: {
+                    ru: "Комбо",
+                    kz: "Комбо",
+                    en: "Combo"
+                },
+                extra: {
+                    ru: "Фри + напиток",
+                    kz: "Фри + сусын",
+                    en: "Fries + drink"
+                },
+                price: 4190
+            }
+        ]
     },
 
     {
         id: 62,
         category: "burgers",
-        price: 2890,
+        price: 2790,
         image: "images/StreetBurger.webp",
         images: [
             "images/StreetBurger.webp",
@@ -813,16 +838,41 @@ const products = [
             en: "Street Burger"
         },
         description: {
-            ru: "Говяжья котлета, чеддер, томат, айсберг",
-            kz: "Сиыр котлетасы, чеддер, қызанақ, айсберг",
-            en: "Beef patty, cheddar, tomato, iceberg"
-        }
+            ru: "Белая картофельная булочка, котлета из говядины, сыр чеддер, помидоры, салат айсберг, соленые огурцы",
+            kz: "Ақ картоп тоқашы, сиыр котлетасы, чеддер, қызанақ, айсберг, тұздалған қияр",
+            en: "White potato bun, beef patty, cheddar, tomatoes, iceberg lettuce, pickles"
+        },
+        options: [
+            {
+                id: "burger",
+                label: {
+                    ru: "Бургер",
+                    kz: "Бургер",
+                    en: "Burger"
+                },
+                price: 2790
+            },
+            {
+                id: "combo",
+                label: {
+                    ru: "Комбо",
+                    kz: "Комбо",
+                    en: "Combo"
+                },
+                extra: {
+                    ru: "Фри + напиток",
+                    kz: "Фри + сусын",
+                    en: "Fries + drink"
+                },
+                price: 4190
+            }
+        ]
     },
 
     {
         id: 63,
         category: "burgers",
-        price: 3190,
+        price: 2790,
         image: "images/Manhattan.webp",
         images: [
             "images/Manhattan.webp",
@@ -835,16 +885,41 @@ const products = [
             en: "Manhattan"
         },
         description: {
-            ru: "Говяжья котлета, копченый вишневый соус, айсберг",
-            kz: "Сиыр котлетасы, ысталған шие соусы, айсберг",
-            en: "Beef patty, smoked cherry sauce, iceberg"
-        }
+            ru: "Котлета из говядины, черная булочка, фирменный соус",
+            kz: "Сиыр котлетасы, қара тоқаш, фирмалық соус",
+            en: "Beef patty, black bun, signature sauce"
+        },
+        options: [
+            {
+                id: "burger",
+                label: {
+                    ru: "Бургер",
+                    kz: "Бургер",
+                    en: "Burger"
+                },
+                price: 2790
+            },
+            {
+                id: "combo",
+                label: {
+                    ru: "Комбо",
+                    kz: "Комбо",
+                    en: "Combo"
+                },
+                extra: {
+                    ru: "Фри + напиток",
+                    kz: "Фри + сусын",
+                    en: "Fries + drink"
+                },
+                price: 4190
+            }
+        ]
     },
 
     {
         id: 64,
         category: "burgers",
-        price: 2690,
+        price: 2790,
         image: "images/Streetchicken.webp",
         images: [
             "images/Streetchicken.webp",
@@ -857,16 +932,41 @@ const products = [
             en: "Street Chicken"
         },
         description: {
-            ru: "Куриная котлета, чеддер, томат, айсберг",
-            kz: "Тауық котлетасы, чеддер, қызанақ, айсберг",
-            en: "Chicken patty, cheddar, tomato, iceberg"
-        }
+            ru: "Куриная котлета, сыр чеддер, помидоры, салат айсберг, соленные огурцы",
+            kz: "Тауық котлетасы, чеддер, қызанақ, айсберг, тұздалған қияр",
+            en: "Chicken patty, cheddar, tomatoes, iceberg lettuce, pickles"
+        },
+        options: [
+            {
+                id: "burger",
+                label: {
+                    ru: "Бургер",
+                    kz: "Бургер",
+                    en: "Burger"
+                },
+                price: 2790
+            },
+            {
+                id: "combo",
+                label: {
+                    ru: "Комбо",
+                    kz: "Комбо",
+                    en: "Combo"
+                },
+                extra: {
+                    ru: "Фри + напиток",
+                    kz: "Фри + сусын",
+                    en: "Fries + drink"
+                },
+                price: 4190
+            }
+        ]
     },
 
     {
         id: 65,
         category: "burgers",
-        price: 2890,
+        price: 2790,
         image: "images/chinatown.webp",
         images: [
             "images/chinatown.webp",
@@ -882,7 +982,32 @@ const products = [
             ru: "Куриная грудка sous-vide, айсберг, халапеньо, кинза, сальса",
             kz: "Sous-vide тауық төс еті, айсберг, халапеньо, кинза, сальса",
             en: "Sous-vide chicken breast, iceberg, jalapeño, cilantro, salsa"
-        }
+        },
+        options: [
+            {
+                id: "burger",
+                label: {
+                    ru: "Бургер",
+                    kz: "Бургер",
+                    en: "Burger"
+                },
+                price: 2790
+            },
+            {
+                id: "combo",
+                label: {
+                    ru: "Комбо",
+                    kz: "Комбо",
+                    en: "Combo"
+                },
+                extra: {
+                    ru: "Фри + напиток",
+                    kz: "Фри + сусын",
+                    en: "Fries + drink"
+                },
+                price: 4190
+            }
+        ]
     },
 
     /* PIZZA */
@@ -913,9 +1038,7 @@ const products = [
         category: "pizza",
         price: 4190,
         image: "images/four-cheese.png",
-        images: [
-            "images/four-cheese.png"
-        ],
+        images: ["images/four-cheese.png"],
         name: {
             ru: "Пицца 4 сыра",
             kz: "4 ірімшік пиццасы",
@@ -954,9 +1077,7 @@ const products = [
         category: "pizza",
         price: 4290,
         image: "images/hoisin-chicken.png",
-        images: [
-            "images/hoisin-chicken.png"
-        ],
+        images: ["images/hoisin-chicken.png"],
         name: {
             ru: "Курица хойсин",
             kz: "Хойсин тауық пиццасы",
@@ -995,9 +1116,7 @@ const products = [
         category: "pizza",
         price: 3790,
         image: "images/4seasons.webp",
-        images: [
-            "images/4seasons.webp"
-        ],
+        images: ["images/4seasons.webp"],
         name: {
             ru: "Пицца Четыре сезона",
             kz: "Төрт маусым пиццасы",
@@ -1015,9 +1134,7 @@ const products = [
         category: "pizza",
         price: 4190,
         image: "images/caesar-pizza.png",
-        images: [
-            "images/caesar-pizza.png"
-        ],
+        images: ["images/caesar-pizza.png"],
         name: {
             ru: "Пицца Цезарь",
             kz: "Цезарь пиццасы",
@@ -1037,9 +1154,7 @@ const products = [
         category: "pasta",
         price: 3290,
         image: "images/pasta-mushroom-cream.png",
-        images: [
-            "images/pasta-mushroom-cream.png"
-        ],
+        images: ["images/pasta-mushroom-cream.png"],
         name: {
             ru: "Паста с грибами в сливочном соусе",
             kz: "Кілегейлі саңырауқұлақ пастасы",
@@ -1057,9 +1172,7 @@ const products = [
         category: "pasta",
         price: 3290,
         image: "images/pasta-chicken-cream.png",
-        images: [
-            "images/pasta-chicken-cream.png"
-        ],
+        images: ["images/pasta-chicken-cream.png"],
         name: {
             ru: "Паста с курицей в сливочном соусе",
             kz: "Кілегейлі тауық пастасы",
@@ -1077,9 +1190,7 @@ const products = [
         category: "pasta",
         price: 3290,
         image: "images/pasta-mix-mushrooms.png",
-        images: [
-            "images/pasta-mix-mushrooms.png"
-        ],
+        images: ["images/pasta-mix-mushrooms.png"],
         name: {
             ru: "Паста микс грибы",
             kz: "Саңырауқұлақ микс пастасы",
@@ -1097,9 +1208,7 @@ const products = [
         category: "pasta",
         price: 3290,
         image: "images/pasta-chicken-tomato.png",
-        images: [
-            "images/pasta-chicken-tomato.png"
-        ],
+        images: ["images/pasta-chicken-tomato.png"],
         name: {
             ru: "Паста с курицей в томатном соусе",
             kz: "Томат соусындағы тауық пастасы",
@@ -1117,9 +1226,7 @@ const products = [
         category: "pasta",
         price: 3690,
         image: "images/pasta-seafood-tomato.png",
-        images: [
-            "images/pasta-seafood-tomato.png"
-        ],
+        images: ["images/pasta-seafood-tomato.png"],
         name: {
             ru: "Паста с морепродуктами в томатном соусе",
             kz: "Томат соусындағы теңіз өнімдері пастасы",
@@ -1137,9 +1244,7 @@ const products = [
         category: "pasta",
         price: 3690,
         image: "images/pasta-seafood-cream.png",
-        images: [
-            "images/pasta-seafood-cream.png"
-        ],
+        images: ["images/pasta-seafood-cream.png"],
         name: {
             ru: "Паста с морепродуктами в сливочном соусе",
             kz: "Кілегейлі теңіз өнімдері пастасы",
@@ -1205,9 +1310,7 @@ const products = [
         category: "salads",
         price: 2590,
         image: "images/fresh-asia.png",
-        images: [
-            "images/fresh-asia.png"
-        ],
+        images: ["images/fresh-asia.png"],
         name: {
             ru: "Салат свежие овощи Азия",
             kz: "Азиялық жаңа көкөніс салаты",
@@ -1225,9 +1328,7 @@ const products = [
         category: "salads",
         price: 2790,
         image: "images/chuka.png",
-        images: [
-            "images/chuka.png"
-        ],
+        images: ["images/chuka.png"],
         name: {
             ru: "Чука салат",
             kz: "Чука салаты",
@@ -1245,9 +1346,7 @@ const products = [
         category: "salads",
         price: 2590,
         image: "images/tutti-frutti.png",
-        images: [
-            "images/tutti-frutti.png"
-        ],
+        images: ["images/tutti-frutti.png"],
         name: {
             ru: "Салат Тутти-Фрутти",
             kz: "Тутти-Фрутти салаты",
@@ -1265,9 +1364,7 @@ const products = [
         category: "salads",
         price: 1900,
         image: "images/coleslaw.png",
-        images: [
-            "images/coleslaw.png"
-        ],
+        images: ["images/coleslaw.png"],
         name: {
             ru: "Салат Коул Слоу",
             kz: "Коул Слоу салаты",
@@ -1285,9 +1382,7 @@ const products = [
         category: "salads",
         price: 3590,
         image: "images/nicoise.png",
-        images: [
-            "images/nicoise.png"
-        ],
+        images: ["images/nicoise.png"],
         name: {
             ru: "Салат Нисуаз",
             kz: "Нисуаз салаты",
@@ -1305,9 +1400,7 @@ const products = [
         category: "salads",
         price: 3290,
         image: "images/caesar-chicken.png",
-        images: [
-            "images/caesar-chicken.png"
-        ],
+        images: ["images/caesar-chicken.png"],
         name: {
             ru: "Цезарь с курицей",
             kz: "Тауықты Цезарь салаты",
@@ -1327,9 +1420,7 @@ const products = [
         category: "sides",
         price: 1400,
         image: "images/fries.png",
-        images: [
-            "images/fries.png"
-        ],
+        images: ["images/fries.png"],
         name: {
             ru: "Картофель фри",
             kz: "Картоп фри",
@@ -1345,21 +1436,48 @@ const products = [
     {
         id: 101,
         category: "sides",
-        price: 3100,
+        price: 2700,
         image: "images/chicken-wings.png",
-        images: [
-            "images/chicken-wings.png"
-        ],
+        images: ["images/chicken-wings.png"],
         name: {
-            ru: "Крылья жареные хрустящие 10 шт",
-            kz: "Қытырлақ қуырылған қанаттар 10 дана",
-            en: "Crispy Fried Chicken Wings 10 pcs"
+            ru: "Жареные крылышки",
+            kz: "Қуырылған қанаттар",
+            en: "Fried Chicken Wings"
         },
         description: {
-            ru: "10 хрустящих куриных крылышек",
-            kz: "10 қытырлақ тауық қанаты",
-            en: "10 crispy chicken wings"
-        }
+            ru: "Хрустящие куриные крылышки",
+            kz: "Қытырлақ тауық қанаттары",
+            en: "Crispy fried chicken wings"
+        },
+        options: [
+            {
+                id: "10",
+                label: {
+                    ru: "10 шт",
+                    kz: "10 дана",
+                    en: "10 pcs"
+                },
+                price: 2700
+            },
+            {
+                id: "20",
+                label: {
+                    ru: "20 шт",
+                    kz: "20 дана",
+                    en: "20 pcs"
+                },
+                price: 5200
+            },
+            {
+                id: "30",
+                label: {
+                    ru: "30 шт",
+                    kz: "30 дана",
+                    en: "30 pcs"
+                },
+                price: 7900
+            }
+        ]
     },
 
     {
@@ -1367,9 +1485,7 @@ const products = [
         category: "sides",
         price: 100,
         image: "images/bun.png",
-        images: [
-            "images/bun.png"
-        ],
+        images: ["images/bun.png"],
         name: {
             ru: "Булочка",
             kz: "Тоқаш",
@@ -1387,15 +1503,13 @@ const products = [
     {
         id: 110,
         category: "drinks",
-        price: 1290,
+        price: 850,
         image: "images/Mors.webp",
-        images: [
-            "images/Mors.webp"
-        ],
+        images: ["images/Mors.webp"],
         name: {
-            ru: "Морс ягодный 500 мл",
-            kz: "Жидек морсы 500 мл",
-            en: "Berry Mors 500 ml"
+            ru: "Морс",
+            kz: "Морс",
+            en: "Mors"
         },
         description: {
             ru: "Ягодный морс",
@@ -1407,61 +1521,335 @@ const products = [
     {
         id: 111,
         category: "drinks",
-        price: 1000,
+        price: 700,
         image: "images/coca-cola.png",
-        images: [
-            "images/coca-cola.png"
-        ],
+        images: ["images/coca-cola.png"],
         name: {
-            ru: "Coca-Cola 330 мл",
-            kz: "Coca-Cola 330 мл",
-            en: "Coca-Cola 330 ml"
+            ru: "Coca-Cola",
+            kz: "Coca-Cola",
+            en: "Coca-Cola"
         },
         description: {
-            ru: "Coca-Cola 330 мл",
-            kz: "Coca-Cola 330 мл",
-            en: "Coca-Cola 330 ml"
-        }
+            ru: "Coca-Cola",
+            kz: "Coca-Cola",
+            en: "Coca-Cola"
+        },
+        options: [
+            {
+                id: "500ml",
+                label: {
+                    ru: "0.5 л",
+                    kz: "0.5 л",
+                    en: "0.5 L"
+                },
+                price: 700
+            }
+        ]
     },
 
     {
         id: 112,
         category: "drinks",
-        price: 1000,
+        price: 1100,
         image: "images/coca-cola-zero.png",
-        images: [
-            "images/coca-cola-zero.png"
-        ],
+        images: ["images/coca-cola-zero.png"],
         name: {
-            ru: "Coca-Cola Zero Sugar 330 мл",
-            kz: "Coca-Cola Zero Sugar 330 мл",
-            en: "Coca-Cola Zero Sugar 330 ml"
+            ru: "Borjomi",
+            kz: "Borjomi",
+            en: "Borjomi"
         },
         description: {
-            ru: "Coca-Cola Zero Sugar 330 мл",
-            kz: "Coca-Cola Zero Sugar 330 мл",
-            en: "Coca-Cola Zero Sugar 330 ml"
-        }
+            ru: "Borjomi 0.33 л",
+            kz: "Borjomi 0.33 л",
+            en: "Borjomi 0.33 L"
+        },
+        options: [
+            {
+                id: "330ml",
+                label: {
+                    ru: "0.33 л",
+                    kz: "0.33 л",
+                    en: "0.33 L"
+                },
+                price: 1100
+            }
+        ]
     },
 
     {
         id: 113,
         category: "drinks",
-        price: 1000,
+        price: 1300,
         image: "images/fanta.png",
-        images: [
-            "images/fanta.png"
-        ],
+        images: ["images/fanta.png"],
         name: {
-            ru: "Fanta 330 мл",
-            kz: "Fanta 330 мл",
-            en: "Fanta 330 ml"
+            ru: "Barbican",
+            kz: "Barbican",
+            en: "Barbican"
         },
         description: {
-            ru: "Fanta 330 мл",
-            kz: "Fanta 330 мл",
-            en: "Fanta 330 ml"
-        }
+            ru: "Barbican",
+            kz: "Barbican",
+            en: "Barbican"
+        },
+        options: [
+            {
+                id: "default",
+                label: {
+                    ru: "Barbican",
+                    kz: "Barbican",
+                    en: "Barbican"
+                },
+                price: 1300
+            }
+        ]
+    },
+
+    {
+        id: 114,
+        category: "drinks",
+        price: 1190,
+        image: "images/Mors.webp",
+        images: ["images/Mors.webp"],
+        name: {
+            ru: "Чай",
+            kz: "Шай",
+            en: "Tea"
+        },
+        description: {
+            ru: "Выберите чай",
+            kz: "Шайды таңдаңыз",
+            en: "Choose your tea"
+        },
+        options: [
+            {
+                id: "black",
+                label: {
+                    ru: "Чёрный чай",
+                    kz: "Қара шай",
+                    en: "Black Tea"
+                },
+                price: 1190
+            },
+            {
+                id: "green",
+                label: {
+                    ru: "Зелёный чай",
+                    kz: "Жасыл шай",
+                    en: "Green Tea"
+                },
+                price: 1190
+            },
+            {
+                id: "puer",
+                label: {
+                    ru: "Пуэр",
+                    kz: "Пуэр",
+                    en: "Pu-erh"
+                },
+                price: 1500
+            },
+            {
+                id: "tashkent",
+                label: {
+                    ru: "Ташкентский чай",
+                    kz: "Ташкент шайы",
+                    en: "Tashkent Tea"
+                },
+                price: 1500
+            },
+            {
+                id: "sea-buckthorn",
+                label: {
+                    ru: "Облепиховый чай",
+                    kz: "Шырғанақ шайы",
+                    en: "Sea Buckthorn Tea"
+                },
+                price: 1500
+            },
+            {
+                id: "berry",
+                label: {
+                    ru: "Ягодный чай",
+                    kz: "Жидек шайы",
+                    en: "Berry Tea"
+                },
+                price: 1500
+            },
+            {
+                id: "flower",
+                label: {
+                    ru: "Цветочный чай",
+                    kz: "Гүлді шай",
+                    en: "Floral Tea"
+                },
+                price: 1500
+            }
+        ]
+    },
+
+    {
+        id: 115,
+        category: "drinks",
+        price: 1290,
+        image: "images/Mors.webp",
+        images: ["images/Mors.webp"],
+        name: {
+            ru: "Лимонад",
+            kz: "Лимонад",
+            en: "Lemonade"
+        },
+        description: {
+            ru: "Выберите вкус и объём",
+            kz: "Дәмі мен көлемін таңдаңыз",
+            en: "Choose flavor and volume"
+        },
+        options: [
+            {
+                id: "kiwi-apple-500",
+                label: {
+                    ru: "Киви-яблоко • 500 мл",
+                    kz: "Киви-алма • 500 мл",
+                    en: "Kiwi-Apple • 500 ml"
+                },
+                price: 1290
+            },
+            {
+                id: "kiwi-apple-1000",
+                label: {
+                    ru: "Киви-яблоко • 1 л",
+                    kz: "Киви-алма • 1 л",
+                    en: "Kiwi-Apple • 1 L"
+                },
+                price: 2190
+            },
+            {
+                id: "kiwi-mango-500",
+                label: {
+                    ru: "Киви-манго • 500 мл",
+                    kz: "Киви-манго • 500 мл",
+                    en: "Kiwi-Mango • 500 ml"
+                },
+                price: 1290
+            },
+            {
+                id: "kiwi-mango-1000",
+                label: {
+                    ru: "Киви-манго • 1 л",
+                    kz: "Киви-манго • 1 л",
+                    en: "Kiwi-Mango • 1 L"
+                },
+                price: 2190
+            },
+            {
+                id: "mango-passion-500",
+                label: {
+                    ru: "Манго-маракуйя • 500 мл",
+                    kz: "Манго-маракуйя • 500 мл",
+                    en: "Mango-Passion Fruit • 500 ml"
+                },
+                price: 1290
+            },
+            {
+                id: "mango-passion-1000",
+                label: {
+                    ru: "Манго-маракуйя • 1 л",
+                    kz: "Манго-маракуйя • 1 л",
+                    en: "Mango-Passion Fruit • 1 L"
+                },
+                price: 2190
+            },
+            {
+                id: "strawberry-blueberry-500",
+                label: {
+                    ru: "Клубника-черника • 500 мл",
+                    kz: "Құлпынай-көкжидек • 500 мл",
+                    en: "Strawberry-Blueberry • 500 ml"
+                },
+                price: 1290
+            },
+            {
+                id: "strawberry-blueberry-1000",
+                label: {
+                    ru: "Клубника-черника • 1 л",
+                    kz: "Құлпынай-көкжидек • 1 л",
+                    en: "Strawberry-Blueberry • 1 L"
+                },
+                price: 2190
+            },
+            {
+                id: "strawberry-mojito-500",
+                label: {
+                    ru: "Мохито-клубника • 500 мл",
+                    kz: "Мохито-құлпынай • 500 мл",
+                    en: "Strawberry Mojito • 500 ml"
+                },
+                price: 1290
+            },
+            {
+                id: "strawberry-mojito-1000",
+                label: {
+                    ru: "Мохито-клубника • 1 л",
+                    kz: "Мохито-құлпынай • 1 л",
+                    en: "Strawberry Mojito • 1 L"
+                },
+                price: 2190
+            },
+            {
+                id: "mojito-500",
+                label: {
+                    ru: "Мохито • 500 мл",
+                    kz: "Мохито • 500 мл",
+                    en: "Mojito • 500 ml"
+                },
+                price: 1290
+            },
+            {
+                id: "mojito-1000",
+                label: {
+                    ru: "Мохито • 1 л",
+                    kz: "Мохито • 1 л",
+                    en: "Mojito • 1 L"
+                },
+                price: 2190
+            },
+            {
+                id: "berry-lemonade-500",
+                label: {
+                    ru: "Ягодный • 500 мл",
+                    kz: "Жидек • 500 мл",
+                    en: "Berry • 500 ml"
+                },
+                price: 1290
+            },
+            {
+                id: "berry-lemonade-1000",
+                label: {
+                    ru: "Ягодный • 1 л",
+                    kz: "Жидек • 1 л",
+                    en: "Berry • 1 L"
+                },
+                price: 2190
+            },
+            {
+                id: "tropical-500",
+                label: {
+                    ru: "Тропический • 500 мл",
+                    kz: "Тропикалық • 500 мл",
+                    en: "Tropical • 500 ml"
+                },
+                price: 1290
+            },
+            {
+                id: "tropical-1000",
+                label: {
+                    ru: "Тропический • 1 л",
+                    kz: "Тропикалық • 1 л",
+                    en: "Tropical • 1 L"
+                },
+                price: 2190
+            }
+        ]
     }
 ];
 
@@ -1741,7 +2129,9 @@ const sets = [
 
 function getText(value) {
 
-    if (!value) return "";
+    if (!value) {
+        return "";
+    }
 
     if (typeof value === "string") {
         return value;
@@ -1789,11 +2179,42 @@ function getProductById(id) {
     );
 }
 
+function getProductImages(product) {
+
+    if (
+        product.images &&
+        Array.isArray(product.images) &&
+        product.images.length
+    ) {
+        return product.images;
+    }
+
+    if (product.image) {
+        return [product.image];
+    }
+
+    return [];
+}
+
+function getProductOptions(product) {
+
+    if (
+        !product.options ||
+        !Array.isArray(product.options) ||
+        !product.options.length
+    ) {
+        return [];
+    }
+
+    return product.options;
+}
+
 /* PROMO */
 
 function isPromoTime() {
 
-    const now = new Date();
+    const now =
+        new Date();
 
     const day =
         now.getDay();
@@ -1836,7 +2257,10 @@ function getPromoEligibleQuantity() {
                 product &&
                 product.category === "wok"
             ) {
-                return total + item.quantity;
+                return (
+                    total +
+                    item.quantity
+                );
             }
 
             return total;
@@ -1851,11 +2275,8 @@ function getPromoRewards() {
         return 0;
     }
 
-    const quantity =
-        getPromoEligibleQuantity();
-
     return Math.floor(
-        quantity / 2
+        getPromoEligibleQuantity() / 2
     );
 }
 
@@ -1881,14 +2302,22 @@ function getPromoText() {
 
     return `
         <div class="promo-box">
-            <strong>${ui[currentLanguage].promo}</strong>
-            <span>${ui[currentLanguage].promoText}</span>
-            <small>${ui[currentLanguage].promoTime}</small>
+
+            <strong>
+                ${ui[currentLanguage].promo}
+            </strong>
+
+            <span>
+                ${ui[currentLanguage].promoText}
+            </span>
+
+            <small>
+                ${ui[currentLanguage].promoTime}
+            </small>
+
         </div>
     `;
 }
-
-/* PROMO BANNER */
 
 function renderPromoBanner() {
 
@@ -1900,7 +2329,9 @@ function renderPromoBanner() {
     const menu =
         document.getElementById("menu");
 
-    if (!menu) return;
+    if (!menu) {
+        return;
+    }
 
     if (!banner) {
 
@@ -1941,7 +2372,9 @@ function renderProducts(
             "products"
         );
 
-    if (!container) return;
+    if (!container) {
+        return;
+    }
 
     let filtered =
         products;
@@ -1960,12 +2393,14 @@ function renderProducts(
             );
     }
 
-    container.innerHTML = "";
+    container.innerHTML =
+        "";
 
     if (!filtered.length) {
 
         container.innerHTML = `
             <p class="empty-products">
+
                 ${
                     currentLanguage === "ru"
                         ? "Ничего не найдено"
@@ -1973,78 +2408,90 @@ function renderProducts(
                             ? "Ештеңе табылмады"
                             : "Nothing found"
                 }
+
             </p>
         `;
 
         return;
     }
 
-    filtered.forEach(product => {
+    filtered.forEach(
+        product => {
 
-        const card =
-            document.createElement(
-                "article"
-            );
+            const card =
+                document.createElement(
+                    "article"
+                );
 
-        card.className =
-            "product";
+            card.className =
+                "product";
 
-        card.innerHTML = `
-            <img
-                class="product-image"
-                src="${product.image}"
-                alt="${escapeHtml(
-                    getText(
-                        product.name
-                    )
-                )}"
-                onclick="openProduct(${product.id})"
-                onerror="this.style.display='none'"
-            >
-
-            <div class="product-info">
-
-                <h3>
-                    ${escapeHtml(
+            card.innerHTML = `
+                <img
+                    class="product-image"
+                    src="${product.image}"
+                    alt="${escapeHtml(
                         getText(
                             product.name
                         )
-                    )}
-                </h3>
+                    )}"
+                    onclick="openProduct(${product.id})"
+                    onerror="this.style.display='none'"
+                >
 
-                <p>
-                    ${escapeHtml(
-                        getText(
-                            product.description
-                        )
-                    )}
-                </p>
+                <div class="product-info">
 
-                <div class="product-bottom">
-
-                    <strong>
-                        ${formatPrice(
-                            product.price
+                    <h3>
+                        ${escapeHtml(
+                            getText(
+                                product.name
+                            )
                         )}
-                    </strong>
+                    </h3>
 
-                    <button
-                        class="add-to-cart"
-                        onclick="
-                            event.stopPropagation();
-                            addToCart(${product.id})
-                        "
-                    >
-                        ${ui[currentLanguage].add}
-                    </button>
+                    <p>
+                        ${escapeHtml(
+                            getText(
+                                product.description
+                            )
+                        )}
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            ${formatPrice(
+                                product.price
+                            )}
+                            ${
+                                getProductOptions(product).length
+                                    ? " +"
+                                    : ""
+                            }
+                        </strong>
+
+                        <button
+                            class="add-to-cart"
+                            onclick="
+                                event.stopPropagation();
+                                ${
+                                    getProductOptions(product).length
+                                        ? `openProduct(${product.id})`
+                                        : `addToCart(${product.id})`
+                                }
+                            "
+                        >
+                            ${ui[currentLanguage].add}
+                        </button>
+
+                    </div>
 
                 </div>
+            `;
 
-            </div>
-        `;
-
-        container.appendChild(card);
-    });
+            container.appendChild(card);
+        }
+    );
 }
 
 /* SETS */
@@ -2056,75 +2503,80 @@ function renderSets() {
             "sets-grid"
         );
 
-    if (!container) return;
+    if (!container) {
+        return;
+    }
 
-    container.innerHTML = "";
+    container.innerHTML =
+        "";
 
-    sets.forEach(set => {
+    sets.forEach(
+        set => {
 
-        const card =
-            document.createElement(
-                "article"
-            );
+            const card =
+                document.createElement(
+                    "article"
+                );
 
-        card.className =
-            "set-card";
+            card.className =
+                "set-card";
 
-        card.innerHTML = `
-            <img
-                src="${set.image}"
-                alt="${escapeHtml(
-                    getText(
-                        set.name
-                    )
-                )}"
-                onclick="openProduct(${set.id})"
-                onerror="this.style.display='none'"
-            >
-
-            <div class="set-info">
-
-                <h3>
-                    ${escapeHtml(
+            card.innerHTML = `
+                <img
+                    src="${set.image}"
+                    alt="${escapeHtml(
                         getText(
                             set.name
                         )
-                    )}
-                </h3>
+                    )}"
+                    onclick="openProduct(${set.id})"
+                    onerror="this.style.display='none'"
+                >
 
-                <p>
-                    ${escapeHtml(
-                        getText(
-                            set.description
-                        )
-                    )}
-                </p>
+                <div class="set-info">
 
-                <div class="product-bottom">
-
-                    <strong>
-                        ${formatPrice(
-                            set.price
+                    <h3>
+                        ${escapeHtml(
+                            getText(
+                                set.name
+                            )
                         )}
-                    </strong>
+                    </h3>
 
-                    <button
-                        class="add-to-cart"
-                        onclick="
-                            event.stopPropagation();
-                            addToCart(${set.id})
-                        "
-                    >
-                        ${ui[currentLanguage].add}
-                    </button>
+                    <p>
+                        ${escapeHtml(
+                            getText(
+                                set.description
+                            )
+                        )}
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            ${formatPrice(
+                                set.price
+                            )}
+                        </strong>
+
+                        <button
+                            class="add-to-cart"
+                            onclick="
+                                event.stopPropagation();
+                                addToCart(${set.id})
+                            "
+                        >
+                            ${ui[currentLanguage].add}
+                        </button>
+
+                    </div>
 
                 </div>
+            `;
 
-            </div>
-        `;
-
-        container.appendChild(card);
-    });
+            container.appendChild(card);
+        }
+    );
 }
 
 /* CATEGORIES */
@@ -2141,18 +2593,18 @@ function filterMenu(
         category;
 
     document
-        .querySelectorAll(
-            ".category"
-        )
-        .forEach(item => {
+        .querySelectorAll(".category")
+        .forEach(
+            item => {
 
-            item.classList.remove(
-                "active"
-            );
-
-        });
+                item.classList.remove(
+                    "active"
+                );
+            }
+        );
 
     if (button) {
+
         button.classList.add(
             "active"
         );
@@ -2198,6 +2650,14 @@ function filterMenu(
 
 /* CART */
 
+function createCartKey(
+    productId,
+    variantId = null
+) {
+
+    return `${productId}__${variantId ?? "default"}`;
+}
+
 function saveCart() {
 
     localStorage.setItem(
@@ -2224,24 +2684,106 @@ function loadCart() {
             cart = [];
         }
 
+        cart =
+            cart.filter(
+                item =>
+                    item &&
+                    typeof item.id !== "undefined"
+            );
+
+        cart.forEach(
+            item => {
+
+                if (!item.key) {
+
+                    item.variantId =
+                        item.variantId ??
+                        null;
+
+                    item.key =
+                        createCartKey(
+                            item.id,
+                            item.variantId
+                        );
+                }
+            }
+        );
+
     } catch {
 
         cart = [];
     }
 }
 
-function addToCart(id) {
+function getSelectedProductPrice(
+    product,
+    variant
+) {
+
+    if (variant) {
+        return Number(
+            variant.price
+        );
+    }
+
+    return Number(
+        product.price
+    );
+}
+
+function addToCart(
+    id,
+    variantId = null
+) {
 
     const product =
         getProductById(id);
 
-    if (!product) return;
+    if (!product) {
+        return;
+    }
+
+    const options =
+        getProductOptions(product);
+
+    let variant =
+        null;
+
+    if (options.length) {
+
+        variant =
+            options.find(
+                option =>
+                    String(
+                        option.id
+                    ) ===
+                    String(
+                        variantId
+                    )
+            );
+
+        if (!variant) {
+
+            openProduct(
+                product.id
+            );
+
+            return;
+        }
+    }
+
+    const key =
+        createCartKey(
+            product.id,
+            variant
+                ? variant.id
+                : null
+        );
 
     const existing =
         cart.find(
             item =>
-                item.id ===
-                product.id
+                item.key === key
         );
 
     if (existing) {
@@ -2251,25 +2793,68 @@ function addToCart(id) {
     } else {
 
         cart.push({
-            id: product.id,
+
+            id:
+                product.id,
+
+            variantId:
+                variant
+                    ? variant.id
+                    : null,
+
+            key,
+
             quantity: 1
         });
-
     }
 
     saveCart();
     updateCart();
 }
 
-function removeFromCart(id) {
+function addCurrentProductToCart() {
+
+    if (!currentProduct) {
+        return;
+    }
+
+    const options =
+        getProductOptions(
+            currentProduct
+        );
+
+    if (options.length) {
+
+        if (!currentVariant) {
+            return;
+        }
+
+        addToCart(
+            currentProduct.id,
+            currentVariant.id
+        );
+
+        return;
+    }
+
+    addToCart(
+        currentProduct.id
+    );
+}
+
+function removeFromCart(
+    key
+) {
 
     const item =
         cart.find(
             product =>
-                product.id === id
+                product.key === key
         );
 
-    if (!item) return;
+    if (!item) {
+        return;
+    }
 
     item.quantity -= 1;
 
@@ -2278,9 +2863,29 @@ function removeFromCart(id) {
         cart =
             cart.filter(
                 product =>
-                    product.id !== id
+                    product.key !== key
             );
     }
+
+    saveCart();
+    updateCart();
+}
+
+function addCartItemAgain(
+    key
+) {
+
+    const item =
+        cart.find(
+            product =>
+                product.key === key
+        );
+
+    if (!item) {
+        return;
+    }
+
+    item.quantity += 1;
 
     saveCart();
     updateCart();
@@ -2295,7 +2900,32 @@ function clearCart() {
     updateCart();
 }
 
-/* CART */
+function getCartItemVariant(
+    product,
+    item
+) {
+
+    if (
+        !item ||
+        item.variantId === null ||
+        typeof item.variantId === "undefined"
+    ) {
+        return null;
+    }
+
+    return getProductOptions(product)
+        .find(
+            option =>
+                String(
+                    option.id
+                ) ===
+                String(
+                    item.variantId
+                )
+        ) || null;
+}
+
+/* CART DISPLAY */
 
 function updateCart() {
 
@@ -2314,7 +2944,9 @@ function updateCart() {
             "cart-count"
         );
 
-    if (!container) return;
+    if (!container) {
+        return;
+    }
 
     if (!cart.length) {
 
@@ -2340,76 +2972,125 @@ function updateCart() {
     let subtotal = 0;
     let quantity = 0;
 
-    container.innerHTML = "";
+    container.innerHTML =
+        "";
 
-    cart.forEach(item => {
+    cart.forEach(
+        item => {
 
-        const product =
-            getProductById(item.id);
+            const product =
+                getProductById(
+                    item.id
+                );
 
-        if (!product) return;
+            if (!product) {
+                return;
+            }
 
-        subtotal +=
-            product.price *
-            item.quantity;
+            const variant =
+                getCartItemVariant(
+                    product,
+                    item
+                );
 
-        quantity +=
-            item.quantity;
+            const itemPrice =
+                getSelectedProductPrice(
+                    product,
+                    variant
+                );
 
-        const row =
-            document.createElement(
-                "div"
+            subtotal +=
+                itemPrice *
+                item.quantity;
+
+            quantity +=
+                item.quantity;
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+            row.className =
+                "cart-item";
+
+            const variantName =
+                variant
+                    ? getText(
+                        variant.label
+                    )
+                    : "";
+
+            row.innerHTML = `
+
+                <div class="cart-item-info">
+
+                    <strong>
+                        ${escapeHtml(
+                            getText(
+                                product.name
+                            )
+                        )}
+                    </strong>
+
+                    ${
+                        variantName
+                            ? `
+                                <span class="cart-item-variant">
+                                    ${escapeHtml(
+                                        variantName
+                                    )}
+                                </span>
+                              `
+                            : ""
+                    }
+
+                    <span>
+                        ${formatPrice(
+                            itemPrice
+                        )}
+                    </span>
+
+                </div>
+
+                <div class="cart-item-controls">
+
+                    <button
+                        onclick="
+                            removeFromCart(
+                                '${escapeHtml(
+                                    item.key
+                                )}'
+                            )
+                        "
+                    >
+                        −
+                    </button>
+
+                    <span>
+                        ${item.quantity}
+                    </span>
+
+                    <button
+                        onclick="
+                            addCartItemAgain(
+                                '${escapeHtml(
+                                    item.key
+                                )}'
+                            )
+                        "
+                    >
+                        +
+                    </button>
+
+                </div>
+            `;
+
+            container.appendChild(
+                row
             );
-
-        row.className =
-            "cart-item";
-
-        row.innerHTML = `
-            <div class="cart-item-info">
-
-                <strong>
-                    ${escapeHtml(
-                        getText(
-                            product.name
-                        )
-                    )}
-                </strong>
-
-                <span>
-                    ${formatPrice(
-                        product.price
-                    )}
-                </span>
-
-            </div>
-
-            <div class="cart-item-controls">
-
-                <button
-                    onclick="
-                        removeFromCart(${product.id})
-                    "
-                >
-                    −
-                </button>
-
-                <span>
-                    ${item.quantity}
-                </span>
-
-                <button
-                    onclick="
-                        addToCart(${product.id})
-                    "
-                >
-                    +
-                </button>
-
-            </div>
-        `;
-
-        container.appendChild(row);
-    });
+        }
+    );
 
     const discount =
         getPromoDiscount();
@@ -2417,7 +3098,8 @@ function updateCart() {
     const finalTotal =
         Math.max(
             0,
-            subtotal - discount
+            subtotal -
+            discount
         );
 
     if (discount > 0) {
@@ -2431,6 +3113,7 @@ function updateCart() {
             "cart-promo";
 
         promoRow.innerHTML = `
+
             <strong>
                 ${ui[currentLanguage].promo}
             </strong>
@@ -2446,8 +3129,11 @@ function updateCart() {
             </span>
 
             <b>
-                −${formatPrice(discount)}
+                −${formatPrice(
+                    discount
+                )}
             </b>
+
         `;
 
         container.appendChild(
@@ -2466,7 +3152,9 @@ function updateCart() {
     if (countElement) {
 
         countElement.textContent =
-            String(quantity);
+            String(
+                quantity
+            );
     }
 }
 
@@ -2480,6 +3168,7 @@ function openCart() {
         );
 
     if (modal) {
+
         modal.classList.add(
             "open"
         );
@@ -2496,6 +3185,7 @@ function closeCart() {
         );
 
     if (modal) {
+
         modal.classList.remove(
             "open"
         );
@@ -2504,41 +3194,32 @@ function closeCart() {
 
 /* PRODUCT MODAL */
 
-function getProductImages(
-    product
+function openProduct(
+    id
 ) {
-
-    if (
-        product.images &&
-        Array.isArray(
-            product.images
-        ) &&
-        product.images.length
-    ) {
-        return product.images;
-    }
-
-    if (product.image) {
-        return [
-            product.image
-        ];
-    }
-
-    return [];
-}
-
-function openProduct(id) {
 
     const product =
         getProductById(id);
 
-    if (!product) return;
+    if (!product) {
+        return;
+    }
 
     currentProduct =
         product;
 
     currentImageIndex =
         0;
+
+    const options =
+        getProductOptions(
+            product
+        );
+
+    currentVariant =
+        options.length
+            ? options[0]
+            : null;
 
     const modal =
         document.getElementById(
@@ -2565,7 +3246,9 @@ function openProduct(id) {
             "modal-add"
         );
 
-    if (!modal) return;
+    if (!modal) {
+        return;
+    }
 
     if (title) {
 
@@ -2583,13 +3266,9 @@ function openProduct(id) {
             );
     }
 
-    if (price) {
+    renderProductOptions();
 
-        price.textContent =
-            formatPrice(
-                product.price
-            );
-    }
+    updateModalPrice();
 
     if (addButton) {
 
@@ -2599,9 +3278,7 @@ function openProduct(id) {
         addButton.onclick =
             () => {
 
-                addToCart(
-                    product.id
-                );
+                addCurrentProductToCart();
             };
     }
 
@@ -2632,6 +3309,166 @@ function closeProduct() {
 
     currentProduct =
         null;
+
+    currentVariant =
+        null;
+}
+
+/* PRODUCT OPTIONS */
+
+function renderProductOptions() {
+
+    const container =
+        document.getElementById(
+            "modal-options"
+        );
+
+    if (!container) {
+        return;
+    }
+
+    container.innerHTML =
+        "";
+
+    if (!currentProduct) {
+        return;
+    }
+
+    const options =
+        getProductOptions(
+            currentProduct
+        );
+
+    if (!options.length) {
+        return;
+    }
+
+    const group =
+        document.createElement(
+            "div"
+        );
+
+    group.className =
+        "option-group";
+
+    group.innerHTML = `
+        <div class="option-group-title">
+            ${ui[currentLanguage].combo}
+        </div>
+
+        <div class="option-list"></div>
+    `;
+
+    const list =
+        group.querySelector(
+            ".option-list"
+        );
+
+    options.forEach(
+        option => {
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+            button.type =
+                "button";
+
+            button.className =
+                "option-button";
+
+            if (
+                currentVariant &&
+                String(
+                    currentVariant.id
+                ) ===
+                    String(
+                        option.id
+                    )
+            ) {
+
+                button.classList.add(
+                    "active"
+                );
+            }
+
+            const label =
+                escapeHtml(
+                    getText(
+                        option.label
+                    )
+                );
+
+            const extra =
+                option.extra
+                    ? `
+                        <small>
+                            ${escapeHtml(
+                                getText(
+                                    option.extra
+                                )
+                            )}
+                        </small>
+                      `
+                    : "";
+
+            button.innerHTML = `
+                <span>
+                    ${label}
+                </span>
+
+                ${extra}
+
+                <small>
+                    ${formatPrice(
+                        option.price
+                    )}
+                </small>
+            `;
+
+            button.onclick =
+                () => {
+
+                    currentVariant =
+                        option;
+
+                    renderProductOptions();
+
+                    updateModalPrice();
+                };
+
+            list.appendChild(
+                button
+            );
+        }
+    );
+
+    container.appendChild(
+        group
+    );
+}
+
+function updateModalPrice() {
+
+    const price =
+        document.getElementById(
+            "modal-price"
+        );
+
+    if (!price || !currentProduct) {
+        return;
+    }
+
+    const selectedPrice =
+        currentVariant
+            ? currentVariant.price
+            : currentProduct.price;
+
+    price.textContent =
+        formatPrice(
+            selectedPrice
+        );
 }
 
 /* GALLERY */
@@ -2667,7 +3504,9 @@ function renderGallery() {
             ".gallery-next"
         );
 
-    if (!image) return;
+    if (!image) {
+        return;
+    }
 
     if (!images.length) {
 
@@ -2693,7 +3532,9 @@ function renderGallery() {
             currentProduct.name
         );
 
-    if (images.length <= 1) {
+    if (
+        images.length <= 1
+    ) {
 
         if (prev) {
             prev.style.display =
@@ -2715,17 +3556,20 @@ function renderGallery() {
 
     if (prev) {
         prev.style.display =
-            "block";
+            "flex";
     }
 
     if (next) {
         next.style.display =
-            "block";
+            "flex";
     }
 
-    if (!dots) return;
+    if (!dots) {
+        return;
+    }
 
-    dots.innerHTML = "";
+    dots.innerHTML =
+        "";
 
     images.forEach(
         (_, index) => {
@@ -2906,7 +3750,9 @@ function createReviewsBlock() {
                 ".modal-info"
             );
 
-        if (!modalInfo) return;
+        if (!modalInfo) {
+            return;
+        }
 
         container =
             document.createElement(
@@ -2954,8 +3800,8 @@ function createReviewsBlock() {
 
         <div
             id="reviews-list"
-            class="reviews-list"
-        ></div>
+            class="reviews-list">
+        </div>
 
         <div class="review-form">
 
@@ -2976,38 +3822,23 @@ function createReviewsBlock() {
 
             <div class="review-stars">
 
-                <button
-                    type="button"
-                    data-rating="1"
-                >
+                <button type="button" data-rating="1">
                     ★
                 </button>
 
-                <button
-                    type="button"
-                    data-rating="2"
-                >
+                <button type="button" data-rating="2">
                     ★
                 </button>
 
-                <button
-                    type="button"
-                    data-rating="3"
-                >
+                <button type="button" data-rating="3">
                     ★
                 </button>
 
-                <button
-                    type="button"
-                    data-rating="4"
-                >
+                <button type="button" data-rating="4">
                     ★
                 </button>
 
-                <button
-                    type="button"
-                    data-rating="5"
-                >
+                <button type="button" data-rating="5">
                     ★
                 </button>
 
@@ -3016,8 +3847,7 @@ function createReviewsBlock() {
             <button
                 type="button"
                 id="submit-review"
-                class="review-submit"
-            >
+                class="review-submit">
                 ${ui[currentLanguage].sendReview}
             </button>
 
@@ -3043,8 +3873,7 @@ function createReviewsBlock() {
 
                         selectedRating =
                             Number(
-                                button.dataset
-                                    .rating
+                                button.dataset.rating
                             );
 
                         section
@@ -3057,8 +3886,7 @@ function createReviewsBlock() {
                                     star.classList.toggle(
                                         "active",
                                         Number(
-                                            star.dataset
-                                                .rating
+                                            star.dataset.rating
                                         ) <=
                                             selectedRating
                                     );
@@ -3402,8 +4230,6 @@ function changeLanguage(
     document.documentElement.lang =
         currentLanguage;
 
-    /* ACTIVE BUTTON */
-
     document
         .querySelectorAll(
             ".language"
@@ -3438,8 +4264,6 @@ function changeLanguage(
             }
         );
 
-    /* STATIC */
-
     document
         .querySelectorAll(
             "[data-ru], [data-kz], [data-en]"
@@ -3463,8 +4287,6 @@ function changeLanguage(
             }
         );
 
-    /* SEARCH */
-
     const searchInput =
         document.getElementById(
             "menu-search"
@@ -3483,8 +4305,6 @@ function changeLanguage(
                 placeholder;
         }
     }
-
-    /* RENDER */
 
     renderProducts(
         currentCategory
@@ -3516,7 +4336,9 @@ function setupSearch() {
             "menu-search"
         );
 
-    if (!input) return;
+    if (!input) {
+        return;
+    }
 
     input.addEventListener(
         "input",
@@ -3552,11 +4374,27 @@ function setupSearch() {
                             )
                                 .toLowerCase();
 
+                        const optionsText =
+                            getProductOptions(
+                                product
+                            )
+                                .map(
+                                    option =>
+                                        getText(
+                                            option.label
+                                        )
+                                )
+                                .join(" ")
+                                .toLowerCase();
+
                         return (
                             name.includes(
                                 query
                             ) ||
                             description.includes(
+                                query
+                            ) ||
+                            optionsText.includes(
                                 query
                             )
                         );
@@ -3587,9 +4425,7 @@ function setupSearch() {
                                 )
                             )}"
                             onclick="openProduct(${product.id})"
-                            onerror="
-                                this.style.display='none'
-                            "
+                            onerror="this.style.display='none'"
                         >
 
                         <div class="product-info">
@@ -3622,7 +4458,11 @@ function setupSearch() {
                                     class="add-to-cart"
                                     onclick="
                                         event.stopPropagation();
-                                        addToCart(${product.id})
+                                        ${
+                                            getProductOptions(product).length
+                                                ? `openProduct(${product.id})`
+                                                : `addToCart(${product.id})`
+                                        }
                                     "
                                 >
                                     ${ui[currentLanguage].add}
@@ -3640,6 +4480,34 @@ function setupSearch() {
             );
         }
     );
+}
+
+/* STATIC */
+
+function updateStaticLanguage() {
+
+    document
+        .querySelectorAll(
+            "[data-ru], [data-kz], [data-en]"
+        )
+        .forEach(
+            element => {
+
+                const translated =
+                    element.getAttribute(
+                        `data-${currentLanguage}`
+                    );
+
+                if (
+                    translated !==
+                    null
+                ) {
+
+                    element.innerHTML =
+                        translated;
+                }
+            }
+        );
 }
 
 /* CHECKOUT */
@@ -3669,9 +4537,21 @@ function checkout() {
                     return total;
                 }
 
+                const variant =
+                    getCartItemVariant(
+                        product,
+                        item
+                    );
+
+                const price =
+                    getSelectedProductPrice(
+                        product,
+                        variant
+                    );
+
                 return (
                     total +
-                    product.price *
+                    price *
                     item.quantity
                 );
 
@@ -3692,8 +4572,7 @@ function checkout() {
     let message;
 
     if (
-        currentLanguage ===
-        "ru"
+        currentLanguage === "ru"
     ) {
 
         message =
@@ -3706,8 +4585,7 @@ function checkout() {
         }
 
     } else if (
-        currentLanguage ===
-        "kz"
+        currentLanguage === "kz"
     ) {
 
         message =
@@ -3734,34 +4612,6 @@ function checkout() {
     alert(
         message
     );
-}
-
-/* STATIC LANGUAGE */
-
-function updateStaticLanguage() {
-
-    document
-        .querySelectorAll(
-            "[data-ru], [data-kz], [data-en]"
-        )
-        .forEach(
-            element => {
-
-                const translated =
-                    element.getAttribute(
-                        `data-${currentLanguage}`
-                    );
-
-                if (
-                    translated !==
-                    null
-                ) {
-
-                    element.innerHTML =
-                        translated;
-                }
-            }
-        );
 }
 
 /* INIT */
@@ -3793,8 +4643,6 @@ document.addEventListener(
 
         document.documentElement.lang =
             currentLanguage;
-
-        /* ACTIVE LANGUAGE */
 
         document
             .querySelectorAll(
@@ -3830,21 +4678,15 @@ document.addEventListener(
                 }
             );
 
-        /* LOAD */
-
         loadCart();
 
         loadReviews();
-
-        /* CATEGORY */
 
         currentCategory =
             "all";
 
         window.currentCategory =
             "all";
-
-        /* RENDER */
 
         renderProducts(
             "all"
@@ -3859,8 +4701,6 @@ document.addEventListener(
         updateStaticLanguage();
 
         setupSearch();
-
-        /* PLACEHOLDER */
 
         const searchInput =
             document.getElementById(
@@ -3880,8 +4720,6 @@ document.addEventListener(
                     placeholder;
             }
         }
-
-        /* PROMO REFRESH */
 
         setInterval(
             () => {

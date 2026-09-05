@@ -22,39 +22,31 @@
 
         <nav class="nav">
 
-            <a
-                href="#home"
-                data-ru="Главная"
-                data-kz="Басты бет"
-                data-en="Home"
-            >
+            <a href="#home"
+               data-ru="Главная"
+               data-kz="Басты бет"
+               data-en="Home">
                 Главная
             </a>
 
-            <a
-                href="#menu"
-                data-ru="Меню"
-                data-kz="Мәзір"
-                data-en="Menu"
-            >
+            <a href="#menu"
+               data-ru="Меню"
+               data-kz="Мәзір"
+               data-en="Menu">
                 Меню
             </a>
 
-            <a
-                href="#sets"
-                data-ru="Сеты"
-                data-kz="Сеттер"
-                data-en="Sets"
-            >
+            <a href="#sets"
+               data-ru="Сеты"
+               data-kz="Сеттер"
+               data-en="Sets">
                 Сеты
             </a>
 
-            <a
-                href="#contact"
-                data-ru="Контакты"
-                data-kz="Байланыс"
-                data-en="Contact"
-            >
+            <a href="#contact"
+               data-ru="Контакты"
+               data-kz="Байланыс"
+               data-en="Contact">
                 Контакты
             </a>
 
@@ -67,24 +59,21 @@
                 <button
                     type="button"
                     class="language active"
-                    onclick="changeLanguage('ru')"
-                >
+                    onclick="changeLanguage('ru')">
                     RU
                 </button>
 
                 <button
                     type="button"
                     class="language"
-                    onclick="changeLanguage('kz')"
-                >
+                    onclick="changeLanguage('kz')">
                     KZ
                 </button>
 
                 <button
                     type="button"
                     class="language"
-                    onclick="changeLanguage('en')"
-                >
+                    onclick="changeLanguage('en')">
                     EN
                 </button>
 
@@ -93,21 +82,21 @@
             <button
                 type="button"
                 class="cart-button"
-                onclick="openCart()"
-            >
+                onclick="openCart()">
+
                 🛒
 
                 <span
                     data-ru="Корзина"
                     data-kz="Себет"
-                    data-en="Cart"
-                >
+                    data-en="Cart">
                     Корзина
                 </span>
 
                 <span id="cart-count">
                     0
                 </span>
+
             </button>
 
         </div>
@@ -131,24 +120,21 @@
                     class="hero-label"
                     data-ru="WOK • SUSHI • BURGER • PIZZA"
                     data-kz="WOK • SUSHI • BURGER • PIZZA"
-                    data-en="WOK • SUSHI • BURGER • PIZZA"
-                >
+                    data-en="WOK • SUSHI • BURGER • PIZZA">
                     WOK • SUSHI • BURGER • PIZZA
                 </span>
 
                 <h1
                     data-ru="Вкус, который хочется повторить"
                     data-kz="Қайта жегің келетін дәм"
-                    data-en="A taste you'll want again"
-                >
+                    data-en="A taste you'll want again">
                     Вкус, который хочется повторить
                 </h1>
 
                 <p
                     data-ru="Паназиатская кухня, бургеры, паста и пицца"
                     data-kz="Паназиялық тағамдар, бургерлер, паста және пицца"
-                    data-en="Pan-Asian food, burgers, pasta and pizza"
-                >
+                    data-en="Pan-Asian food, burgers, pasta and pizza">
                     Паназиатская кухня, бургеры, паста и пицца
                 </p>
 
@@ -157,8 +143,7 @@
                     class="hero-button"
                     data-ru="Смотреть меню"
                     data-kz="Мәзірді көру"
-                    data-en="View menu"
-                >
+                    data-en="View menu">
                     Смотреть меню
                 </a>
 
@@ -180,8 +165,7 @@
                 <span
                     data-ru="Ваш город"
                     data-kz="Сіздің қалаңыз"
-                    data-en="Your city"
-                >
+                    data-en="Your city">
                     Ваш город
                 </span>
 
@@ -208,16 +192,14 @@
                     class="section-label"
                     data-ru="НАШЕ МЕНЮ"
                     data-kz="БІЗДІҢ МӘЗІР"
-                    data-en="OUR MENU"
-                >
+                    data-en="OUR MENU">
                     НАШЕ МЕНЮ
                 </span>
 
                 <h2
                     data-ru="Выбирай любимое"
                     data-kz="Сүйікті тағамыңызды таңдаңыз"
-                    data-en="Choose your favorite"
-                >
+                    data-en="Choose your favorite">
                     Выбирай любимое
                 </h2>
 
@@ -232,8 +214,7 @@
                     placeholder="Поиск..."
                     data-placeholder-ru="Поиск..."
                     data-placeholder-kz="Іздеу..."
-                    data-placeholder-en="Search..."
-                >
+                    data-placeholder-en="Search...">
 
             </div>
 
@@ -246,8 +227,7 @@
                     onclick="filterMenu('all', this)"
                     data-ru="Все"
                     data-kz="Барлығы"
-                    data-en="All"
-                >
+                    data-en="All">
                     Все
                 </button>
 
@@ -257,8 +237,7 @@
                     onclick="filterMenu('sushi', this)"
                     data-ru="Роллы"
                     data-kz="Роллдар"
-                    data-en="Sushi"
-                >
+                    data-en="Sushi">
                     Роллы
                 </button>
 
@@ -268,8 +247,7 @@
                     onclick="filterMenu('wok', this)"
                     data-ru="WOK"
                     data-kz="WOK"
-                    data-en="WOK"
-                >
+                    data-en="WOK">
                     WOK
                 </button>
 
@@ -279,8 +257,7 @@
                     onclick="filterMenu('burgers', this)"
                     data-ru="Бургеры"
                     data-kz="Бургерлер"
-                    data-en="Burgers"
-                >
+                    data-en="Burgers">
                     Бургеры
                 </button>
 
@@ -290,8 +267,7 @@
                     onclick="filterMenu('pizza', this)"
                     data-ru="Пицца"
                     data-kz="Пицца"
-                    data-en="Pizza"
-                >
+                    data-en="Pizza">
                     Пицца
                 </button>
 
@@ -301,8 +277,7 @@
                     onclick="filterMenu('pasta', this)"
                     data-ru="Паста"
                     data-kz="Паста"
-                    data-en="Pasta"
-                >
+                    data-en="Pasta">
                     Паста
                 </button>
 
@@ -312,8 +287,7 @@
                     onclick="filterMenu('soups', this)"
                     data-ru="Супы"
                     data-kz="Сорпалар"
-                    data-en="Soups"
-                >
+                    data-en="Soups">
                     Супы
                 </button>
 
@@ -323,8 +297,7 @@
                     onclick="filterMenu('salads', this)"
                     data-ru="Салаты"
                     data-kz="Салаттар"
-                    data-en="Salads"
-                >
+                    data-en="Salads">
                     Салаты
                 </button>
 
@@ -334,8 +307,7 @@
                     onclick="filterMenu('sides', this)"
                     data-ru="Гарниры"
                     data-kz="Гарнирлер"
-                    data-en="Sides"
-                >
+                    data-en="Sides">
                     Гарниры
                 </button>
 
@@ -345,8 +317,7 @@
                     onclick="filterMenu('drinks', this)"
                     data-ru="Напитки"
                     data-kz="Сусындар"
-                    data-en="Drinks"
-                >
+                    data-en="Drinks">
                     Напитки
                 </button>
 
@@ -356,8 +327,7 @@
                     onclick="filterMenu('sets', this)"
                     data-ru="Сеты"
                     data-kz="Сеттер"
-                    data-en="Sets"
-                >
+                    data-en="Sets">
                     Сеты
                 </button>
 
@@ -366,8 +336,8 @@
 
             <div
                 class="products-grid"
-                id="products"
-            ></div>
+                id="products">
+            </div>
 
         </div>
 
@@ -386,26 +356,23 @@
                     class="section-label"
                     data-ru="ФИРМЕННЫЕ СЕТЫ"
                     data-kz="ФИРМАЛЫҚ СЕТТЕР"
-                    data-en="SIGNATURE SETS"
-                >
+                    data-en="SIGNATURE SETS">
                     ФИРМЕННЫЕ СЕТЫ
                 </span>
 
                 <h2
                     data-ru="Большие наборы"
                     data-kz="Үлкен сеттер"
-                    data-en="Big sets"
-                >
+                    data-en="Big sets">
                     Большие наборы
                 </h2>
 
             </div>
 
-
             <div
                 class="sets-grid"
-                id="sets-grid"
-            ></div>
+                id="sets-grid">
+            </div>
 
         </div>
 
@@ -416,8 +383,7 @@
 
     <section
         class="contact-section"
-        id="contact"
-    >
+        id="contact">
 
         <div class="container">
 
@@ -427,24 +393,21 @@
                     class="section-label"
                     data-ru="КОНТАКТЫ"
                     data-kz="БАЙЛАНЫС"
-                    data-en="CONTACT US"
-                >
+                    data-en="CONTACT US">
                     КОНТАКТЫ
                 </span>
 
                 <h2
                     data-ru="Свяжитесь с нами"
                     data-kz="Бізбен байланысыңыз"
-                    data-en="Contact us"
-                >
+                    data-en="Contact us">
                     Свяжитесь с нами
                 </h2>
 
                 <p
                     data-ru="Есть вопрос? Напишите нам или позвоните."
                     data-kz="Сұрағыңыз бар ма? Бізге жазыңыз немесе қоңырау шалыңыз."
-                    data-en="Have a question? Email us or give us a call."
-                >
+                    data-en="Have a question? Email us or give us a call.">
                     Есть вопрос? Напишите нам или позвоните.
                 </p>
 
@@ -455,8 +418,7 @@
 
                 <a
                     href="mailto:wokipasta@gmail.com"
-                    class="contact-card"
-                >
+                    class="contact-card">
 
                     <div class="contact-icon">
                         📧
@@ -467,8 +429,7 @@
                         <strong
                             data-ru="Написать на почту"
                             data-kz="Электрондық поштаға жазу"
-                            data-en="Email us"
-                        >
+                            data-en="Email us">
                             Написать на почту
                         </strong>
 
@@ -483,8 +444,7 @@
 
                 <a
                     href="tel:+77000000000"
-                    class="contact-card"
-                >
+                    class="contact-card">
 
                     <div class="contact-icon">
                         📞
@@ -495,8 +455,7 @@
                         <strong
                             data-ru="Позвонить нам"
                             data-kz="Бізге қоңырау шалу"
-                            data-en="Call us"
-                        >
+                            data-en="Call us">
                             Позвонить нам
                         </strong>
 
@@ -521,16 +480,14 @@
 
 <div
     class="modal"
-    id="product-modal"
->
+    id="product-modal">
 
     <div class="modal-content">
 
         <button
             type="button"
             class="modal-close"
-            onclick="closeProduct()"
-        >
+            onclick="closeProduct()">
             ✕
         </button>
 
@@ -543,23 +500,20 @@
                     type="button"
                     class="gallery-arrow gallery-prev"
                     onclick="previousImage()"
-                    aria-label="Previous image"
-                >
+                    aria-label="Previous image">
                     ‹
                 </button>
 
                 <img
                     id="modal-image"
                     src=""
-                    alt=""
-                >
+                    alt="">
 
                 <button
                     type="button"
                     class="gallery-arrow gallery-next"
                     onclick="nextImage()"
-                    aria-label="Next image"
-                >
+                    aria-label="Next image">
                     ›
                 </button>
 
@@ -568,15 +522,14 @@
 
             <div
                 id="gallery-dots"
-                class="gallery-dots"
-            ></div>
+                class="gallery-dots">
+            </div>
 
 
             <button
                 id="modal-add"
                 class="modal-add"
-                type="button"
-            >
+                type="button">
                 Добавить в корзину
             </button>
 
@@ -588,6 +541,11 @@
             <h2 id="modal-title"></h2>
 
             <p id="modal-description"></p>
+
+            <div
+                id="modal-options"
+                class="modal-options">
+            </div>
 
             <strong id="modal-price"></strong>
 
@@ -604,38 +562,32 @@
 
 <div
     class="modal"
-    id="cart-modal"
->
+    id="cart-modal">
 
     <div class="cart-modal-content">
 
         <button
             type="button"
             class="modal-close"
-            onclick="closeCart()"
-        >
+            onclick="closeCart()">
             ✕
         </button>
-
 
         <div class="cart-header">
 
             <h2
                 data-ru="Корзина"
                 data-kz="Себет"
-                data-en="Cart"
-            >
+                data-en="Cart">
                 Корзина
             </h2>
 
         </div>
 
-
         <div
             id="cart-items"
-            class="cart-items"
-        ></div>
-
+            class="cart-items">
+        </div>
 
         <div class="cart-footer">
 
@@ -644,8 +596,7 @@
                 <span
                     data-ru="Итого"
                     data-kz="Барлығы"
-                    data-en="Total"
-                >
+                    data-en="Total">
                     Итого
                 </span>
 
@@ -655,18 +606,15 @@
 
             </div>
 
-
             <button
                 type="button"
                 class="checkout-button"
                 onclick="checkout()"
                 data-ru="Оформить заказ"
                 data-kz="Тапсырыс беру"
-                data-en="Checkout"
-            >
+                data-en="Checkout">
                 Оформить заказ
             </button>
-
 
             <button
                 type="button"
@@ -674,8 +622,7 @@
                 onclick="clearCart()"
                 data-ru="Очистить корзину"
                 data-kz="Себетті тазалау"
-                data-en="Clear cart"
-            >
+                data-en="Clear cart">
                 Очистить корзину
             </button>
 
@@ -701,8 +648,7 @@
             <p
                 data-ru="WOK • SUSHI • BURGER • PIZZA"
                 data-kz="WOK • SUSHI • BURGER • PIZZA"
-                data-en="WOK • SUSHI • BURGER • PIZZA"
-            >
+                data-en="WOK • SUSHI • BURGER • PIZZA">
                 WOK • SUSHI • BURGER • PIZZA
             </p>
 
@@ -715,8 +661,7 @@
                 href="#home"
                 data-ru="Главная"
                 data-kz="Басты бет"
-                data-en="Home"
-            >
+                data-en="Home">
                 Главная
             </a>
 
@@ -724,8 +669,7 @@
                 href="#menu"
                 data-ru="Меню"
                 data-kz="Мәзір"
-                data-en="Menu"
-            >
+                data-en="Menu">
                 Меню
             </a>
 
@@ -733,8 +677,7 @@
                 href="#sets"
                 data-ru="Сеты"
                 data-kz="Сеттер"
-                data-en="Sets"
-            >
+                data-en="Sets">
                 Сеты
             </a>
 
@@ -742,8 +685,7 @@
                 href="#contact"
                 data-ru="Контакты"
                 data-kz="Байланыс"
-                data-en="Contact Us"
-            >
+                data-en="Contact Us">
                 Контакты
             </a>
 
@@ -755,8 +697,7 @@
             <strong
                 data-ru="Связаться с нами"
                 data-kz="Бізбен байланысу"
-                data-en="Contact us"
-            >
+                data-en="Contact us">
                 Связаться с нами
             </strong>
 
