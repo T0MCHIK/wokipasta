@@ -4,8 +4,10 @@ let currentLanguage = "ru";
 let cart = [];
 let currentProduct = null;
 let currentCategory = "all";
+let currentImageIndex = 0;
+let reviews = [];
 
-/* TRANSLATIONS */
+/* UI */
 
 const ui = {
     ru: {
@@ -24,7 +26,11 @@ const ui = {
         fillReview: "Заполните имя и отзыв.",
         reviewWord: "отзывов",
         clearCart: "Очистить корзину",
-        total: "Итого"
+        total: "Итого",
+        promo: "АКЦИЯ",
+        promoText: "Берёшь 2 любых WOK — WOK с курицей и яичной лапшой бесплатно",
+        promoTime: "По будням с 15:00 до 17:00",
+        free: "БЕСПЛАТНО"
     },
 
     kz: {
@@ -43,7 +49,11 @@ const ui = {
         fillReview: "Атыңыз бен пікіріңізді толтырыңыз.",
         reviewWord: "пікір",
         clearCart: "Себетті тазалау",
-        total: "Барлығы"
+        total: "Барлығы",
+        promo: "АКЦИЯ",
+        promoText: "Кез келген 2 WOK ал — тауық пен жұмыртқалы кеспесі бар WOK тегін",
+        promoTime: "Жұмыс күндері 15:00-ден 17:00-ге дейін",
+        free: "ТЕГІН"
     },
 
     en: {
@@ -62,18 +72,26 @@ const ui = {
         fillReview: "Please enter your name and review.",
         reviewWord: "reviews",
         clearCart: "Clear cart",
-        total: "Total"
+        total: "Total",
+        promo: "PROMOTION",
+        promoText: "Buy any 2 WOKs — get Chicken Egg Noodle WOK free",
+        promoTime: "Weekdays from 15:00 to 17:00",
+        free: "FREE"
     }
 };
 
 /* PRODUCTS */
 
 const products = [
+
     {
         id: 20,
         category: "sushi",
         price: 3590,
         image: "images/philadelphia-light.png",
+        images: [
+            "images/philadelphia-light.png"
+        ],
         name: {
             ru: "Филадельфия лайт",
             kz: "Филадельфия лайт",
@@ -91,6 +109,9 @@ const products = [
         category: "sushi",
         price: 2590,
         image: "images/california.png",
+        images: [
+            "images/california.png"
+        ],
         name: {
             ru: "Калифорния ролл",
             kz: "Калифорния роллы",
@@ -108,6 +129,9 @@ const products = [
         category: "sushi",
         price: 3590,
         image: "images/dragon.png",
+        images: [
+            "images/dragon.png"
+        ],
         name: {
             ru: "Дракон",
             kz: "Айдаһар",
@@ -125,6 +149,9 @@ const products = [
         category: "sushi",
         price: 2990,
         image: "images/tasty-roll.png",
+        images: [
+            "images/tasty-roll.png"
+        ],
         name: {
             ru: "Вкусный ролл",
             kz: "Дәмді ролл",
@@ -142,6 +169,9 @@ const products = [
         category: "sushi",
         price: 2890,
         image: "images/murakami.png",
+        images: [
+            "images/murakami.png"
+        ],
         name: {
             ru: "Ролл Мураками",
             kz: "Мураками роллы",
@@ -159,6 +189,9 @@ const products = [
         category: "sushi",
         price: 3090,
         image: "images/caesar-roll.png",
+        images: [
+            "images/caesar-roll.png"
+        ],
         name: {
             ru: "Ролл Цезарь",
             kz: "Цезарь роллы",
@@ -176,6 +209,9 @@ const products = [
         category: "sushi",
         price: 2790,
         image: "images/yin-yang.png",
+        images: [
+            "images/yin-yang.png"
+        ],
         name: {
             ru: "Ролл Инь Янь",
             kz: "Инь Янь роллы",
@@ -193,6 +229,9 @@ const products = [
         category: "sushi",
         price: 1900,
         image: "images/vegan-roll.png",
+        images: [
+            "images/vegan-roll.png"
+        ],
         name: {
             ru: "Ролл Веган",
             kz: "Веган роллы",
@@ -210,6 +249,9 @@ const products = [
         category: "sushi",
         price: 3890,
         image: "images/geisha-kiss.png",
+        images: [
+            "images/geisha-kiss.png"
+        ],
         name: {
             ru: "Поцелуй гейши",
             kz: "Гейшаның сүйісі",
@@ -227,6 +269,9 @@ const products = [
         category: "sushi",
         price: 3390,
         image: "images/ebi-tempura.png",
+        images: [
+            "images/ebi-tempura.png"
+        ],
         name: {
             ru: "Эби темпура ролл жареный",
             kz: "Эби темпура қуырылған роллы",
@@ -244,6 +289,9 @@ const products = [
         category: "sushi",
         price: 3190,
         image: "images/sake-tempura.png",
+        images: [
+            "images/sake-tempura.png"
+        ],
         name: {
             ru: "Сяке темпура",
             kz: "Сяке темпура",
@@ -261,6 +309,9 @@ const products = [
         category: "sushi",
         price: 2890,
         image: "images/kani-tempura.png",
+        images: [
+            "images/kani-tempura.png"
+        ],
         name: {
             ru: "Кани темпура",
             kz: "Кани темпура",
@@ -278,6 +329,9 @@ const products = [
         category: "sushi",
         price: 3090,
         image: "images/kani-wok-baked.png",
+        images: [
+            "images/kani-wok-baked.png"
+        ],
         name: {
             ru: "Кани вок запеченный",
             kz: "Кани вок пісірілген",
@@ -295,6 +349,9 @@ const products = [
         category: "sushi",
         price: 3890,
         image: "images/philadelphia-grill.png",
+        images: [
+            "images/philadelphia-grill.png"
+        ],
         name: {
             ru: "Филадельфия гриль",
             kz: "Филадельфия гриль",
@@ -312,6 +369,9 @@ const products = [
         category: "sushi",
         price: 2390,
         image: "images/unagi-maki.png",
+        images: [
+            "images/unagi-maki.png"
+        ],
         name: {
             ru: "Хосомаки унаги",
             kz: "Унаги хосомаки",
@@ -329,6 +389,9 @@ const products = [
         category: "sushi",
         price: 2890,
         image: "images/sake-maki.png",
+        images: [
+            "images/sake-maki.png"
+        ],
         name: {
             ru: "Хосомаки сяке",
             kz: "Сяке хосомаки",
@@ -346,6 +409,9 @@ const products = [
         category: "sushi",
         price: 1490,
         image: "images/kappa-maki.png",
+        images: [
+            "images/kappa-maki.png"
+        ],
         name: {
             ru: "Хосомаки каппа",
             kz: "Каппа хосомаки",
@@ -363,6 +429,9 @@ const products = [
         category: "sushi",
         price: 3190,
         image: "images/new-york.png",
+        images: [
+            "images/new-york.png"
+        ],
         name: {
             ru: "Нью-Йорк",
             kz: "Нью-Йорк",
@@ -380,6 +449,9 @@ const products = [
         category: "sushi",
         price: 3090,
         image: "images/sake-kunsei.png",
+        images: [
+            "images/sake-kunsei.png"
+        ],
         name: {
             ru: "Сяке кунсей",
             kz: "Сяке кунсей",
@@ -397,6 +469,9 @@ const products = [
         category: "sushi",
         price: 2590,
         image: "images/chicken-donut.png",
+        images: [
+            "images/chicken-donut.png"
+        ],
         name: {
             ru: "Пончик ролл с курицей",
             kz: "Тауықты пончик роллы",
@@ -409,15 +484,20 @@ const products = [
         }
     },
 
+    /* WOK */
+
     {
         id: 40,
         category: "wok",
         price: 3290,
         image: "images/wok-chicken-udon.png",
+        images: [
+            "images/wok-chicken-udon.png"
+        ],
         name: {
             ru: "Вок с курицей с соусом удон",
             kz: "Тауық еті қосылған удон вок",
-            en: "Chicken Udon Wok"
+            en: "Chicken Udon WOK"
         },
         description: {
             ru: "Курица, удон и фирменный соус",
@@ -431,10 +511,13 @@ const products = [
         category: "wok",
         price: 3290,
         image: "images/wok-chicken-sichuan.png",
+        images: [
+            "images/wok-chicken-sichuan.png"
+        ],
         name: {
             ru: "Вок удон с курицей в сычуанском соусе",
             kz: "Сычуань соусындағы тауықты удон",
-            en: "Chicken Sichuan Udon Wok"
+            en: "Chicken Sichuan Udon WOK"
         },
         description: {
             ru: "Курица, удон, острый сычуанский соус",
@@ -448,10 +531,13 @@ const products = [
         category: "wok",
         price: 3690,
         image: "images/wok-seafood-udon.png",
+        images: [
+            "images/wok-seafood-udon.png"
+        ],
         name: {
             ru: "Вок удон с морепродуктами под соусом унаги",
             kz: "Унаги соусындағы теңіз өнімдері бар удон",
-            en: "Seafood Udon with Unagi Sauce"
+            en: "Seafood Udon WOK with Unagi Sauce"
         },
         description: {
             ru: "Морепродукты, удон, соус унаги",
@@ -465,10 +551,13 @@ const products = [
         category: "wok",
         price: 3490,
         image: "images/wok-beef.png",
+        images: [
+            "images/wok-beef.png"
+        ],
         name: {
             ru: "Вок с говядиной и гречневой лапшой",
             kz: "Сиыр еті мен қарақұмық кеспесі бар вок",
-            en: "Beef Buckwheat Wok"
+            en: "Beef Buckwheat WOK"
         },
         description: {
             ru: "Говядина, гречневая лапша, овощи",
@@ -482,10 +571,13 @@ const products = [
         category: "wok",
         price: 3290,
         image: "images/wok-chicken-buckwheat.png",
+        images: [
+            "images/wok-chicken-buckwheat.png"
+        ],
         name: {
             ru: "Вок с курицей и гречневой лапшой",
             kz: "Тауық еті мен қарақұмық кеспесі бар вок",
-            en: "Chicken Buckwheat Wok"
+            en: "Chicken Buckwheat WOK"
         },
         description: {
             ru: "Курица, гречневая лапша, овощи",
@@ -499,10 +591,13 @@ const products = [
         category: "wok",
         price: 3690,
         image: "images/wok-shrimp-buckwheat.png",
+        images: [
+            "images/wok-shrimp-buckwheat.png"
+        ],
         name: {
             ru: "Вок с королевскими креветками и гречневой лапшой",
             kz: "Корольдік асшаяндар мен қарақұмық кеспесі бар вок",
-            en: "Royal Shrimp Buckwheat Wok"
+            en: "Royal Shrimp Buckwheat WOK"
         },
         description: {
             ru: "Королевские креветки, гречневая лапша, овощи",
@@ -516,10 +611,13 @@ const products = [
         category: "wok",
         price: 3690,
         image: "images/wok-seafood-buckwheat.png",
+        images: [
+            "images/wok-seafood-buckwheat.png"
+        ],
         name: {
             ru: "Вок с морепродуктами и гречневой лапшой",
             kz: "Теңіз өнімдері мен қарақұмық кеспесі бар вок",
-            en: "Seafood Buckwheat Wok"
+            en: "Seafood Buckwheat WOK"
         },
         description: {
             ru: "Морепродукты, гречневая лапша, овощи",
@@ -533,10 +631,14 @@ const products = [
         category: "wok",
         price: 3290,
         image: "images/wok-chicken-egg.png",
+        images: [
+            "images/wok-chicken-egg.png"
+        ],
+        promoProduct: true,
         name: {
             ru: "Вок с курицей и яичной лапшой",
             kz: "Тауық еті мен жұмыртқалы кеспесі бар вок",
-            en: "Chicken Egg Noodle Wok"
+            en: "Chicken Egg Noodle WOK"
         },
         description: {
             ru: "Курица, яичная лапша, овощи",
@@ -550,6 +652,9 @@ const products = [
         category: "wok",
         price: 3690,
         image: "images/wok-rice-shrimp.png",
+        images: [
+            "images/wok-rice-shrimp.png"
+        ],
         name: {
             ru: "Рис с королевскими креветками",
             kz: "Корольдік асшаяндар қосылған күріш",
@@ -567,6 +672,9 @@ const products = [
         category: "wok",
         price: 3690,
         image: "images/wok-rice-seafood.png",
+        images: [
+            "images/wok-rice-seafood.png"
+        ],
         name: {
             ru: "Рис с морепродуктами",
             kz: "Теңіз өнімдері қосылған күріш",
@@ -584,6 +692,9 @@ const products = [
         category: "wok",
         price: 3290,
         image: "images/wok-rice-chicken.png",
+        images: [
+            "images/wok-rice-chicken.png"
+        ],
         name: {
             ru: "Рис с курицей",
             kz: "Тауық еті қосылған күріш",
@@ -601,6 +712,9 @@ const products = [
         category: "wok",
         price: 3690,
         image: "images/wok-noodles-seafood.png",
+        images: [
+            "images/wok-noodles-seafood.png"
+        ],
         name: {
             ru: "Яичная лапша с морепродуктами",
             kz: "Теңіз өнімдері қосылған жұмыртқалы кеспе",
@@ -618,10 +732,13 @@ const products = [
         category: "wok",
         price: 3690,
         image: "images/wok-shrimp-egg.png",
+        images: [
+            "images/wok-shrimp-egg.png"
+        ],
         name: {
             ru: "Вок с креветками и яичной лапшой",
             kz: "Асшаяндар мен жұмыртқалы кеспе бар вок",
-            en: "Shrimp Egg Noodle Wok"
+            en: "Shrimp Egg Noodle WOK"
         },
         description: {
             ru: "Креветки, яичная лапша, овощи",
@@ -630,11 +747,18 @@ const products = [
         }
     },
 
+    /* BURGERS */
+
     {
         id: 60,
         category: "burgers",
         price: 2890,
-        image: "images/beverly-hills.png",
+        image: "images/Beverly.webp",
+        images: [
+            "images/Beverly.webp",
+            "images/Beverly2.webp",
+            "images/Beverly3.webp"
+        ],
         name: {
             ru: "Беверлли Хилз",
             kz: "Беверли Хиллз",
@@ -651,7 +775,11 @@ const products = [
         id: 61,
         category: "burgers",
         price: 3190,
-        image: "images/burger-california.png",
+        image: "images/California.webp",
+        images: [
+            "images/California.webp",
+            "images/California2.webp"
+        ],
         name: {
             ru: "Бургер Калифорния",
             kz: "Калифорния бургері",
@@ -669,6 +797,9 @@ const products = [
         category: "burgers",
         price: 2890,
         image: "images/street-burger.png",
+        images: [
+            "images/street-burger.png"
+        ],
         name: {
             ru: "Стрит бургер",
             kz: "Стрит бургер",
@@ -686,6 +817,9 @@ const products = [
         category: "burgers",
         price: 3190,
         image: "images/manhattan.png",
+        images: [
+            "images/manhattan.png"
+        ],
         name: {
             ru: "Манхэттен",
             kz: "Манхэттен",
@@ -703,6 +837,9 @@ const products = [
         category: "burgers",
         price: 2690,
         image: "images/street-chicken.png",
+        images: [
+            "images/street-chicken.png"
+        ],
         name: {
             ru: "Стрит куриный",
             kz: "Стрит тауық бургері",
@@ -719,9 +856,14 @@ const products = [
         id: 65,
         category: "burgers",
         price: 2890,
-        image: "images/chinatown.png",
+        image: "images/chinatown.webp",
+        images: [
+            "images/chinatown.webp",
+            "images/chinatown2.webp",
+            "images/chinatown3.webp"
+        ],
         name: {
-            ru: "Чайна таун",
+            ru: "Чайна Таун",
             kz: "Чайна Таун",
             en: "Chinatown"
         },
@@ -732,11 +874,16 @@ const products = [
         }
     },
 
+    /* PIZZA */
+
     {
         id: 70,
         category: "pizza",
         price: 3090,
         image: "images/margarita.png",
+        images: [
+            "images/margarita.png"
+        ],
         name: {
             ru: "Маргарита",
             kz: "Маргарита",
@@ -754,6 +901,9 @@ const products = [
         category: "pizza",
         price: 4190,
         image: "images/four-cheese.png",
+        images: [
+            "images/four-cheese.png"
+        ],
         name: {
             ru: "Пицца 4 сыра",
             kz: "4 ірімшік пиццасы",
@@ -771,6 +921,9 @@ const products = [
         category: "pizza",
         price: 3090,
         image: "images/pepperoni.png",
+        images: [
+            "images/pepperoni.png"
+        ],
         name: {
             ru: "Пепперони",
             kz: "Пепперони",
@@ -788,6 +941,9 @@ const products = [
         category: "pizza",
         price: 4290,
         image: "images/hoisin-chicken.png",
+        images: [
+            "images/hoisin-chicken.png"
+        ],
         name: {
             ru: "Курица хойсин",
             kz: "Хойсин тауық пиццасы",
@@ -805,6 +961,9 @@ const products = [
         category: "pizza",
         price: 4190,
         image: "images/minced-meat.png",
+        images: [
+            "images/minced-meat.png"
+        ],
         name: {
             ru: "Пицца с фаршем",
             kz: "Фарш қосылған пицца",
@@ -821,7 +980,10 @@ const products = [
         id: 75,
         category: "pizza",
         price: 3790,
-        image: "images/four-seasons.png",
+        image: "images/4seasons.webp",
+        images: [
+            "images/4seasons.webp"
+        ],
         name: {
             ru: "Пицца Четыре сезона",
             kz: "Төрт маусым пиццасы",
@@ -839,6 +1001,9 @@ const products = [
         category: "pizza",
         price: 4190,
         image: "images/caesar-pizza.png",
+        images: [
+            "images/caesar-pizza.png"
+        ],
         name: {
             ru: "Пицца Цезарь",
             kz: "Цезарь пиццасы",
@@ -851,11 +1016,16 @@ const products = [
         }
     },
 
+    /* PASTA */
+
     {
         id: 80,
         category: "pasta",
         price: 3290,
         image: "images/pasta-mushroom-cream.png",
+        images: [
+            "images/pasta-mushroom-cream.png"
+        ],
         name: {
             ru: "Паста с грибами в сливочном соусе",
             kz: "Кілегейлі саңырауқұлақ пастасы",
@@ -873,6 +1043,9 @@ const products = [
         category: "pasta",
         price: 3290,
         image: "images/pasta-chicken-cream.png",
+        images: [
+            "images/pasta-chicken-cream.png"
+        ],
         name: {
             ru: "Паста с курицей в сливочном соусе",
             kz: "Кілегейлі тауық пастасы",
@@ -890,6 +1063,9 @@ const products = [
         category: "pasta",
         price: 3290,
         image: "images/pasta-mix-mushrooms.png",
+        images: [
+            "images/pasta-mix-mushrooms.png"
+        ],
         name: {
             ru: "Паста микс грибы",
             kz: "Саңырауқұлақ микс пастасы",
@@ -907,6 +1083,9 @@ const products = [
         category: "pasta",
         price: 3290,
         image: "images/pasta-chicken-tomato.png",
+        images: [
+            "images/pasta-chicken-tomato.png"
+        ],
         name: {
             ru: "Паста с курицей в томатном соусе",
             kz: "Томат соусындағы тауық пастасы",
@@ -924,6 +1103,9 @@ const products = [
         category: "pasta",
         price: 3690,
         image: "images/pasta-seafood-tomato.png",
+        images: [
+            "images/pasta-seafood-tomato.png"
+        ],
         name: {
             ru: "Паста с морепродуктами в томатном соусе",
             kz: "Томат соусындағы теңіз өнімдері пастасы",
@@ -941,6 +1123,9 @@ const products = [
         category: "pasta",
         price: 3690,
         image: "images/pasta-seafood-cream.png",
+        images: [
+            "images/pasta-seafood-cream.png"
+        ],
         name: {
             ru: "Паста с морепродуктами в сливочном соусе",
             kz: "Кілегейлі теңіз өнімдері пастасы",
@@ -953,11 +1138,16 @@ const products = [
         }
     },
 
+    /* SOUPS */
+
     {
         id: 90,
         category: "soups",
         price: 3000,
         image: "images/ramen-chicken.png",
+        images: [
+            "images/ramen-chicken.png"
+        ],
         name: {
             ru: "Рамён с курицей",
             kz: "Тауықты рамен",
@@ -975,6 +1165,9 @@ const products = [
         category: "soups",
         price: 3690,
         image: "images/tom-yam.png",
+        images: [
+            "images/tom-yam.png"
+        ],
         name: {
             ru: "Том ям с морепродуктами и рисом",
             kz: "Теңіз өнімдері мен күріші бар том ям",
@@ -987,11 +1180,16 @@ const products = [
         }
     },
 
+    /* SALADS */
+
     {
         id: 92,
         category: "salads",
         price: 2590,
         image: "images/fresh-asia.png",
+        images: [
+            "images/fresh-asia.png"
+        ],
         name: {
             ru: "Салат свежие овощи Азия",
             kz: "Азиялық жаңа көкөніс салаты",
@@ -1009,6 +1207,9 @@ const products = [
         category: "salads",
         price: 2790,
         image: "images/chuka.png",
+        images: [
+            "images/chuka.png"
+        ],
         name: {
             ru: "Чука салат",
             kz: "Чука салаты",
@@ -1026,6 +1227,9 @@ const products = [
         category: "salads",
         price: 2590,
         image: "images/tutti-frutti.png",
+        images: [
+            "images/tutti-frutti.png"
+        ],
         name: {
             ru: "Салат Тутти-Фрутти",
             kz: "Тутти-Фрутти салаты",
@@ -1043,6 +1247,9 @@ const products = [
         category: "salads",
         price: 1900,
         image: "images/coleslaw.png",
+        images: [
+            "images/coleslaw.png"
+        ],
         name: {
             ru: "Салат Коул Слоу",
             kz: "Коул Слоу салаты",
@@ -1060,6 +1267,9 @@ const products = [
         category: "salads",
         price: 3590,
         image: "images/nicoise.png",
+        images: [
+            "images/nicoise.png"
+        ],
         name: {
             ru: "Салат Нисуаз",
             kz: "Нисуаз салаты",
@@ -1077,6 +1287,9 @@ const products = [
         category: "salads",
         price: 3290,
         image: "images/caesar-chicken.png",
+        images: [
+            "images/caesar-chicken.png"
+        ],
         name: {
             ru: "Цезарь с курицей",
             kz: "Тауықты Цезарь салаты",
@@ -1089,11 +1302,16 @@ const products = [
         }
     },
 
+    /* SIDES */
+
     {
         id: 100,
         category: "sides",
         price: 1400,
         image: "images/fries.png",
+        images: [
+            "images/fries.png"
+        ],
         name: {
             ru: "Картофель фри",
             kz: "Картоп фри",
@@ -1111,6 +1329,9 @@ const products = [
         category: "sides",
         price: 3100,
         image: "images/chicken-wings.png",
+        images: [
+            "images/chicken-wings.png"
+        ],
         name: {
             ru: "Крылья жареные хрустящие 10 шт",
             kz: "Қытырлақ қуырылған қанаттар 10 дана",
@@ -1128,6 +1349,9 @@ const products = [
         category: "sides",
         price: 100,
         image: "images/bun.png",
+        images: [
+            "images/bun.png"
+        ],
         name: {
             ru: "Булочка",
             kz: "Тоқаш",
@@ -1140,11 +1364,16 @@ const products = [
         }
     },
 
+    /* DRINKS */
+
     {
         id: 110,
         category: "drinks",
         price: 1290,
         image: "images/berry-mors.png",
+        images: [
+            "images/berry-mors.png"
+        ],
         name: {
             ru: "Морс ягодный 500 мл",
             kz: "Жидек морсы 500 мл",
@@ -1162,6 +1391,9 @@ const products = [
         category: "drinks",
         price: 1000,
         image: "images/coca-cola.png",
+        images: [
+            "images/coca-cola.png"
+        ],
         name: {
             ru: "Coca-Cola 330 мл",
             kz: "Coca-Cola 330 мл",
@@ -1179,6 +1411,9 @@ const products = [
         category: "drinks",
         price: 1000,
         image: "images/coca-cola-zero.png",
+        images: [
+            "images/coca-cola-zero.png"
+        ],
         name: {
             ru: "Coca-Cola Zero Sugar 330 мл",
             kz: "Coca-Cola Zero Sugar 330 мл",
@@ -1196,6 +1431,9 @@ const products = [
         category: "drinks",
         price: 1000,
         image: "images/fanta.png",
+        images: [
+            "images/fanta.png"
+        ],
         name: {
             ru: "Fanta 330 мл",
             kz: "Fanta 330 мл",
@@ -1212,11 +1450,15 @@ const products = [
 /* SETS */
 
 const sets = [
+
     {
         id: 1,
         category: "sets",
         price: 8600,
-        image: "images/seoul.png",
+        image: "images/Seoul.webp",
+        images: [
+            "images/Seoul.webp"
+        ],
         name: {
             ru: "SEOUL",
             kz: "SEOUL",
@@ -1234,6 +1476,9 @@ const sets = [
         category: "sets",
         price: 8800,
         image: "images/Hanai.png",
+        images: [
+            "images/Hanai.png"
+        ],
         name: {
             ru: "HANAI",
             kz: "HANAI",
@@ -1251,6 +1496,9 @@ const sets = [
         category: "sets",
         price: 6500,
         image: "images/Tokyo.png",
+        images: [
+            "images/Tokyo.png"
+        ],
         name: {
             ru: "TOKYO",
             kz: "TOKYO",
@@ -1268,6 +1516,9 @@ const sets = [
         category: "sets",
         price: 8600,
         image: "images/Shanghai.png",
+        images: [
+            "images/Shanghai.png"
+        ],
         name: {
             ru: "SHANGHAI",
             kz: "SHANGHAI",
@@ -1285,6 +1536,9 @@ const sets = [
         category: "sets",
         price: 9900,
         image: "images/HongKong.png",
+        images: [
+            "images/HongKong.png"
+        ],
         name: {
             ru: "HONG KONG",
             kz: "HONG KONG",
@@ -1302,6 +1556,9 @@ const sets = [
         category: "sets",
         price: 11900,
         image: "images/Osaka.png",
+        images: [
+            "images/Osaka.png"
+        ],
         name: {
             ru: "OSAKA",
             kz: "OSAKA",
@@ -1319,6 +1576,9 @@ const sets = [
         category: "sets",
         price: 16900,
         image: "images/Jakarta.png",
+        images: [
+            "images/Jakarta.png"
+        ],
         name: {
             ru: "JAKARTA",
             kz: "JAKARTA",
@@ -1336,6 +1596,9 @@ const sets = [
         category: "sets",
         price: 12700,
         image: "images/Bangkok.png",
+        images: [
+            "images/Bangkok.png"
+        ],
         name: {
             ru: "BANGKOK",
             kz: "BANGKOK",
@@ -1353,6 +1616,11 @@ const sets = [
         category: "sets",
         price: 14500,
         image: "images/Beijing.png",
+        images: [
+            "images/Beijing.png",
+            "images/Beijing2.webp",
+            "images/Beijing3.webp"
+        ],
         name: {
             ru: "BEIJING",
             kz: "BEIJING",
@@ -1370,6 +1638,12 @@ const sets = [
         category: "sets",
         price: 9900,
         image: "images/Busan.png",
+        images: [
+            "images/Busan.png",
+            "images/Busan2.webp",
+            "images/Busan3.webp",
+            "images/Busan4.webp"
+        ],
         name: {
             ru: "BUSAN",
             kz: "BUSAN",
@@ -1387,6 +1661,9 @@ const sets = [
         category: "sets",
         price: 8100,
         image: "images/Kyoto.png",
+        images: [
+            "images/Kyoto.png"
+        ],
         name: {
             ru: "KYOTO",
             kz: "KYOTO",
@@ -1404,6 +1681,9 @@ const sets = [
         category: "sets",
         price: 13000,
         image: "images/Suwon.png",
+        images: [
+            "images/Suwon.png"
+        ],
         name: {
             ru: "SUWON",
             kz: "SUWON",
@@ -1416,65 +1696,233 @@ const sets = [
         }
     }
 ];
-
 /* HELPERS */
 
 function getText(value) {
+
     if (!value) return "";
 
     if (typeof value === "string") {
         return value;
     }
 
-    return value[currentLanguage] || value.ru || "";
-}
-
-function formatPrice(price) {
-    return `${Number(price).toLocaleString("ru-RU")} ₸`;
-}
-
-function getAllProducts() {
-    return [...products, ...sets];
-}
-
-function getProductById(id) {
-    const numberId = Number(id);
-
-    return getAllProducts().find(
-        product => product.id === numberId
+    return (
+        value[currentLanguage] ||
+        value.ru ||
+        ""
     );
 }
 
-function escapeHtml(text) {
-    const div = document.createElement("div");
+function formatPrice(price) {
 
-    div.textContent = text ?? "";
+    return `${Number(price).toLocaleString("ru-RU")} ₸`;
+}
+
+function escapeHtml(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        text ?? "";
 
     return div.innerHTML;
 }
 
+function getAllProducts() {
+
+    return [
+        ...products,
+        ...sets
+    ];
+}
+
+function getProductById(id) {
+
+    const numberId =
+        Number(id);
+
+    return getAllProducts().find(
+        product =>
+            product.id === numberId
+    );
+}
+
+/* PROMO */
+
+function isPromoTime() {
+
+    const now = new Date();
+
+    const day =
+        now.getDay();
+
+    const hour =
+        now.getHours();
+
+    const minutes =
+        now.getMinutes();
+
+    const currentMinutes =
+        hour * 60 + minutes;
+
+    const start =
+        15 * 60;
+
+    const end =
+        17 * 60;
+
+    const weekday =
+        day >= 1 &&
+        day <= 5;
+
+    return (
+        weekday &&
+        currentMinutes >= start &&
+        currentMinutes < end
+    );
+}
+
+function getPromoEligibleQuantity() {
+
+    return cart.reduce(
+        (total, item) => {
+
+            const product =
+                getProductById(item.id);
+
+            if (
+                product &&
+                product.category === "wok"
+            ) {
+                return total + item.quantity;
+            }
+
+            return total;
+        },
+        0
+    );
+}
+
+function getPromoRewards() {
+
+    if (!isPromoTime()) {
+        return 0;
+    }
+
+    const quantity =
+        getPromoEligibleQuantity();
+
+    return Math.floor(
+        quantity / 2
+    );
+}
+
+function getPromoDiscount() {
+
+    const rewards =
+        getPromoRewards();
+
+    const freeProduct =
+        getProductById(47);
+
+    if (!freeProduct) {
+        return 0;
+    }
+
+    return (
+        rewards *
+        freeProduct.price
+    );
+}
+
+function getPromoText() {
+
+    return `
+        <div class="promo-box">
+            <strong>${ui[currentLanguage].promo}</strong>
+            <span>${ui[currentLanguage].promoText}</span>
+            <small>${ui[currentLanguage].promoTime}</small>
+        </div>
+    `;
+}
+
+/* PROMO BANNER */
+
+function renderPromoBanner() {
+
+    let banner =
+        document.getElementById(
+            "wokipasta-promo"
+        );
+
+    const menu =
+        document.getElementById("menu");
+
+    if (!menu) return;
+
+    if (!banner) {
+
+        banner =
+            document.createElement("div");
+
+        banner.id =
+            "wokipasta-promo";
+
+        menu.prepend(banner);
+    }
+
+    banner.innerHTML =
+        getPromoText();
+
+    if (isPromoTime()) {
+
+        banner.classList.add(
+            "promo-active"
+        );
+
+    } else {
+
+        banner.classList.remove(
+            "promo-active"
+        );
+    }
+}
+
 /* PRODUCTS */
 
-function renderProducts(category = "all") {
-    const container = document.getElementById("products");
+function renderProducts(
+    category = "all"
+) {
+
+    const container =
+        document.getElementById(
+            "products"
+        );
 
     if (!container) return;
 
-    let filtered = products;
+    let filtered =
+        products;
 
     if (
         category &&
         category !== "all" &&
         category !== "sets"
     ) {
-        filtered = products.filter(
-            product => product.category === category
-        );
+
+        filtered =
+            products.filter(
+                product =>
+                    product.category ===
+                    category
+            );
     }
 
     container.innerHTML = "";
 
     if (!filtered.length) {
+
         container.innerHTML = `
             <p class="empty-products">
                 ${
@@ -1492,15 +1940,23 @@ function renderProducts(category = "all") {
 
     filtered.forEach(product => {
 
-        const card = document.createElement("article");
+        const card =
+            document.createElement(
+                "article"
+            );
 
-        card.className = "product";
+        card.className =
+            "product";
 
         card.innerHTML = `
             <img
                 class="product-image"
                 src="${product.image}"
-                alt="${escapeHtml(getText(product.name))}"
+                alt="${escapeHtml(
+                    getText(
+                        product.name
+                    )
+                )}"
                 onclick="openProduct(${product.id})"
                 onerror="this.style.display='none'"
             >
@@ -1508,22 +1964,35 @@ function renderProducts(category = "all") {
             <div class="product-info">
 
                 <h3>
-                    ${escapeHtml(getText(product.name))}
+                    ${escapeHtml(
+                        getText(
+                            product.name
+                        )
+                    )}
                 </h3>
 
                 <p>
-                    ${escapeHtml(getText(product.description))}
+                    ${escapeHtml(
+                        getText(
+                            product.description
+                        )
+                    )}
                 </p>
 
                 <div class="product-bottom">
 
                     <strong>
-                        ${formatPrice(product.price)}
+                        ${formatPrice(
+                            product.price
+                        )}
                     </strong>
 
                     <button
                         class="add-to-cart"
-                        onclick="event.stopPropagation(); addToCart(${product.id})"
+                        onclick="
+                            event.stopPropagation();
+                            addToCart(${product.id})
+                        "
                     >
                         ${ui[currentLanguage].add}
                     </button>
@@ -1540,7 +2009,11 @@ function renderProducts(category = "all") {
 /* SETS */
 
 function renderSets() {
-    const container = document.getElementById("sets-grid");
+
+    const container =
+        document.getElementById(
+            "sets-grid"
+        );
 
     if (!container) return;
 
@@ -1548,14 +2021,22 @@ function renderSets() {
 
     sets.forEach(set => {
 
-        const card = document.createElement("article");
+        const card =
+            document.createElement(
+                "article"
+            );
 
-        card.className = "set-card";
+        card.className =
+            "set-card";
 
         card.innerHTML = `
             <img
                 src="${set.image}"
-                alt="${escapeHtml(getText(set.name))}"
+                alt="${escapeHtml(
+                    getText(
+                        set.name
+                    )
+                )}"
                 onclick="openProduct(${set.id})"
                 onerror="this.style.display='none'"
             >
@@ -1563,22 +2044,35 @@ function renderSets() {
             <div class="set-info">
 
                 <h3>
-                    ${escapeHtml(getText(set.name))}
+                    ${escapeHtml(
+                        getText(
+                            set.name
+                        )
+                    )}
                 </h3>
 
                 <p>
-                    ${escapeHtml(getText(set.description))}
+                    ${escapeHtml(
+                        getText(
+                            set.description
+                        )
+                    )}
                 </p>
 
                 <div class="product-bottom">
 
                     <strong>
-                        ${formatPrice(set.price)}
+                        ${formatPrice(
+                            set.price
+                        )}
                     </strong>
 
                     <button
                         class="add-to-cart"
-                        onclick="event.stopPropagation(); addToCart(${set.id})"
+                        onclick="
+                            event.stopPropagation();
+                            addToCart(${set.id})
+                        "
                     >
                         ${ui[currentLanguage].add}
                     </button>
@@ -1594,31 +2088,47 @@ function renderSets() {
 
 /* CATEGORIES */
 
-function filterMenu(category, button) {
+function filterMenu(
+    category,
+    button
+) {
 
-    currentCategory = category;
+    currentCategory =
+        category;
 
-    window.currentCategory = category;
+    window.currentCategory =
+        category;
 
     document
-        .querySelectorAll(".category")
+        .querySelectorAll(
+            ".category"
+        )
         .forEach(item => {
-            item.classList.remove("active");
+
+            item.classList.remove(
+                "active"
+            );
+
         });
 
     if (button) {
-        button.classList.add("active");
+        button.classList.add(
+            "active"
+        );
     }
 
     if (category === "sets") {
 
         renderSets();
 
-        const setsSection =
-            document.getElementById("sets");
+        const section =
+            document.getElementById(
+                "sets"
+            );
 
-        if (setsSection) {
-            setsSection.scrollIntoView({
+        if (section) {
+
+            section.scrollIntoView({
                 behavior: "smooth",
                 block: "start"
             });
@@ -1627,13 +2137,18 @@ function filterMenu(category, button) {
         return;
     }
 
-    renderProducts(category);
+    renderProducts(
+        category
+    );
 
-    const menuSection =
-        document.getElementById("menu");
+    const menu =
+        document.getElementById(
+            "menu"
+        );
 
-    if (menuSection) {
-        menuSection.scrollIntoView({
+    if (menu) {
+
+        menu.scrollIntoView({
             behavior: "smooth",
             block: "start"
         });
@@ -1643,6 +2158,7 @@ function filterMenu(category, button) {
 /* CART */
 
 function saveCart() {
+
     localStorage.setItem(
         "wokipasta_cart",
         JSON.stringify(cart)
@@ -1650,6 +2166,7 @@ function saveCart() {
 }
 
 function loadCart() {
+
     try {
 
         const saved =
@@ -1657,9 +2174,10 @@ function loadCart() {
                 "wokipasta_cart"
             );
 
-        cart = saved
-            ? JSON.parse(saved)
-            : [];
+        cart =
+            saved
+                ? JSON.parse(saved)
+                : [];
 
         if (!Array.isArray(cart)) {
             cart = [];
@@ -1668,19 +2186,22 @@ function loadCart() {
     } catch {
 
         cart = [];
-
     }
 }
 
 function addToCart(id) {
 
-    const product = getProductById(id);
+    const product =
+        getProductById(id);
 
     if (!product) return;
 
-    const existing = cart.find(
-        item => item.id === product.id
-    );
+    const existing =
+        cart.find(
+            item =>
+                item.id ===
+                product.id
+        );
 
     if (existing) {
 
@@ -1696,15 +2217,16 @@ function addToCart(id) {
     }
 
     saveCart();
-
     updateCart();
 }
 
 function removeFromCart(id) {
 
-    const item = cart.find(
-        product => product.id === id
-    );
+    const item =
+        cart.find(
+            product =>
+                product.id === id
+        );
 
     if (!item) return;
 
@@ -1712,14 +2234,14 @@ function removeFromCart(id) {
 
     if (item.quantity <= 0) {
 
-        cart = cart.filter(
-            product => product.id !== id
-        );
-
+        cart =
+            cart.filter(
+                product =>
+                    product.id !== id
+            );
     }
 
     saveCart();
-
     updateCart();
 }
 
@@ -1732,42 +2254,52 @@ function clearCart() {
     updateCart();
 }
 
+/* CART */
+
 function updateCart() {
 
-    const cartContainer =
-        document.getElementById("cart-items");
+    const container =
+        document.getElementById(
+            "cart-items"
+        );
 
-    const cartTotal =
-        document.getElementById("cart-total");
+    const totalElement =
+        document.getElementById(
+            "cart-total"
+        );
 
-    const cartCount =
-        document.getElementById("cart-count");
+    const countElement =
+        document.getElementById(
+            "cart-count"
+        );
 
-    if (!cartContainer) return;
+    if (!container) return;
 
     if (!cart.length) {
 
-        cartContainer.innerHTML = `
+        container.innerHTML = `
             <div class="empty-cart">
                 ${ui[currentLanguage].emptyCart}
             </div>
         `;
 
-        if (cartTotal) {
-            cartTotal.textContent = "0 ₸";
+        if (totalElement) {
+            totalElement.textContent =
+                "0 ₸";
         }
 
-        if (cartCount) {
-            cartCount.textContent = "0";
+        if (countElement) {
+            countElement.textContent =
+                "0";
         }
 
         return;
     }
 
-    let total = 0;
-    let count = 0;
+    let subtotal = 0;
+    let quantity = 0;
 
-    cartContainer.innerHTML = "";
+    container.innerHTML = "";
 
     cart.forEach(item => {
 
@@ -1776,29 +2308,36 @@ function updateCart() {
 
         if (!product) return;
 
-        const itemTotal =
-            product.price * item.quantity;
+        subtotal +=
+            product.price *
+            item.quantity;
 
-        total += itemTotal;
-
-        count += item.quantity;
+        quantity +=
+            item.quantity;
 
         const row =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
-        row.className = "cart-item";
+        row.className =
+            "cart-item";
 
         row.innerHTML = `
             <div class="cart-item-info">
 
                 <strong>
                     ${escapeHtml(
-                        getText(product.name)
+                        getText(
+                            product.name
+                        )
                     )}
                 </strong>
 
                 <span>
-                    ${formatPrice(product.price)}
+                    ${formatPrice(
+                        product.price
+                    )}
                 </span>
 
             </div>
@@ -1806,7 +2345,9 @@ function updateCart() {
             <div class="cart-item-controls">
 
                 <button
-                    onclick="removeFromCart(${product.id})"
+                    onclick="
+                        removeFromCart(${product.id})
+                    "
                 >
                     −
                 </button>
@@ -1816,7 +2357,9 @@ function updateCart() {
                 </span>
 
                 <button
-                    onclick="addToCart(${product.id})"
+                    onclick="
+                        addToCart(${product.id})
+                    "
                 >
                     +
                 </button>
@@ -1824,17 +2367,65 @@ function updateCart() {
             </div>
         `;
 
-        cartContainer.appendChild(row);
+        container.appendChild(row);
     });
 
-    if (cartTotal) {
-        cartTotal.textContent =
-            formatPrice(total);
+    const discount =
+        getPromoDiscount();
+
+    const finalTotal =
+        Math.max(
+            0,
+            subtotal - discount
+        );
+
+    if (discount > 0) {
+
+        const promoRow =
+            document.createElement(
+                "div"
+            );
+
+        promoRow.className =
+            "cart-promo";
+
+        promoRow.innerHTML = `
+            <strong>
+                ${ui[currentLanguage].promo}
+            </strong>
+
+            <span>
+                ${
+                    currentLanguage === "ru"
+                        ? `Бесплатный WOK с курицей и яичной лапшой × ${getPromoRewards()}`
+                        : currentLanguage === "kz"
+                            ? `Тауық пен жұмыртқалы кеспесі бар тегін WOK × ${getPromoRewards()}`
+                            : `Free Chicken Egg Noodle WOK × ${getPromoRewards()}`
+                }
+            </span>
+
+            <b>
+                −${formatPrice(discount)}
+            </b>
+        `;
+
+        container.appendChild(
+            promoRow
+        );
     }
 
-    if (cartCount) {
-        cartCount.textContent =
-            String(count);
+    if (totalElement) {
+
+        totalElement.textContent =
+            formatPrice(
+                finalTotal
+            );
+    }
+
+    if (countElement) {
+
+        countElement.textContent =
+            String(quantity);
     }
 }
 
@@ -1842,25 +2433,58 @@ function updateCart() {
 
 function openCart() {
 
-    const cartModal =
-        document.getElementById("cart-modal");
+    const modal =
+        document.getElementById(
+            "cart-modal"
+        );
 
-    if (cartModal) {
-        cartModal.classList.add("open");
+    if (modal) {
+        modal.classList.add(
+            "open"
+        );
     }
+
+    updateCart();
 }
 
 function closeCart() {
 
-    const cartModal =
-        document.getElementById("cart-modal");
+    const modal =
+        document.getElementById(
+            "cart-modal"
+        );
 
-    if (cartModal) {
-        cartModal.classList.remove("open");
+    if (modal) {
+        modal.classList.remove(
+            "open"
+        );
     }
 }
 
 /* PRODUCT MODAL */
+
+function getProductImages(
+    product
+) {
+
+    if (
+        product.images &&
+        Array.isArray(
+            product.images
+        ) &&
+        product.images.length
+    ) {
+        return product.images;
+    }
+
+    if (product.image) {
+        return [
+            product.image
+        ];
+    }
+
+    return [];
+}
 
 function openProduct(id) {
 
@@ -1869,51 +2493,61 @@ function openProduct(id) {
 
     if (!product) return;
 
-    currentProduct = product;
+    currentProduct =
+        product;
+
+    currentImageIndex =
+        0;
 
     const modal =
-        document.getElementById("product-modal");
-
-    const image =
-        document.getElementById("modal-image");
+        document.getElementById(
+            "product-modal"
+        );
 
     const title =
-        document.getElementById("modal-title");
+        document.getElementById(
+            "modal-title"
+        );
 
     const description =
-        document.getElementById("modal-description");
+        document.getElementById(
+            "modal-description"
+        );
 
     const price =
-        document.getElementById("modal-price");
+        document.getElementById(
+            "modal-price"
+        );
 
     const addButton =
-        document.getElementById("modal-add");
+        document.getElementById(
+            "modal-add"
+        );
 
     if (!modal) return;
 
-    if (image) {
-
-        image.src = product.image;
-
-        image.alt =
-            getText(product.name);
-
-        image.style.display = "block";
-    }
-
     if (title) {
+
         title.textContent =
-            getText(product.name);
+            getText(
+                product.name
+            );
     }
 
     if (description) {
+
         description.textContent =
-            getText(product.description);
+            getText(
+                product.description
+            );
     }
 
     if (price) {
+
         price.textContent =
-            formatPrice(product.price);
+            formatPrice(
+                product.price
+            );
     }
 
     if (addButton) {
@@ -1921,47 +2555,267 @@ function openProduct(id) {
         addButton.textContent =
             ui[currentLanguage].add;
 
-        addButton.onclick = () => {
-            addToCart(product.id);
-        };
+        addButton.onclick =
+            () => {
+
+                addToCart(
+                    product.id
+                );
+            };
     }
 
-    modal.classList.add("open");
+    renderGallery();
 
-    renderReviews(product.id);
+    modal.classList.add(
+        "open"
+    );
+
+    renderReviews(
+        product.id
+    );
 }
 
 function closeProduct() {
 
     const modal =
-        document.getElementById("product-modal");
+        document.getElementById(
+            "product-modal"
+        );
 
     if (modal) {
-        modal.classList.remove("open");
+
+        modal.classList.remove(
+            "open"
+        );
     }
 
-    currentProduct = null;
+    currentProduct =
+        null;
 }
 
-/* MODAL OUTSIDE CLICK */
+/* GALLERY */
 
-document.addEventListener("click", event => {
+function renderGallery() {
 
-    const modal =
-        document.getElementById("product-modal");
-
-    if (
-        modal &&
-        event.target === modal
-    ) {
-        closeProduct();
+    if (!currentProduct) {
+        return;
     }
 
-});
+    const images =
+        getProductImages(
+            currentProduct
+        );
+
+    const image =
+        document.getElementById(
+            "modal-image"
+        );
+
+    const dots =
+        document.getElementById(
+            "gallery-dots"
+        );
+
+    const prev =
+        document.querySelector(
+            ".gallery-prev"
+        );
+
+    const next =
+        document.querySelector(
+            ".gallery-next"
+        );
+
+    if (!image) return;
+
+    if (!images.length) {
+
+        image.style.display =
+            "none";
+
+        if (dots) {
+            dots.innerHTML =
+                "";
+        }
+
+        return;
+    }
+
+    image.style.display =
+        "block";
+
+    image.src =
+        images[currentImageIndex];
+
+    image.alt =
+        getText(
+            currentProduct.name
+        );
+
+    if (images.length <= 1) {
+
+        if (prev) {
+            prev.style.display =
+                "none";
+        }
+
+        if (next) {
+            next.style.display =
+                "none";
+        }
+
+        if (dots) {
+            dots.innerHTML =
+                "";
+        }
+
+        return;
+    }
+
+    if (prev) {
+        prev.style.display =
+            "block";
+    }
+
+    if (next) {
+        next.style.display =
+            "block";
+    }
+
+    if (!dots) return;
+
+    dots.innerHTML = "";
+
+    images.forEach(
+        (_, index) => {
+
+            const dot =
+                document.createElement(
+                    "button"
+                );
+
+            dot.type =
+                "button";
+
+            dot.className =
+                "gallery-dot";
+
+            if (
+                index ===
+                currentImageIndex
+            ) {
+
+                dot.classList.add(
+                    "active"
+                );
+            }
+
+            dot.onclick =
+                () => {
+
+                    currentImageIndex =
+                        index;
+
+                    renderGallery();
+                };
+
+            dots.appendChild(
+                dot
+            );
+        }
+    );
+}
+
+function nextImage() {
+
+    if (!currentProduct) {
+        return;
+    }
+
+    const images =
+        getProductImages(
+            currentProduct
+        );
+
+    if (
+        images.length <= 1
+    ) {
+        return;
+    }
+
+    currentImageIndex =
+        (
+            currentImageIndex +
+            1
+        ) % images.length;
+
+    renderGallery();
+}
+
+function previousImage() {
+
+    if (!currentProduct) {
+        return;
+    }
+
+    const images =
+        getProductImages(
+            currentProduct
+        );
+
+    if (
+        images.length <= 1
+    ) {
+        return;
+    }
+
+    currentImageIndex =
+        (
+            currentImageIndex -
+            1 +
+            images.length
+        ) % images.length;
+
+    renderGallery();
+}
+
+/* MODAL CLICK */
+
+document.addEventListener(
+    "click",
+    event => {
+
+        const productModal =
+            document.getElementById(
+                "product-modal"
+            );
+
+        const cartModal =
+            document.getElementById(
+                "cart-modal"
+            );
+
+        if (
+            productModal &&
+            event.target ===
+                productModal
+        ) {
+
+            closeProduct();
+        }
+
+        if (
+            cartModal &&
+            event.target ===
+                cartModal
+        ) {
+
+            closeCart();
+        }
+    }
+);
 
 /* REVIEWS */
-
-let reviews = [];
 
 function loadReviews() {
 
@@ -1972,9 +2826,10 @@ function loadReviews() {
                 "wokipasta_reviews"
             );
 
-        reviews = saved
-            ? JSON.parse(saved)
-            : [];
+        reviews =
+            saved
+                ? JSON.parse(saved)
+                : [];
 
         if (!Array.isArray(reviews)) {
             reviews = [];
@@ -1983,7 +2838,6 @@ function loadReviews() {
     } catch {
 
         reviews = [];
-
     }
 }
 
@@ -1991,7 +2845,9 @@ function saveReviews() {
 
     localStorage.setItem(
         "wokipasta_reviews",
-        JSON.stringify(reviews)
+        JSON.stringify(
+            reviews
+        )
     );
 }
 
@@ -2012,30 +2868,16 @@ function createReviewsBlock() {
         if (!modalInfo) return;
 
         container =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
         container.id =
             "reviews-container";
 
-        const addButton =
-            document.getElementById(
-                "modal-add"
-            );
-
-        if (addButton) {
-
-            modalInfo.insertBefore(
-                container,
-                addButton
-            );
-
-        } else {
-
-            modalInfo.appendChild(
-                container
-            );
-
-        }
+        modalInfo.appendChild(
+            container
+        );
     }
 
     let section =
@@ -2051,7 +2893,9 @@ function createReviewsBlock() {
     }
 
     section =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     section.id =
         "reviews-section";
@@ -2139,56 +2983,67 @@ function createReviewsBlock() {
         </div>
     `;
 
-    container.appendChild(section);
+    container.appendChild(
+        section
+    );
 
     let selectedRating = 5;
-
-    section
-        .querySelectorAll(".review-stars button")
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    selectedRating =
-                        Number(
-                            button.dataset.rating
-                        );
-
-                    section
-                        .querySelectorAll(
-                            ".review-stars button"
-                        )
-                        .forEach(star => {
-
-                            star.classList.toggle(
-                                "active",
-                                Number(
-                                    star.dataset.rating
-                                ) <= selectedRating
-                            );
-
-                        });
-
-                }
-            );
-
-        });
 
     section
         .querySelectorAll(
             ".review-stars button"
         )
-        .forEach(star => {
+        .forEach(
+            button => {
 
-            star.classList.toggle(
-                "active",
-                Number(star.dataset.rating) <=
-                    selectedRating
-            );
+                button.addEventListener(
+                    "click",
+                    () => {
 
-        });
+                        selectedRating =
+                            Number(
+                                button.dataset
+                                    .rating
+                            );
+
+                        section
+                            .querySelectorAll(
+                                ".review-stars button"
+                            )
+                            .forEach(
+                                star => {
+
+                                    star.classList.toggle(
+                                        "active",
+                                        Number(
+                                            star.dataset
+                                                .rating
+                                        ) <=
+                                            selectedRating
+                                    );
+                                }
+                            );
+                    }
+                );
+            }
+        );
+
+    section
+        .querySelectorAll(
+            ".review-stars button"
+        )
+        .forEach(
+            star => {
+
+                star.classList.toggle(
+                    "active",
+                    Number(
+                        star.dataset.rating
+                    ) <=
+                        selectedRating
+                );
+            }
+        );
 
     section
         .querySelector(
@@ -2197,7 +3052,10 @@ function createReviewsBlock() {
         .addEventListener(
             "click",
             () => {
-                submitReview(selectedRating);
+
+                submitReview(
+                    selectedRating
+                );
             }
         );
 }
@@ -2214,48 +3072,60 @@ function updateReviewTexts() {
             "review-form-title"
         );
 
-    const nameInput =
+    const name =
         document.getElementById(
             "review-name"
         );
 
-    const textInput =
+    const text =
         document.getElementById(
             "review-text"
         );
 
-    const submitButton =
+    const submit =
         document.getElementById(
             "submit-review"
         );
 
     if (title) {
+
         title.textContent =
-            ui[currentLanguage].reviews;
+            ui[currentLanguage]
+                .reviews;
     }
 
     if (formTitle) {
+
         formTitle.textContent =
-            ui[currentLanguage].leaveReview;
+            ui[currentLanguage]
+                .leaveReview;
     }
 
-    if (nameInput) {
-        nameInput.placeholder =
-            ui[currentLanguage].name;
+    if (name) {
+
+        name.placeholder =
+            ui[currentLanguage]
+                .name;
     }
 
-    if (textInput) {
-        textInput.placeholder =
-            ui[currentLanguage].comment;
+    if (text) {
+
+        text.placeholder =
+            ui[currentLanguage]
+                .comment;
     }
 
-    if (submitButton) {
-        submitButton.textContent =
-            ui[currentLanguage].sendReview;
+    if (submit) {
+
+        submit.textContent =
+            ui[currentLanguage]
+                .sendReview;
     }
 }
 
-function renderReviews(productId) {
+function renderReviews(
+    productId
+) {
 
     createReviewsBlock();
 
@@ -2271,21 +3141,27 @@ function renderReviews(productId) {
             "reviews-average"
         );
 
-    if (!list || !average) return;
+    if (!list || !average) {
+        return;
+    }
 
     const productReviews =
         reviews.filter(
             review =>
-                Number(review.productId) ===
+                Number(
+                    review.productId
+                ) ===
                 Number(productId)
         );
 
     if (!productReviews.length) {
 
         average.textContent =
-            ui[currentLanguage].noReviews;
+            ui[currentLanguage]
+                .noReviews;
 
-        list.innerHTML = "";
+        list.innerHTML =
+            "";
 
         return;
     }
@@ -2293,12 +3169,16 @@ function renderReviews(productId) {
     const sum =
         productReviews.reduce(
             (total, review) =>
-                total + Number(review.rating),
+                total +
+                Number(
+                    review.rating
+                ),
             0
         );
 
     const avg =
-        sum / productReviews.length;
+        sum /
+        productReviews.length;
 
     average.innerHTML = `
         <strong>
@@ -2311,57 +3191,78 @@ function renderReviews(productId) {
         </span>
     `;
 
-    list.innerHTML = "";
+    list.innerHTML =
+        "";
 
     productReviews
         .slice()
         .reverse()
-        .forEach(review => {
+        .forEach(
+            review => {
 
-            const item =
-                document.createElement("div");
+                const item =
+                    document.createElement(
+                        "div"
+                    );
 
-            item.className =
-                "review-item";
+                item.className =
+                    "review-item";
 
-            item.innerHTML = `
-                <div class="review-top">
+                item.innerHTML = `
+                    <div class="review-top">
 
-                    <strong>
-                        ${escapeHtml(review.name)}
-                    </strong>
+                        <strong>
+                            ${escapeHtml(
+                                review.name
+                            )}
+                        </strong>
 
-                    <span class="review-date">
-                        ${escapeHtml(review.date)}
-                    </span>
+                        <span class="review-date">
+                            ${escapeHtml(
+                                review.date
+                            )}
+                        </span>
 
-                </div>
+                    </div>
 
-                <div class="review-rating">
+                    <div class="review-rating">
 
-                    ${"★".repeat(
-                        Number(review.rating)
-                    )}
+                        ${"★".repeat(
+                            Number(
+                                review.rating
+                            )
+                        )}
 
-                    ${"☆".repeat(
-                        5 - Number(review.rating)
-                    )}
+                        ${"☆".repeat(
+                            5 -
+                            Number(
+                                review.rating
+                            )
+                        )}
 
-                </div>
+                    </div>
 
-                <p>
-                    ${escapeHtml(review.text)}
-                </p>
-            `;
+                    <p>
+                        ${escapeHtml(
+                            review.text
+                        )}
+                    </p>
+                `;
 
-            list.appendChild(item);
-
-        });
+                list.appendChild(
+                    item
+                );
+            }
+        );
 }
 
-function submitReview(rating) {
+function submitReview(
+    rating
+) {
 
-    if (!currentProduct) return;
+    if (!currentProduct) {
+        return;
+    }
 
     const nameInput =
         document.getElementById(
@@ -2373,7 +3274,12 @@ function submitReview(rating) {
             "review-text"
         );
 
-    if (!nameInput || !textInput) return;
+    if (
+        !nameInput ||
+        !textInput
+    ) {
+        return;
+    }
 
     const name =
         nameInput.value.trim();
@@ -2384,7 +3290,8 @@ function submitReview(rating) {
     if (!name || !text) {
 
         alert(
-            ui[currentLanguage].fillReview
+            ui[currentLanguage]
+                .fillReview
         );
 
         return;
@@ -2402,39 +3309,49 @@ function submitReview(rating) {
         rating,
 
         date:
-            new Date().toLocaleDateString(
-                currentLanguage === "ru"
-                    ? "ru-RU"
-                    : currentLanguage === "kz"
-                        ? "kk-KZ"
-                        : "en-US"
-            )
-
+            new Date()
+                .toLocaleDateString(
+                    currentLanguage === "ru"
+                        ? "ru-RU"
+                        : currentLanguage === "kz"
+                            ? "kk-KZ"
+                            : "en-US"
+                )
     });
 
     saveReviews();
 
-    nameInput.value = "";
-    textInput.value = "";
+    nameInput.value =
+        "";
+
+    textInput.value =
+        "";
 
     renderReviews(
         currentProduct.id
     );
 
     alert(
-        ui[currentLanguage].thankReview
+        ui[currentLanguage]
+            .thankReview
     );
 }
 
 /* LANGUAGE */
 
-function changeLanguage(language) {
+function changeLanguage(
+    language
+) {
 
-    if (!["ru", "kz", "en"].includes(language)) {
+    if (
+        !["ru", "kz", "en"]
+            .includes(language)
+    ) {
         language = "ru";
     }
 
-    currentLanguage = language;
+    currentLanguage =
+        language;
 
     localStorage.setItem(
         "wokipasta_language",
@@ -2445,45 +3362,67 @@ function changeLanguage(language) {
         currentLanguage;
 
 
-    /* ACTIVE LANGUAGE */
+    /* ACTIVE BUTTON */
 
     document
-        .querySelectorAll(".language")
-        .forEach(button => {
+        .querySelectorAll(
+            ".language"
+        )
+        .forEach(
+            button => {
 
-            button.classList.remove("active");
-
-        });
-
-    const activeButton =
-        document.querySelector(
-            `.language[onclick="changeLanguage('${language}')"]`
+                button.classList.remove(
+                    "active"
+                );
+            }
         );
 
-    if (activeButton) {
-        activeButton.classList.add("active");
-    }
+    document
+        .querySelectorAll(
+            ".language"
+        )
+        .forEach(
+            button => {
+
+                if (
+                    button.textContent
+                        .trim()
+                        .toLowerCase() ===
+                    currentLanguage
+                ) {
+
+                    button.classList.add(
+                        "active"
+                    );
+                }
+            }
+        );
 
 
-    /* STATIC TEXT */
+    /* STATIC */
 
     document
         .querySelectorAll(
             "[data-ru], [data-kz], [data-en]"
         )
-        .forEach(element => {
+        .forEach(
+            element => {
 
-            const translated =
-                element.getAttribute(
-                    `data-${currentLanguage}`
-                );
+                const translated =
+                    element.getAttribute(
+                        `data-${currentLanguage}`
+                    );
 
-            if (translated !== null) {
-                element.innerHTML =
-                    translated;
+                if (
+                    translated !==
+                    null
+                ) {
+
+                    element.innerHTML =
+                        translated;
+                }
             }
-
-        });
+        );
 
 
     /* SEARCH */
@@ -2501,10 +3440,10 @@ function changeLanguage(language) {
             );
 
         if (placeholder) {
+
             searchInput.placeholder =
                 placeholder;
         }
-
     }
 
 
@@ -2518,64 +3457,37 @@ function changeLanguage(language) {
 
     updateCart();
 
-    updateStaticLanguage();
-
-
-    /* PRODUCT */
-
-    if (currentProduct) {
-        openProduct(
-            currentProduct.id
-        );
-    }
-
-
-    /* REVIEW */
+    renderPromoBanner();
 
     updateReviewTexts();
-}
 
-/* STATIC LANGUAGE */
 
-function updateStaticLanguage() {
+    if (currentProduct) {
 
-    document
-        .querySelectorAll(
-            "[data-i18n]"
-        )
-        .forEach(element => {
+        const id =
+            currentProduct.id;
 
-            const key =
-                element.dataset.i18n;
-
-            if (
-                key &&
-                ui[currentLanguage][key]
-            ) {
-                element.textContent =
-                    ui[currentLanguage][key];
-            }
-
-        });
+        openProduct(id);
+    }
 }
 
 /* SEARCH */
 
 function setupSearch() {
 
-    const searchInput =
+    const input =
         document.getElementById(
             "menu-search"
         );
 
-    if (!searchInput) return;
+    if (!input) return;
 
-    searchInput.addEventListener(
+    input.addEventListener(
         "input",
         () => {
 
             const query =
-                searchInput.value
+                input.value
                     .toLowerCase()
                     .trim();
 
@@ -2584,107 +3496,112 @@ function setupSearch() {
                     "products"
                 );
 
-            if (!container) return;
-
-            let filtered;
-
-            if (!query) {
-
-                filtered = products;
-
-            } else {
-
-                filtered =
-                    products.filter(
-                        product => {
-
-                            const name =
-                                getText(
-                                    product.name
-                                ).toLowerCase();
-
-                            const description =
-                                getText(
-                                    product.description
-                                ).toLowerCase();
-
-                            return (
-                                name.includes(query) ||
-                                description.includes(query)
-                            );
-
-                        }
-                    );
-
+            if (!container) {
+                return;
             }
 
-            container.innerHTML = "";
+            const filtered =
+                products.filter(
+                    product => {
 
-            filtered.forEach(product => {
-
-                const card =
-                    document.createElement(
-                        "article"
-                    );
-
-                card.className =
-                    "product";
-
-                card.innerHTML = `
-                    <img
-                        class="product-image"
-                        src="${product.image}"
-                        alt="${escapeHtml(
+                        const name =
                             getText(
                                 product.name
                             )
-                        )}"
-                        onclick="openProduct(${product.id})"
-                        onerror="this.style.display='none'"
-                    >
+                                .toLowerCase();
 
-                    <div class="product-info">
+                        const description =
+                            getText(
+                                product.description
+                            )
+                                .toLowerCase();
 
-                        <h3>
-                            ${escapeHtml(
+                        return (
+                            name.includes(
+                                query
+                            ) ||
+                            description.includes(
+                                query
+                            )
+                        );
+                    }
+                );
+
+            container.innerHTML =
+                "";
+
+            filtered.forEach(
+                product => {
+
+                    const card =
+                        document.createElement(
+                            "article"
+                        );
+
+                    card.className =
+                        "product";
+
+                    card.innerHTML = `
+                        <img
+                            class="product-image"
+                            src="${product.image}"
+                            alt="${escapeHtml(
                                 getText(
                                     product.name
                                 )
-                            )}
-                        </h3>
+                            )}"
+                            onclick="openProduct(${product.id})"
+                            onerror="
+                                this.style.display='none'
+                            "
+                        >
 
-                        <p>
-                            ${escapeHtml(
-                                getText(
-                                    product.description
-                                )
-                            )}
-                        </p>
+                        <div class="product-info">
 
-                        <div class="product-bottom">
-
-                            <strong>
-                                ${formatPrice(
-                                    product.price
+                            <h3>
+                                ${escapeHtml(
+                                    getText(
+                                        product.name
+                                    )
                                 )}
-                            </strong>
+                            </h3>
 
-                            <button
-                                class="add-to-cart"
-                                onclick="event.stopPropagation(); addToCart(${product.id})"
-                            >
-                                ${ui[currentLanguage].add}
-                            </button>
+                            <p>
+                                ${escapeHtml(
+                                    getText(
+                                        product.description
+                                    )
+                                )}
+                            </p>
+
+                            <div class="product-bottom">
+
+                                <strong>
+                                    ${formatPrice(
+                                        product.price
+                                    )}
+                                </strong>
+
+                                <button
+                                    class="add-to-cart"
+                                    onclick="
+                                        event.stopPropagation();
+                                        addToCart(${product.id})
+                                    "
+                                >
+                                    ${ui[currentLanguage].add}
+                                </button>
+
+                            </div>
 
                         </div>
+                    `;
 
-                    </div>
-                `;
-
-                container.appendChild(card);
-
-            });
-
+                    container.appendChild(
+                        card
+                    );
+                }
+            );
         }
     );
 }
@@ -2696,18 +3613,90 @@ function checkout() {
     if (!cart.length) {
 
         alert(
-            ui[currentLanguage].orderEmpty
+            ui[currentLanguage]
+                .orderEmpty
         );
 
         return;
     }
 
+    const subtotal =
+        cart.reduce(
+            (total, item) => {
+
+                const product =
+                    getProductById(
+                        item.id
+                    );
+
+                if (!product) {
+                    return total;
+                }
+
+                return (
+                    total +
+                    product.price *
+                    item.quantity
+                );
+
+            },
+            0
+        );
+
+    const discount =
+        getPromoDiscount();
+
+    const total =
+        Math.max(
+            0,
+            subtotal -
+            discount
+        );
+
+    let message;
+
+    if (
+        currentLanguage ===
+        "ru"
+    ) {
+
+        message =
+            `Спасибо! Заказ принят.\n\nИтого: ${formatPrice(total)}`;
+
+        if (discount > 0) {
+
+            message +=
+                `\n\nАкция применена: −${formatPrice(discount)}`;
+        }
+
+    } else if (
+        currentLanguage ===
+        "kz"
+    ) {
+
+        message =
+            `Рахмет! Тапсырысыңыз қабылданды.\n\nБарлығы: ${formatPrice(total)}`;
+
+        if (discount > 0) {
+
+            message +=
+                `\n\nАкция қолданылды: −${formatPrice(discount)}`;
+        }
+
+    } else {
+
+        message =
+            `Thank you! Your order has been accepted.\n\nTotal: ${formatPrice(total)}`;
+
+        if (discount > 0) {
+
+            message +=
+                `\n\nPromotion applied: −${formatPrice(discount)}`;
+        }
+    }
+
     alert(
-        currentLanguage === "ru"
-            ? "Спасибо! Заказ принят."
-            : currentLanguage === "kz"
-                ? "Рахмет! Тапсырысыңыз қабылданды."
-                : "Thank you! Your order has been accepted."
+        message
     );
 }
 
@@ -2723,16 +3712,20 @@ document.addEventListener(
             );
 
         if (
-            ["ru", "kz", "en"].includes(
-                savedLanguage
-            )
+            ["ru", "kz", "en"]
+                .includes(
+                    savedLanguage
+                )
         ) {
+
             currentLanguage =
                 savedLanguage;
-        } else {
-            currentLanguage = "ru";
-        }
 
+        } else {
+
+            currentLanguage =
+                "ru";
+        }
 
         document.documentElement.lang =
             currentLanguage;
@@ -2741,25 +3734,38 @@ document.addEventListener(
         /* ACTIVE LANGUAGE */
 
         document
-            .querySelectorAll(".language")
-            .forEach(button => {
+            .querySelectorAll(
+                ".language"
+            )
+            .forEach(
+                button => {
 
-                button.classList.remove(
-                    "active"
-                );
-
-            });
-
-        const activeButton =
-            document.querySelector(
-                `.language[onclick="changeLanguage('${currentLanguage}')"]`
+                    button.classList.remove(
+                        "active"
+                    );
+                }
             );
 
-        if (activeButton) {
-            activeButton.classList.add(
-                "active"
+        document
+            .querySelectorAll(
+                ".language"
+            )
+            .forEach(
+                button => {
+
+                    if (
+                        button.textContent
+                            .trim()
+                            .toLowerCase() ===
+                        currentLanguage
+                    ) {
+
+                        button.classList.add(
+                            "active"
+                        );
+                    }
+                }
             );
-        }
 
 
         /* LOAD */
@@ -2780,39 +3786,22 @@ document.addEventListener(
 
         /* RENDER */
 
-        renderProducts("all");
+        renderProducts(
+            "all"
+        );
 
         renderSets();
 
         updateCart();
+
+        renderPromoBanner();
 
         updateStaticLanguage();
 
         setupSearch();
 
 
-        /* APPLY LANGUAGE */
-
-        document
-            .querySelectorAll(
-                "[data-ru], [data-kz], [data-en]"
-            )
-            .forEach(element => {
-
-                const translated =
-                    element.getAttribute(
-                        `data-${currentLanguage}`
-                    );
-
-                if (
-                    translated !== null
-                ) {
-                    element.innerHTML =
-                        translated;
-                }
-
-            });
-
+        /* PLACEHOLDER */
 
         const searchInput =
             document.getElementById(
@@ -2827,11 +3816,24 @@ document.addEventListener(
                 );
 
             if (placeholder) {
+
                 searchInput.placeholder =
                     placeholder;
             }
-
         }
 
+
+        /* PROMO REFRESH */
+
+        setInterval(
+            () => {
+
+                updateCart();
+
+                renderPromoBanner();
+
+            },
+            30000
+        );
     }
 );

@@ -1414,3 +1414,65 @@ img {
 ::-webkit-scrollbar-thumb:hover {
     background: #999;
 }
+/* PROMO */
+
+#wokipasta-promo {
+    margin: 0 auto 30px;
+    padding: 18px 22px;
+    max-width: 1200px;
+
+    background: #171717;
+    color: white;
+
+    border-radius: 16px;
+}
+
+.promo-box {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.promo-box strong {
+    color: #ff5a1f;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.promo-box span {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.promo-box small {
+    color: #aaa;
+    font-size: 13px;
+}
+
+#WOKIPASTA-promo.promo-active {
+    box-shadow: 0 0 0 2px #ff5a1f;
+}
+
+.cart-promo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    margin: 10px 0;
+    padding: 14px;
+
+    background: #f1f1f1;
+    border-radius: 12px;
+}
+
+.cart-promo strong {
+    color: #ff5a1f;
+}
+
+.cart-promo span {
+    font-size: 13px;
+}
+
+.cart-promo b {
+    font-size: 15px;
+}
