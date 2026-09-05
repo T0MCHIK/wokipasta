@@ -468,9 +468,11 @@ const products = [
         id: 39,
         category: "sushi",
         price: 2590,
-        image: "images/chicken-donut.png",
+        image: "images/DonutRoll.webp",
         images: [
-            "images/chicken-donut.png"
+            "images/DonutRoll.webp",
+            "images/DonutRoll2.webp",
+            "images/DonutRoll3.webp"
         ],
         name: {
             ru: "Пончик ролл с курицей",
@@ -630,9 +632,13 @@ const products = [
         id: 47,
         category: "wok",
         price: 3290,
-        image: "images/wok-chicken-egg.png",
+        image: "images/wokeggnoodle.webp",
         images: [
-            "images/wok-chicken-egg.png"
+            "images/wokeggnoodle.webp",
+            "images/wokeegnoodle2.webp",
+            "images/wokeggnoodle3.webp",
+            "images/wokeggnoodle4.webp",
+            "images/wokeggnoodle5.webp"
         ],
         promoProduct: true,
         name: {
@@ -796,9 +802,10 @@ const products = [
         id: 62,
         category: "burgers",
         price: 2890,
-        image: "images/street-burger.png",
+        image: "images/StreetBurger.webp",
         images: [
-            "images/street-burger.png"
+            "images/StreetBurger.webp",
+            "images/StreetBurger2.webp"
         ],
         name: {
             ru: "Стрит бургер",
@@ -816,9 +823,11 @@ const products = [
         id: 63,
         category: "burgers",
         price: 3190,
-        image: "images/manhattan.png",
+        image: "images/Manhattan.webp",
         images: [
-            "images/manhattan.png"
+            "images/Manhattan.webp",
+            "images/Manhattan2.webp",
+            "images/Manhattan3.webp"
         ],
         name: {
             ru: "Манхэттен",
@@ -836,9 +845,11 @@ const products = [
         id: 64,
         category: "burgers",
         price: 2690,
-        image: "images/street-chicken.png",
+        image: "images/Streetchicken.webp",
         images: [
-            "images/street-chicken.png"
+            "images/Streetchicken.webp",
+            "images/Streetchicken2.webp",
+            "images/Streetchicken3.webp"
         ],
         name: {
             ru: "Стрит куриный",
@@ -880,9 +891,10 @@ const products = [
         id: 70,
         category: "pizza",
         price: 3090,
-        image: "images/margarita.png",
+        image: "images/margherita.webp",
         images: [
-            "images/margarita.png"
+            "images/margherita.webp",
+            "images/margherita2.webp"
         ],
         name: {
             ru: "Маргарита",
@@ -920,9 +932,10 @@ const products = [
         id: 72,
         category: "pizza",
         price: 3090,
-        image: "images/pepperoni.png",
+        image: "images/Pepperoni.webp",
         images: [
-            "images/pepperoni.png"
+            "images/Pepperoni.webp",
+            "images/Pepperoni2.webp"
         ],
         name: {
             ru: "Пепперони",
@@ -960,9 +973,10 @@ const products = [
         id: 74,
         category: "pizza",
         price: 4190,
-        image: "images/minced-meat.png",
+        image: "images/HincedMeat.webp",
         images: [
-            "images/minced-meat.png"
+            "images/HincedMeat.webp",
+            "images/HincedMeat2.webp"
         ],
         name: {
             ru: "Пицца с фаршем",
@@ -1144,9 +1158,10 @@ const products = [
         id: 90,
         category: "soups",
         price: 3000,
-        image: "images/ramen-chicken.png",
+        image: "images/Ramen.webp",
         images: [
-            "images/ramen-chicken.png"
+            "images/Ramen.webp",
+            "images/Ramen2.webp"
         ],
         name: {
             ru: "Рамён с курицей",
@@ -1164,9 +1179,12 @@ const products = [
         id: 91,
         category: "soups",
         price: 3690,
-        image: "images/tom-yam.png",
+        image: "images/Tomyum.webp",
         images: [
-            "images/tom-yam.png"
+            "images/Tomyum.webp",
+            "images/Tomyum2.webp",
+            "images/Tomyum3.webp",
+            "images/Tomyum4.webp"
         ],
         name: {
             ru: "Том ям с морепродуктами и рисом",
@@ -1370,9 +1388,9 @@ const products = [
         id: 110,
         category: "drinks",
         price: 1290,
-        image: "images/berry-mors.png",
+        image: "images/Mors.webp",
         images: [
-            "images/berry-mors.png"
+            "images/Mors.webp"
         ],
         name: {
             ru: "Морс ягодный 500 мл",
@@ -1477,7 +1495,10 @@ const sets = [
         price: 8800,
         image: "images/Hanai.png",
         images: [
-            "images/Hanai.png"
+            "images/Hanai.png",
+            "images/Hanai2.webp",
+            "images/Hanai3.webp",
+            "images/Hanai4.webp"
         ],
         name: {
             ru: "HANAI",
@@ -1497,7 +1518,10 @@ const sets = [
         price: 6500,
         image: "images/Tokyo.png",
         images: [
-            "images/Tokyo.png"
+            "images/Tokyo.png",
+            "images/Tokyo2.webp",
+            "images/Tokyo3.webp",
+            "images/Tokyo4.webp"
         ],
         name: {
             ru: "TOKYO",
@@ -1517,7 +1541,9 @@ const sets = [
         price: 8600,
         image: "images/Shanghai.png",
         images: [
-            "images/Shanghai.png"
+            "images/Shanghai.png",
+            "images/Shangai2.webp",
+            "images/Shangai3.webp"
         ],
         name: {
             ru: "SHANGHAI",
@@ -1537,7 +1563,10 @@ const sets = [
         price: 9900,
         image: "images/HongKong.png",
         images: [
-            "images/HongKong.png"
+            "images/HongKong.png",
+            "images/HongKong2.webp",
+            "images/HongKong3.webp",
+            "images/HongKong4.webp"
         ],
         name: {
             ru: "HONG KONG",
@@ -1557,7 +1586,10 @@ const sets = [
         price: 11900,
         image: "images/Osaka.png",
         images: [
-            "images/Osaka.png"
+            "images/Osaka.png",
+            "images/Osaka2.webp",
+            "images/Osaka3.webp",
+            "images/Osaka4.webp"
         ],
         name: {
             ru: "OSAKA",
@@ -1577,7 +1609,8 @@ const sets = [
         price: 16900,
         image: "images/Jakarta.png",
         images: [
-            "images/Jakarta.png"
+            "images/Jakarta.png",
+            "images/Jakarta2.webp"
         ],
         name: {
             ru: "JAKARTA",
@@ -1662,7 +1695,10 @@ const sets = [
         price: 8100,
         image: "images/Kyoto.png",
         images: [
-            "images/Kyoto.png"
+            "images/Kyoto.png",
+            "images/Kyoto.webp",
+            "images/Kyoto2.webp",
+            "images/Kyoto3.webp"
         ],
         name: {
             ru: "KYOTO",
@@ -1682,7 +1718,11 @@ const sets = [
         price: 13000,
         image: "images/Suwon.png",
         images: [
-            "images/Suwon.png"
+            "images/Suwon.png",
+            "images/Suwon2.webp",
+            "images/Suwon3.webp",
+            "images/Suwon4.webp",
+            "images/Suwon5.webp"
         ],
         name: {
             ru: "SUWON",
@@ -1696,6 +1736,7 @@ const sets = [
         }
     }
 ];
+
 /* HELPERS */
 
 function getText(value) {
@@ -3361,7 +3402,6 @@ function changeLanguage(
     document.documentElement.lang =
         currentLanguage;
 
-
     /* ACTIVE BUTTON */
 
     document
@@ -3398,7 +3438,6 @@ function changeLanguage(
             }
         );
 
-
     /* STATIC */
 
     document
@@ -3424,7 +3463,6 @@ function changeLanguage(
             }
         );
 
-
     /* SEARCH */
 
     const searchInput =
@@ -3446,7 +3484,6 @@ function changeLanguage(
         }
     }
 
-
     /* RENDER */
 
     renderProducts(
@@ -3460,7 +3497,6 @@ function changeLanguage(
     renderPromoBanner();
 
     updateReviewTexts();
-
 
     if (currentProduct) {
 
@@ -3700,6 +3736,34 @@ function checkout() {
     );
 }
 
+/* STATIC LANGUAGE */
+
+function updateStaticLanguage() {
+
+    document
+        .querySelectorAll(
+            "[data-ru], [data-kz], [data-en]"
+        )
+        .forEach(
+            element => {
+
+                const translated =
+                    element.getAttribute(
+                        `data-${currentLanguage}`
+                    );
+
+                if (
+                    translated !==
+                    null
+                ) {
+
+                    element.innerHTML =
+                        translated;
+                }
+            }
+        );
+}
+
 /* INIT */
 
 document.addEventListener(
@@ -3729,7 +3793,6 @@ document.addEventListener(
 
         document.documentElement.lang =
             currentLanguage;
-
 
         /* ACTIVE LANGUAGE */
 
@@ -3767,13 +3830,11 @@ document.addEventListener(
                 }
             );
 
-
         /* LOAD */
 
         loadCart();
 
         loadReviews();
-
 
         /* CATEGORY */
 
@@ -3782,7 +3843,6 @@ document.addEventListener(
 
         window.currentCategory =
             "all";
-
 
         /* RENDER */
 
@@ -3799,7 +3859,6 @@ document.addEventListener(
         updateStaticLanguage();
 
         setupSearch();
-
 
         /* PLACEHOLDER */
 
@@ -3821,7 +3880,6 @@ document.addEventListener(
                     placeholder;
             }
         }
-
 
         /* PROMO REFRESH */
 
