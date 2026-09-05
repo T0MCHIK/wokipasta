@@ -1455,9 +1455,9 @@ const sets = [
         id: 1,
         category: "sets",
         price: 8600,
-        image: "images/Seoul.webp",
+        image: "images/Seoul.png",
         images: [
-            "images/Seoul.webp"
+            "images/Seoul.png"
         ],
         name: {
             ru: "SEOUL",
