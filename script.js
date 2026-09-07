@@ -95,9 +95,9 @@ const products = [
     {
         id: 20,
         category: "sushi",
-        price: 3590,
-        image: "images/philadelphia-light.png",
-        images: ["images/philadelphia-light.png"],
+        price: 3290,
+        image: "images/PhiladelphiaLight.jpeg",
+        images: ["images/PhiladelphiaLight.jpeg"],
         name: {
             ru: "Филадельфия лайт",
             kz: "Филадельфия лайт",
@@ -113,9 +113,9 @@ const products = [
     {
         id: 21,
         category: "sushi",
-        price: 2590,
-        image: "images/california.png",
-        images: ["images/california.png"],
+        price: 2390,
+        image: "images/CaliforniaRoll.jpeg",
+        images: ["images/CaliforniaRoll.jpeg"],
         name: {
             ru: "Калифорния ролл",
             kz: "Калифорния роллы",
@@ -131,9 +131,9 @@ const products = [
     {
         id: 22,
         category: "sushi",
-        price: 3590,
-        image: "images/dragon.png",
-        images: ["images/dragon.png"],
+        price: 3290,
+        image: "images/Dragon.jpeg",
+        images: ["images/Dragon.jpeg"],
         name: {
             ru: "Дракон",
             kz: "Айдаһар",
@@ -149,9 +149,9 @@ const products = [
     {
         id: 23,
         category: "sushi",
-        price: 2990,
-        image: "images/tasty-roll.png",
-        images: ["images/tasty-roll.png"],
+        price: 2590,
+        image: "images/tasty-roll.jpeg",
+        images: ["images/tasty-roll.jpeg"],
         name: {
             ru: "Вкусный ролл",
             kz: "Дәмді ролл",
@@ -167,9 +167,9 @@ const products = [
     {
         id: 24,
         category: "sushi",
-        price: 2890,
-        image: "images/murakami.png",
-        images: ["images/murakami.png"],
+        price: 2590,
+        image: "images/murakami.jpeg",
+        images: ["images/murakami.jpeg"],
         name: {
             ru: "Ролл Мураками",
             kz: "Мураками роллы",
@@ -181,31 +181,12 @@ const products = [
             en: "Signature roll with a delicate filling"
         }
     },
-
-    {
-        id: 25,
-        category: "sushi",
-        price: 3090,
-        image: "images/caesar-roll.png",
-        images: ["images/caesar-roll.png"],
-        name: {
-            ru: "Ролл Цезарь",
-            kz: "Цезарь роллы",
-            en: "Caesar Roll"
-        },
-        description: {
-            ru: "Ролл в стиле Цезарь",
-            kz: "Цезарь стиліндегі ролл",
-            en: "Caesar-style roll"
-        }
-    },
-
     {
         id: 26,
         category: "sushi",
-        price: 2790,
-        image: "images/yin-yang.png",
-        images: ["images/yin-yang.png"],
+        price: 2390,
+        image: "images/ying-yang.jpeg",
+        images: ["images/ying-yang.jpeg"],
         name: {
             ru: "Ролл Инь Янь",
             kz: "Инь Янь роллы",
@@ -221,9 +202,9 @@ const products = [
     {
         id: 27,
         category: "sushi",
-        price: 1900,
-        image: "images/vegan-roll.png",
-        images: ["images/vegan-roll.png"],
+        price: 1450,
+        image: "images/vegan.jpeg",
+        images: ["images/vegan.jpeg"],
         name: {
             ru: "Ролл Веган",
             kz: "Веган роллы",
@@ -239,9 +220,9 @@ const products = [
     {
         id: 28,
         category: "sushi",
-        price: 3890,
-        image: "images/geisha-kiss.png",
-        images: ["images/geisha-kiss.png"],
+        price: 3590,
+        image: "images/geisha's-kiss.jpeg",
+        images: ["images/geisha's-kiss.jpeg"],
         name: {
             ru: "Поцелуй гейши",
             kz: "Гейшаның сүйісі",
@@ -257,9 +238,10 @@ const products = [
     {
         id: 29,
         category: "sushi",
-        price: 3390,
-        image: "images/ebi-tempura.png",
-        images: ["images/ebi-tempura.png"],
+        price: 3040,
+        image: "images/EbiTempura.jpeg",
+        category: "sushi",
+        images: ["images/EbiTempura.jpeg"],
         name: {
             ru: "Эби темпура ролл жареный",
             kz: "Эби темпура қуырылған роллы",
@@ -275,9 +257,9 @@ const products = [
     {
         id: 30,
         category: "sushi",
-        price: 3190,
-        image: "images/sake-tempura.png",
-        images: ["images/sake-tempura.png"],
+        price: 2890,
+        image: "images/SakeTempura.jpeg",
+        images: ["images/SakeTempura.jpeg"],
         name: {
             ru: "Сяке темпура",
             kz: "Сяке темпура",
@@ -293,9 +275,9 @@ const products = [
     {
         id: 31,
         category: "sushi",
-        price: 2890,
-        image: "images/kani-tempura.png",
-        images: ["images/kani-tempura.png"],
+        price: 2590,
+        image: "images/KaniTempura.jpeg",
+        images: ["images/KaniTempura.jpeg"],
         name: {
             ru: "Кани темпура",
             kz: "Кани темпура",
@@ -311,9 +293,9 @@ const products = [
     {
         id: 32,
         category: "sushi",
-        price: 3090,
-        image: "images/kani-wok-baked.png",
-        images: ["images/kani-wok-baked.png"],
+        price: 2790,
+        image: "images/KaniWokBaked.jpeg",
+        images: ["images/KaniWokBaked.jpeg"],
         name: {
             ru: "Кани вок запеченный",
             kz: "Кани вок пісірілген",
@@ -329,9 +311,9 @@ const products = [
     {
         id: 33,
         category: "sushi",
-        price: 3890,
-        image: "images/philadelphia-grill.png",
-        images: ["images/philadelphia-grill.png"],
+        price: 3590,
+        image: "images/philadelphia-grill.jpeg",
+        images: ["images/philadelphia-grill.jpeg"],
         name: {
             ru: "Филадельфия гриль",
             kz: "Филадельфия гриль",
@@ -343,31 +325,12 @@ const products = [
             en: "Hot Philadelphia roll"
         }
     },
-
-    {
-        id: 34,
-        category: "sushi",
-        price: 2390,
-        image: "images/unagi-maki.png",
-        images: ["images/unagi-maki.png"],
-        name: {
-            ru: "Хосомаки унаги",
-            kz: "Унаги хосомаки",
-            en: "Unagi Maki"
-        },
-        description: {
-            ru: "Угорь, рис, нори",
-            kz: "Жыланбалық, күріш, нори",
-            en: "Eel, rice, nori"
-        }
-    },
-
     {
         id: 35,
         category: "sushi",
-        price: 2890,
-        image: "images/sake-maki.png",
-        images: ["images/sake-maki.png"],
+        price: 2590,
+        image: "images/hosomaki-sake.jpeg",
+        images: ["images/hosomaki-sake.jpeg"],
         name: {
             ru: "Хосомаки сяке",
             kz: "Сяке хосомаки",
@@ -383,9 +346,9 @@ const products = [
     {
         id: 36,
         category: "sushi",
-        price: 1490,
-        image: "images/kappa-maki.png",
-        images: ["images/kappa-maki.png"],
+        price: 1190,
+        image: "images/hosomaki-kappa.jpeg",
+        images: ["images/hosomaki-kappa.jpeg"],
         name: {
             ru: "Хосомаки каппа",
             kz: "Каппа хосомаки",
@@ -401,9 +364,9 @@ const products = [
     {
         id: 37,
         category: "sushi",
-        price: 3190,
-        image: "images/new-york.png",
-        images: ["images/new-york.png"],
+        price: 2890,
+        image: "images/NewYork.jpeg",
+        images: ["images/NewYork.jpeg"],
         name: {
             ru: "Нью-Йорк",
             kz: "Нью-Йорк",
@@ -415,25 +378,6 @@ const products = [
             en: "Signature roll"
         }
     },
-
-    {
-        id: 38,
-        category: "sushi",
-        price: 3090,
-        image: "images/sake-kunsei.png",
-        images: ["images/sake-kunsei.png"],
-        name: {
-            ru: "Сяке кунсей",
-            kz: "Сяке кунсей",
-            en: "Sake Kunsei"
-        },
-        description: {
-            ru: "Ролл с копченым лососем",
-            kz: "Ысталған албырт қосылған ролл",
-            en: "Roll with smoked salmon"
-        }
-    },
-
     {
         id: 39,
         category: "sushi",
@@ -484,256 +428,290 @@ const products = [
             }
         ]
     },
+/* WOK */
 
-    /* WOK */
-
-    {
-        id: 40,
-        category: "wok",
-        price: 3290,
-        image: "images/wok-chicken-udon.png",
-        images: ["images/wok-chicken-udon.png"],
-        name: {
-            ru: "Вок с курицей с соусом удон",
-            kz: "Тауық еті қосылған удон вок",
-            en: "Chicken Udon WOK"
-        },
-        description: {
-            ru: "Курица, удон и фирменный соус",
-            kz: "Тауық, удон және фирмалық соус",
-            en: "Chicken, udon and signature sauce"
-        }
+{
+    id: 40,
+    category: "wok",
+    price: 2890,
+    image: "images/WokUdon.jpeg",
+    images: ["images/WokUdon.jpeg"],
+    name: {
+        ru: "Вок удон с курицей в соусе удон",
+        kz: "Удон соусындағы тауық еті қосылған вок",
+        en: "Chicken Udon WOK with Udon Sauce"
     },
+    description: {
+        ru: "Лапша пшеничная, куриное филе, овощи: болгарский перец, лук, стручковая фасоль, древесные грибы, соус удон, семена кунжута.",
+        kz: "Бидай кеспесі, тауық филесі, көкөністер: болгар бұрышы, пияз, жасыл бұршақ, ағаш саңырауқұлақтары, удон соусы, күнжіт.",
+        en: "Wheat noodles, chicken fillet, vegetables: bell pepper, onion, green beans, wood mushrooms, udon sauce, sesame seeds."
+    }
+},
 
-    {
-        id: 41,
-        category: "wok",
-        price: 3290,
-        image: "images/wok-chicken-sichuan.png",
-        images: ["images/wok-chicken-sichuan.png"],
-        name: {
-            ru: "Вок удон с курицей в сычуанском соусе",
-            kz: "Сычуань соусындағы тауықты удон",
-            en: "Chicken Sichuan Udon WOK"
-        },
-        description: {
-            ru: "Курица, удон, острый сычуанский соус",
-            kz: "Тауық, удон, ащы сычуань соусы",
-            en: "Chicken, udon and spicy Sichuan sauce"
-        }
+{
+    id: 41,
+    category: "wok",
+    price: 2890,
+    image: "images/WokSichuan.jpeg",
+    images: ["images/WokSichuan.jpeg"],
+    name: {
+        ru: "Вок удон с курицей в сычуаньском соусе",
+        kz: "Сычуань соусындағы тауық еті қосылған удон",
+        en: "Chicken Udon WOK in Sichuan Sauce"
     },
+    description: {
+        ru: "Лапша пшеничная, куриное филе, овощи: болгарский перец, лук, стручковая фасоль, древесные грибы, семена кунжута, сычуаньский соус.",
+        kz: "Бидай кеспесі, тауық филесі, көкөністер: болгар бұрышы, пияз, жасыл бұршақ, ағаш саңырауқұлақтары, күнжіт, сычуань соусы.",
+        en: "Wheat noodles, chicken fillet, vegetables: bell pepper, onion, green beans, wood mushrooms, sesame seeds, Sichuan sauce."
+    }
+},
 
-    {
-        id: 42,
-        category: "wok",
-        price: 3690,
-        image: "images/wok-seafood-udon.png",
-        images: ["images/wok-seafood-udon.png"],
-        name: {
-            ru: "Вок удон с морепродуктами под соусом унаги",
-            kz: "Унаги соусындағы теңіз өнімдері бар удон",
-            en: "Seafood Udon WOK with Unagi Sauce"
-        },
-        description: {
-            ru: "Морепродукты, удон, соус унаги",
-            kz: "Теңіз өнімдері, удон, унаги соусы",
-            en: "Seafood, udon and unagi sauce"
-        }
+{
+    id: 42,
+    category: "wok",
+    price: 3290,
+    image: "images/WokUdonUnagi.jpeg",
+    images: ["images/WokUdonUnagi.jpeg"],
+    name: {
+        ru: "Вок удон с морепродуктами под соусом унаги",
+        kz: "Унаги соусындағы теңіз өнімдері қосылған удон вок",
+        en: "Seafood Udon WOK with Unagi Sauce"
     },
+    description: {
+        ru: "Лапша пшеничная, овощи: болгарский перец, лук, стручковая фасоль, древесные грибы, соус унаги, семена кунжута, осьминог, мидии, креветки.",
+        kz: "Бидай кеспесі, көкөністер: болгар бұрышы, пияз, жасыл бұршақ, ағаш саңырауқұлақтары, унаги соусы, күнжіт, сегізаяқ, мидия, асшаян.",
+        en: "Wheat noodles, vegetables: bell pepper, onion, green beans, wood mushrooms, unagi sauce, sesame seeds, octopus, mussels, shrimp."
+    }
+},
 
-    {
-        id: 43,
-        category: "wok",
-        price: 3490,
-        image: "images/wok-beef.png",
-        images: ["images/wok-beef.png"],
-        name: {
-            ru: "Вок с говядиной и гречневой лапшой",
-            kz: "Сиыр еті мен қарақұмық кеспесі бар вок",
-            en: "Beef Buckwheat WOK"
-        },
-        description: {
-            ru: "Говядина, гречневая лапша, овощи",
-            kz: "Сиыр еті, қарақұмық кеспесі, көкөністер",
-            en: "Beef, buckwheat noodles, vegetables"
-        }
+{
+    id: 43,
+    category: "wok",
+    price: 3090,
+    image: "images/BeefWok.jpeg",
+    images: ["images/BeefWok.jpeg"],
+    name: {
+        ru: "Вок с говядиной и гречневой лапшой",
+        kz: "Сиыр еті қосылған қарақұмық кеспесі бар вок",
+        en: "Beef Buckwheat Noodle WOK"
     },
+    description: {
+        ru: "Гречневая лапша, говядина, овощи: капуста, морковь, стручковая фасоль, перец болгарский, древесные грибы, кунжут, соус на выбор: сливочно-соевый, кисло-сладкий, терияки.",
+        kz: "Қарақұмық кеспесі, сиыр еті, көкөністер: орамжапырақ, сәбіз, жасыл бұршақ, болгар бұрышы, ағаш саңырауқұлақтары, күнжіт, таңдау бойынша соус: кілегейлі-соя, қышқыл-тәтті, терияки.",
+        en: "Buckwheat noodles, beef, vegetables: cabbage, carrot, green beans, bell pepper, wood mushrooms, sesame, choice of creamy-soy, sweet-and-sour or teriyaki sauce."
+    }
+},
 
-    {
-        id: 44,
-        category: "wok",
-        price: 3290,
-        image: "images/wok-chicken-buckwheat.png",
-        images: ["images/wok-chicken-buckwheat.png"],
-        name: {
-            ru: "Вок с курицей и гречневой лапшой",
-            kz: "Тауық еті мен қарақұмық кеспесі бар вок",
-            en: "Chicken Buckwheat WOK"
-        },
-        description: {
-            ru: "Курица, гречневая лапша, овощи",
-            kz: "Тауық, қарақұмық кеспесі, көкөністер",
-            en: "Chicken, buckwheat noodles, vegetables"
-        }
+{
+    id: 44,
+    category: "wok",
+    price: 2890,
+    image: "images/wokbuckwheat.jpeg",
+    images: ["images/wokbuckwheat.jpeg"],
+    name: {
+        ru: "Вок с курицей и гречневой лапшой",
+        kz: "Тауық еті мен қарақұмық кеспесі бар вок",
+        en: "Chicken Buckwheat Noodle WOK"
     },
+    description: {
+        ru: "Гречневая лапша, мясо курицы, древесные грибы, овощи: капуста, морковь, стручковая фасоль, перец болгарский, кунжут, соус на выбор: сливочно-соевый, кисло-сладкий, терияки.",
+        kz: "Қарақұмық кеспесі, тауық еті, ағаш саңырауқұлақтары, көкөністер: орамжапырақ, сәбіз, жасыл бұршақ, болгар бұрышы, күнжіт, таңдау бойынша соус.",
+        en: "Buckwheat noodles, chicken, wood mushrooms, vegetables, sesame and choice of creamy-soy, sweet-and-sour or teriyaki sauce."
+    }
+},
 
-    {
-        id: 45,
-        category: "wok",
-        price: 3690,
-        image: "images/wok-shrimp-buckwheat.png",
-        images: ["images/wok-shrimp-buckwheat.png"],
-        name: {
-            ru: "Вок с королевскими креветками и гречневой лапшой",
-            kz: "Корольдік асшаяндар мен қарақұмық кеспесі бар вок",
-            en: "Royal Shrimp Buckwheat WOK"
-        },
-        description: {
-            ru: "Королевские креветки, гречневая лапша, овощи",
-            kz: "Корольдік асшаяндар, қарақұмық кеспесі, көкөністер",
-            en: "Royal shrimp, buckwheat noodles, vegetables"
-        }
+{
+    id: 45,
+    category: "wok",
+    price: 3290,
+    image: "images/wok-shrimps-buckwheat.jpeg",
+    images: ["images/wok-shrimps-buckwheat.jpeg"],
+    name: {
+        ru: "Вок с креветками и гречневой лапшой",
+        kz: "Асшаяндар мен қарақұмық кеспесі бар вок",
+        en: "Shrimp Buckwheat Noodle WOK"
     },
+    description: {
+        ru: "Гречневая лапша, креветки, овощи: капуста, морковь, стручковая фасоль, перец болгарский, древесные грибы, кунжут, соус на выбор: сливочно-соевый, кисло-сладкий, терияки.",
+        kz: "Қарақұмық кеспесі, асшаяндар, көкөністер: орамжапырақ, сәбіз, жасыл бұршақ, болгар бұрышы, ағаш саңырауқұлақтары, күнжіт, таңдау бойынша соус.",
+        en: "Buckwheat noodles, shrimp, vegetables, sesame and choice of creamy-soy, sweet-and-sour or teriyaki sauce."
+    }
+},
 
-    {
-        id: 46,
-        category: "wok",
-        price: 3690,
-        image: "images/wok-seafood-buckwheat.png",
-        images: ["images/wok-seafood-buckwheat.png"],
-        name: {
-            ru: "Вок с морепродуктами и гречневой лапшой",
-            kz: "Теңіз өнімдері мен қарақұмық кеспесі бар вок",
-            en: "Seafood Buckwheat WOK"
-        },
-        description: {
-            ru: "Морепродукты, гречневая лапша, овощи",
-            kz: "Теңіз өнімдері, қарақұмық кеспесі, көкөністер",
-            en: "Seafood, buckwheat noodles, vegetables"
-        }
+{
+    id: 46,
+    category: "wok",
+    price: 3290,
+    image: "images/WokSeafoodBuckwheat.jpeg",
+    images: ["images/WokSeafoodBuckwheat.jpeg"],
+    name: {
+        ru: "Вок с морепродуктами и гречневой лапшой",
+        kz: "Теңіз өнімдері мен қарақұмық кеспесі бар вок",
+        en: "Seafood Buckwheat Noodle WOK"
     },
+    description: {
+        ru: "Гречневая лапша, креветки, мидии, осьминог, овощи: капуста, морковь, стручковая фасоль, перец болгарский, древесные грибы, кунжут, соус на выбор: сливочно-соевый, кисло-сладкий, терияки.",
+        kz: "Қарақұмық кеспесі, асшаяндар, мидиялар, сегізаяқ, көкөністер, ағаш саңырауқұлақтары, күнжіт, таңдау бойынша соус.",
+        en: "Buckwheat noodles, shrimp, mussels, octopus, vegetables, wood mushrooms, sesame and choice of sauce."
+    }
+},
 
-    {
-        id: 47,
-        category: "wok",
-        price: 3290,
-        image: "images/wokeggnoodle.webp",
-        images: [
-            "images/wokeggnoodle.webp",
-            "images/wokeegnoodle2.webp",
-            "images/wokeggnoodle3.webp",
-            "images/wokeggnoodle4.webp",
-            "images/wokeggnoodle5.webp"
-        ],
-        promoProduct: true,
-        name: {
-            ru: "Вок с курицей и яичной лапшой",
-            kz: "Тауық еті мен жұмыртқалы кеспесі бар вок",
-            en: "Chicken Egg Noodle WOK"
-        },
-        description: {
-            ru: "Курица, яичная лапша, овощи",
-            kz: "Тауық, жұмыртқалы кеспе, көкөністер",
-            en: "Chicken, egg noodles, vegetables"
-        }
+{
+    id: 47,
+    category: "wok",
+    price: 2890,
+    image: "images/wokeggnoodle.webp",
+    images: [
+        "images/wokeggnoodle.webp",
+        "images/wokeegnoodle2.webp",
+        "images/wokeggnoodle3.webp",
+        "images/wokeggnoodle4.webp",
+        "images/wokeggnoodle5.webp"
+    ],
+    promoProduct: true,
+    name: {
+        ru: "Вок с курицей и яичной лапшой",
+        kz: "Тауық еті мен жұмыртқалы кеспесі бар вок",
+        en: "Chicken Egg Noodle WOK"
     },
+    description: {
+        ru: "Яичная лапша, мясо курицы, овощи: капуста, морковь, стручковая фасоль, перец болгарский, древесные грибы, кунжут, соус на выбор: сливочно-соевый, кисло-сладкий, терияки.",
+        kz: "Жұмыртқалы кеспе, тауық еті, көкөністер: орамжапырақ, сәбіз, жасыл бұршақ, болгар бұрышы, ағаш саңырауқұлақтары, күнжіт, таңдау бойынша соус.",
+        en: "Egg noodles, chicken, vegetables, wood mushrooms, sesame and choice of creamy-soy, sweet-and-sour or teriyaki sauce."
+    }
+},
 
-    {
-        id: 48,
-        category: "wok",
-        price: 3690,
-        image: "images/wok-rice-shrimp.png",
-        images: ["images/wok-rice-shrimp.png"],
-        name: {
-            ru: "Рис с королевскими креветками",
-            kz: "Корольдік асшаяндар қосылған күріш",
-            en: "Rice with Royal Shrimp"
-        },
-        description: {
-            ru: "Рис, королевские креветки, овощи",
-            kz: "Күріш, корольдік асшаяндар, көкөністер",
-            en: "Rice, royal shrimp, vegetables"
-        }
+{
+    id: 49,
+    category: "wok",
+    price: 3290,
+    image: "images/WokSeafoodRice.jpeg",
+    images: ["images/WokSeafoodRice.jpeg"],
+    name: {
+        ru: "Вок с морепродуктами и рисом",
+        kz: "Теңіз өнімдері қосылған күріш вок",
+        en: "Seafood Rice WOK"
     },
+    description: {
+        ru: "Рис, креветки, мидии, осьминог, древесные грибы, овощи: капуста, морковь, перец болгарский, стручковая фасоль, кунжут, соус на выбор: сливочно-соевый, кисло-сладкий, терияки.",
+        kz: "Күріш, асшаяндар, мидиялар, сегізаяқ, ағаш саңырауқұлақтары, көкөністер, күнжіт, таңдау бойынша соус.",
+        en: "Rice, shrimp, mussels, octopus, wood mushrooms, vegetables, sesame and choice of sauce."
+    }
+},
 
-    {
-        id: 49,
-        category: "wok",
-        price: 3690,
-        image: "images/wok-rice-seafood.png",
-        images: ["images/wok-rice-seafood.png"],
-        name: {
-            ru: "Рис с морепродуктами",
-            kz: "Теңіз өнімдері қосылған күріш",
-            en: "Seafood Rice"
-        },
-        description: {
-            ru: "Рис, морепродукты, овощи",
-            kz: "Күріш, теңіз өнімдері, көкөністер",
-            en: "Rice, seafood, vegetables"
-        }
+{
+    id: 50,
+    category: "wok",
+    price: 2890,
+    image: "images/WokRiceChicken.jpeg",
+    images: ["images/WokRiceChicken.jpeg"],
+    name: {
+        ru: "Вок с курицей и рисом",
+        kz: "Тауық еті қосылған күріш вок",
+        en: "Chicken Rice WOK"
     },
+    description: {
+        ru: "Рис, мясо курицы, древесные грибы, овощи: капуста, морковь, стручковая фасоль, перец болгарский, кунжут, соус на выбор: сливочно-соевый, кисло-сладкий, терияки.",
+        kz: "Күріш, тауық еті, ағаш саңырауқұлақтары, көкөністер, күнжіт, таңдау бойынша соус.",
+        en: "Rice, chicken, wood mushrooms, vegetables, sesame and choice of sauce."
+    }
+},
 
-    {
-        id: 50,
-        category: "wok",
-        price: 3290,
-        image: "images/wok-rice-chicken.png",
-        images: ["images/wok-rice-chicken.png"],
-        name: {
-            ru: "Рис с курицей",
-            kz: "Тауық еті қосылған күріш",
-            en: "Chicken Rice"
-        },
-        description: {
-            ru: "Рис, курица, овощи",
-            kz: "Күріш, тауық, көкөністер",
-            en: "Rice, chicken, vegetables"
-        }
+{
+    id: 51,
+    category: "wok",
+    price: 3290,
+    image: "images/WokSeafoodEgg.jpeg",
+    images: ["images/WokSeafoodEgg.jpeg"],
+    name: {
+        ru: "Вок с морепродуктами и яичной лапшой",
+        kz: "Теңіз өнімдері мен жұмыртқалы кеспесі бар вок",
+        en: "Seafood Egg Noodle WOK"
     },
+    description: {
+        ru: "Яичная лапша, креветки, мидии, осьминог, овощи: капуста, морковь, стручковая фасоль, перец болгарский, древесные грибы, кунжут, соус на выбор: сливочно-соевый, кисло-сладкий, терияки.",
+        kz: "Жұмыртқалы кеспе, асшаяндар, мидиялар, сегізаяқ, көкөністер, ағаш саңырауқұлақтары, күнжіт, таңдау бойынша соус.",
+        en: "Egg noodles, shrimp, mussels, octopus, vegetables, wood mushrooms, sesame and choice of sauce."
+    }
+},
 
-    {
-        id: 51,
-        category: "wok",
-        price: 3690,
-        image: "images/wok-noodles-seafood.png",
-        images: ["images/wok-noodles-seafood.png"],
-        name: {
-            ru: "Яичная лапша с морепродуктами",
-            kz: "Теңіз өнімдері қосылған жұмыртқалы кеспе",
-            en: "Egg Noodles with Seafood"
-        },
-        description: {
-            ru: "Яичная лапша, морепродукты, овощи",
-            kz: "Жұмыртқалы кеспе, теңіз өнімдері",
-            en: "Egg noodles, seafood, vegetables"
-        }
+{
+    id: 52,
+    category: "wok",
+    price: 3290,
+    image: "images/wok-shrimps-egg.jpeg",
+    images: ["images/wok-shrimps-egg.jpeg"],
+    name: {
+        ru: "Вок с креветками и яичной лапшой",
+        kz: "Асшаяндар мен жұмыртқалы кеспе бар вок",
+        en: "Shrimp Egg Noodle WOK"
     },
+    description: {
+        ru: "Яичная лапша, креветки, овощи: капуста, морковь, стручковая фасоль, перец болгарский, древесные грибы, кунжут, соус на выбор: сливочно-соевый, кисло-сладкий, терияки.",
+        kz: "Жұмыртқалы кеспе, асшаяндар, көкөністер, ағаш саңырауқұлақтары, күнжіт, таңдау бойынша соус.",
+        en: "Egg noodles, shrimp, vegetables, wood mushrooms, sesame and choice of sauce."
+    }
+},
 
-    {
-        id: 52,
-        category: "wok",
-        price: 3690,
-        image: "images/wok-shrimp-egg.png",
-        images: ["images/wok-shrimp-egg.png"],
-        name: {
-            ru: "Вок с креветками и яичной лапшой",
-            kz: "Асшаяндар мен жұмыртқалы кеспе бар вок",
-            en: "Shrimp Egg Noodle WOK"
-        },
-        description: {
-            ru: "Креветки, яичная лапша, овощи",
-            kz: "Асшаяндар, жұмыртқалы кеспе, көкөністер",
-            en: "Shrimp, egg noodles, vegetables"
-        }
+{
+    id: 53,
+    category: "wok",
+    price: 2890,
+    image: "images/WokRiceChicken.jpeg",
+    images: ["images/WokRiceChicken.jpeg"],
+    name: {
+        ru: "Рис с овощами и яйцом под соусом",
+        kz: "Тұздық астындағы көкөніс пен жұмыртқалы күріш",
+        en: "Rice with Vegetables and Egg"
     },
+    description: {
+        ru: "Рис, болгарский перец, лук, стручковая фасоль, древесные грибы, яйцо, зеленый лук, соевый соус.",
+        kz: "Күріш, болгар бұрышы, пияз, жасыл бұршақ, ағаш саңырауқұлақтары, жұмыртқа, жасыл пияз, соя соусы.",
+        en: "Rice, bell pepper, onion, green beans, wood mushrooms, egg, green onion and soy sauce."
+    }
+},
 
+{
+    id: 54,
+    category: "wok",
+    price: 3090,
+    image: "images/BeefWok.jpeg",
+    images: ["images/BeefWok.jpeg"],
+    name: {
+        ru: "Вок удон с говядиной под соусом удон",
+        kz: "Удон соусындағы сиыр еті қосылған вок",
+        en: "Beef Udon WOK with Udon Sauce"
+    },
+    description: {
+        ru: "Лапша пшеничная, говядина, овощи: болгарский перец, лук, стручковая фасоль, древесные грибы, соус удон, семена кунжута.",
+        kz: "Бидай кеспесі, сиыр еті, көкөністер: болгар бұрышы, пияз, жасыл бұршақ, ағаш саңырауқұлақтары, удон соусы, күнжіт.",
+        en: "Wheat noodles, beef, vegetables, wood mushrooms, udon sauce and sesame seeds."
+    }
+},
+
+{
+    id: 55,
+    category: "wok",
+    price: 3090,
+    image: "images/BeefWok.jpeg",
+    images: ["images/BeefWok.jpeg"],
+    name: {
+        ru: "Вок с говядиной и яичной лапшой",
+        kz: "Сиыр еті мен жұмыртқалы кеспесі бар вок",
+        en: "Beef Egg Noodle WOK"
+    },
+    description: {
+        ru: "Яичная лапша, говядина, овощи: капуста, морковь, стручковая фасоль, перец болгарский, древесные грибы, кунжут, соус на выбор: сливочно-соевый, кисло-сладкий, терияки.",
+        kz: "Жұмыртқалы кеспе, сиыр еті, көкөністер, ағаш саңырауқұлақтары, күнжіт, таңдау бойынша соус.",
+        en: "Egg noodles, beef, vegetables, wood mushrooms, sesame and choice of sauce."
+    }
+}
     /* BURGERS */
 
-    {
+    ,{
         id: 60,
         category: "burgers",
-        price: 2790,
+        price: 2490,
         image: "images/Beverly.webp",
         images: [
             "images/Beverly.webp",
@@ -758,7 +736,7 @@ const products = [
                     kz: "Бургер",
                     en: "Burger"
                 },
-                price: 2790
+                price:2490
             },
             {
                 id: "combo",
@@ -850,7 +828,7 @@ const products = [
                     kz: "Бургер",
                     en: "Burger"
                 },
-                price: 2790
+                price: 2490
             },
             {
                 id: "combo",
@@ -864,7 +842,7 @@ const products = [
                     kz: "Фри + сусын",
                     en: "Fries + drink"
                 },
-                price: 4190
+                price: 3890
             }
         ]
     },
@@ -919,7 +897,7 @@ const products = [
     {
         id: 64,
         category: "burgers",
-        price: 2790,
+        price: 2290,
         image: "images/Streetchicken.webp",
         images: [
             "images/Streetchicken.webp",
@@ -944,7 +922,7 @@ const products = [
                     kz: "Бургер",
                     en: "Burger"
                 },
-                price: 2790
+                price: 2290
             },
             {
                 id: "combo",
@@ -958,7 +936,7 @@ const products = [
                     kz: "Фри + сусын",
                     en: "Fries + drink"
                 },
-                price: 4190
+                price: 3690
             }
         ]
     },
@@ -1015,7 +993,7 @@ const products = [
     {
         id: 70,
         category: "pizza",
-        price: 3090,
+        price: 2690,
         image: "images/margherita.webp",
         images: [
             "images/margherita.webp",
@@ -1036,9 +1014,9 @@ const products = [
     {
         id: 71,
         category: "pizza",
-        price: 4190,
-        image: "images/four-cheese.png",
-        images: ["images/four-cheese.png"],
+        price: 3790,
+        image: "images/4cheese.jpeg",
+        images: ["images/4cheese.jpeg"],
         name: {
             ru: "Пицца 4 сыра",
             kz: "4 ірімшік пиццасы",
@@ -1054,7 +1032,7 @@ const products = [
     {
         id: 72,
         category: "pizza",
-        price: 3090,
+        price: 2690,
         image: "images/Pepperoni.webp",
         images: [
             "images/Pepperoni.webp",
@@ -1075,9 +1053,9 @@ const products = [
     {
         id: 73,
         category: "pizza",
-        price: 4290,
-        image: "images/hoisin-chicken.png",
-        images: ["images/hoisin-chicken.png"],
+        price: 3890,
+        image: "images/ChickenHoisiki.jpeg",
+        images: ["images/ChickenHoisiki.jpeg"],
         name: {
             ru: "Курица хойсин",
             kz: "Хойсин тауық пиццасы",
@@ -1093,7 +1071,7 @@ const products = [
     {
         id: 74,
         category: "pizza",
-        price: 4190,
+        price: 3790,
         image: "images/HincedMeat.webp",
         images: [
             "images/HincedMeat.webp",
@@ -1114,7 +1092,7 @@ const products = [
     {
         id: 75,
         category: "pizza",
-        price: 3790,
+        price: 3390,
         image: "images/4seasons.webp",
         images: ["images/4seasons.webp"],
         name: {
@@ -1132,9 +1110,9 @@ const products = [
     {
         id: 76,
         category: "pizza",
-        price: 4190,
-        image: "images/caesar-pizza.png",
-        images: ["images/caesar-pizza.png"],
+        price: 3790,
+        image: "images/caesar-pizza.jpeg",
+        images: ["images/caesar-pizza.jpeg"],
         name: {
             ru: "Пицца Цезарь",
             kz: "Цезарь пиццасы",
@@ -1152,9 +1130,9 @@ const products = [
     {
         id: 80,
         category: "pasta",
-        price: 3290,
-        image: "images/pasta-mushroom-cream.png",
-        images: ["images/pasta-mushroom-cream.png"],
+        price: 2890,
+        image: "images/PastaMushroomsCream.jpeg",
+        images: ["images/PastaMushroomsCream.jpeg"],
         name: {
             ru: "Паста с грибами в сливочном соусе",
             kz: "Кілегейлі саңырауқұлақ пастасы",
@@ -1170,9 +1148,9 @@ const products = [
     {
         id: 81,
         category: "pasta",
-        price: 3290,
-        image: "images/pasta-chicken-cream.png",
-        images: ["images/pasta-chicken-cream.png"],
+        price: 2890,
+        image: "images/PastaChickenCream.jpeg",
+        images: ["images/PastaChickenCream.jpeg"],
         name: {
             ru: "Паста с курицей в сливочном соусе",
             kz: "Кілегейлі тауық пастасы",
@@ -1188,9 +1166,9 @@ const products = [
     {
         id: 82,
         category: "pasta",
-        price: 3290,
-        image: "images/pasta-mix-mushrooms.png",
-        images: ["images/pasta-mix-mushrooms.png"],
+        price: 2890,
+        image: "images/PastaMix.jpeg",
+        images: ["images/PastaMix.jpeg"],
         name: {
             ru: "Паста микс грибы",
             kz: "Саңырауқұлақ микс пастасы",
@@ -1206,9 +1184,9 @@ const products = [
     {
         id: 83,
         category: "pasta",
-        price: 3290,
-        image: "images/pasta-chicken-tomato.png",
-        images: ["images/pasta-chicken-tomato.png"],
+        price: 2890,
+        image: "images/PastaChickenTomato.jpeg",
+        images: ["images/PastaChickenTomato.jpeg"],
         name: {
             ru: "Паста с курицей в томатном соусе",
             kz: "Томат соусындағы тауық пастасы",
@@ -1224,9 +1202,9 @@ const products = [
     {
         id: 84,
         category: "pasta",
-        price: 3690,
-        image: "images/pasta-seafood-tomato.png",
-        images: ["images/pasta-seafood-tomato.png"],
+        price: 3090,
+        image: "images/PastaSeafoodTomato.jpeg",
+        images: ["images/PastaSeafoodTomato.jpeg"],
         name: {
             ru: "Паста с морепродуктами в томатном соусе",
             kz: "Томат соусындағы теңіз өнімдері пастасы",
@@ -1242,9 +1220,9 @@ const products = [
     {
         id: 85,
         category: "pasta",
-        price: 3690,
-        image: "images/pasta-seafood-cream.png",
-        images: ["images/pasta-seafood-cream.png"],
+        price: 3090,
+        image: "images/PastaSeafoodCream.jpeg",
+        images: ["images/PastaSeafoodCream.jpeg"],
         name: {
             ru: "Паста с морепродуктами в сливочном соусе",
             kz: "Кілегейлі теңіз өнімдері пастасы",
@@ -1262,7 +1240,7 @@ const products = [
     {
         id: 90,
         category: "soups",
-        price: 3000,
+        price: 2600,
         image: "images/Ramen.webp",
         images: [
             "images/Ramen.webp",
@@ -1283,7 +1261,7 @@ const products = [
     {
         id: 91,
         category: "soups",
-        price: 3690,
+        price: 3290,
         image: "images/Tomyum.webp",
         images: [
             "images/Tomyum.webp",
@@ -1308,9 +1286,9 @@ const products = [
     {
         id: 92,
         category: "salads",
-        price: 2590,
-        image: "images/fresh-asia.png",
-        images: ["images/fresh-asia.png"],
+        price: 2190,
+        image: "images/SaladAsia.jpeg",
+        images: ["images/SaladAsia.jpeg"],
         name: {
             ru: "Салат свежие овощи Азия",
             kz: "Азиялық жаңа көкөніс салаты",
@@ -1326,9 +1304,9 @@ const products = [
     {
         id: 93,
         category: "salads",
-        price: 2790,
-        image: "images/chuka.png",
-        images: ["images/chuka.png"],
+        price: 2390,
+        image: "images/SaladChuka.jpeg",
+        images: ["images/SaladChuka.jpeg"],
         name: {
             ru: "Чука салат",
             kz: "Чука салаты",
@@ -1344,9 +1322,9 @@ const products = [
     {
         id: 94,
         category: "salads",
-        price: 2590,
-        image: "images/tutti-frutti.png",
-        images: ["images/tutti-frutti.png"],
+        price: 2190,
+        image: "images/Tutti-Fruti.jpeg",
+        images: ["images/Tutti-Fruti.jpeg"],
         name: {
             ru: "Салат Тутти-Фрутти",
             kz: "Тутти-Фрутти салаты",
@@ -1362,9 +1340,9 @@ const products = [
     {
         id: 95,
         category: "salads",
-        price: 1900,
-        image: "images/coleslaw.png",
-        images: ["images/coleslaw.png"],
+        price: 1500,
+        image: "images/SaladColeSlaw.jpeg",
+        images: ["images/SaladColeSlaw.jpeg"],
         name: {
             ru: "Салат Коул Слоу",
             kz: "Коул Слоу салаты",
@@ -1380,9 +1358,9 @@ const products = [
     {
         id: 96,
         category: "salads",
-        price: 3590,
-        image: "images/nicoise.png",
-        images: ["images/nicoise.png"],
+        price: 3190,
+        image: "images/SaladNicoise.jpeg",
+        images: ["images/SaladNicoise.jpeg"],
         name: {
             ru: "Салат Нисуаз",
             kz: "Нисуаз салаты",
@@ -1398,9 +1376,9 @@ const products = [
     {
         id: 97,
         category: "salads",
-        price: 3290,
-        image: "images/caesar-chicken.png",
-        images: ["images/caesar-chicken.png"],
+        price: 2890,
+        image: "images/SaladCeasar.jpeg",
+        images: ["images/SaladCeasar.jpeg"],
         name: {
             ru: "Цезарь с курицей",
             kz: "Тауықты Цезарь салаты",
@@ -1418,9 +1396,9 @@ const products = [
     {
         id: 100,
         category: "sides",
-        price: 1400,
-        image: "images/fries.png",
-        images: ["images/fries.png"],
+        price: 1100,
+        image: "images/FrenchFries.jpeg",
+        images: ["images/FrenchFries.jpeg"],
         name: {
             ru: "Картофель фри",
             kz: "Картоп фри",
@@ -1437,8 +1415,11 @@ const products = [
         id: 101,
         category: "sides",
         price: 2700,
-        image: "images/chicken-wings.png",
-        images: ["images/chicken-wings.png"],
+        image: "images/crispychicken.webp",
+        images: ["images/crispychicken.webp",
+            "images/crispychicken2.webp",
+            "images/crispychicken3.webp"
+        ],
         name: {
             ru: "Жареные крылышки",
             kz: "Қуырылған қанаттар",
@@ -1522,8 +1503,8 @@ const products = [
         id: 111,
         category: "drinks",
         price: 700,
-        image: "images/coca-cola.png",
-        images: ["images/coca-cola.png"],
+        image: "images/coke.jpeg",
+        images: ["images/coke.jpeg"],
         name: {
             ru: "Coca-Cola",
             kz: "Coca-Cola",
@@ -1551,8 +1532,8 @@ const products = [
         id: 112,
         category: "drinks",
         price: 1100,
-        image: "images/coca-cola-zero.png",
-        images: ["images/coca-cola-zero.png"],
+        image: "images/Borjomi.webp",
+        images: ["images/Borjomi.webp"],
         name: {
             ru: "Borjomi",
             kz: "Borjomi",
@@ -1580,8 +1561,8 @@ const products = [
         id: 113,
         category: "drinks",
         price: 1300,
-        image: "images/fanta.png",
-        images: ["images/fanta.png"],
+        image: "images/Barbican.png",
+        images: ["images/Barbican.png"],
         name: {
             ru: "Barbican",
             kz: "Barbican",
