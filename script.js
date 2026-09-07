@@ -3495,6 +3495,8 @@ function updateModalPrice() {
 
 /* GALLERY */
 
+/* GALLERY */
+
 function renderGallery() {
 
     if (!currentProduct) {
@@ -3546,28 +3548,28 @@ function renderGallery() {
     image.style.display =
         "block";
 
-    image.src =
+    const currentSrc =
         images[currentImageIndex];
-        const nextSrc =
-    images[currentImageIndex];
+
+    const loadedImage =
+        preloadedImages.get(
+            currentSrc
+        );
 
     if (
-        image.src.endsWith(nextSrc)
+        loadedImage &&
+        loadedImage.complete
     ) {
-    return;
-}
-    const loadedImage =
-    preloadedImages.get(nextSrc);
-    if (loadedImage) {
-image.src =
-        loadedImage.src;
 
-} else {
+        image.src =
+            loadedImage.src;
 
-    image.src =
-        nextSrc;
-}
-    
+    } else {
+
+        image.src =
+            currentSrc;
+    }
+
     image.alt =
         getText(
             currentProduct.name
