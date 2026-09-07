@@ -7,7 +7,7 @@ let currentCategory = "all";
 let currentImageIndex = 0;
 let reviews = [];
 let currentVariant = null;
-
+const preloadedImages = new Map();
 /* UI */
 
 const ui = {
