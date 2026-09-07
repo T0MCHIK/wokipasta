@@ -7,6 +7,7 @@ let currentCategory = "all";
 let currentImageIndex = 0;
 let reviews = [];
 let currentVariant = null;
+const preloadedImages = new Map();
 
 /* UI */
 
@@ -3175,7 +3176,33 @@ function closeCart() {
 }
 
 /* PRODUCT MODAL */
+function preloadGalleryImages(product) {
 
+    const images =
+        getProductImages(product);
+
+    images.forEach(
+        src => {
+
+            if (
+                preloadedImages.has(src)
+            ) {
+                return;
+            }
+
+            const img =
+                new Image();
+
+            img.src =
+                src;
+
+            preloadedImages.set(
+                src,
+                img
+            );
+        }
+    );
+}
 function openProduct(
     id
 ) {
@@ -3192,6 +3219,7 @@ function openProduct(
 
     currentImageIndex =
         0;
+    preloadGalleryImages(product);
 
     const options =
         getProductOptions(
@@ -3521,7 +3549,26 @@ function renderGallery() {
 
     image.src =
         images[currentImageIndex];
+        const nextSrc =
+    images[currentImageIndex];
 
+    if (
+        image.src.endsWith(nextSrc)
+    ) {
+    return;
+}
+    const loadedImage =
+    preloadedImages.get(nextSrc);
+    if (loadedImage) {
+image.src =
+        loadedImage.src;
+
+} else {
+
+    image.src =
+        nextSrc;
+}
+    
     image.alt =
         getText(
             currentProduct.name
