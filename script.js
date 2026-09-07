@@ -3228,16 +3228,6 @@ function openProduct(
     currentImageIndex =
         0;
 
-    if (!product) {
-        return;
-    }
-
-    currentProduct =
-        product;
-
-    currentImageIndex =
-        0;
-
     currentVariant =
         options.length
             ? options[0]
