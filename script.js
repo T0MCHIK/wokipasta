@@ -1465,8 +1465,8 @@ const products = [
         id: 102,
         category: "sides",
         price: 100,
-        image: "images/bun.png",
-        images: ["images/bun.png"],
+        image: "images/bun.webp",
+        images: ["images/bun.webp"],
         name: {
             ru: "Булочка",
             kz: "Тоқаш",
@@ -1842,9 +1842,9 @@ const sets = [
         id: 1,
         category: "sets",
         price: 8600,
-        image: "images/Seoul.png",
+        image: "images/Seoul.webp",
         images: [
-            "images/Seoul.png"
+            "images/Seoul.webp"
         ],
         name: {
             ru: "SEOUL",
@@ -1862,9 +1862,9 @@ const sets = [
         id: 2,
         category: "sets",
         price: 8800,
-        image: "images/Hanai.png",
+        image: "images/Hanai.webp",
         images: [
-            "images/Hanai.png",
+            "images/Hanai.webp",
             "images/Hanai2.webp",
             "images/Hanai3.webp",
             "images/Hanai4.webp"
@@ -1885,9 +1885,9 @@ const sets = [
         id: 3,
         category: "sets",
         price: 6500,
-        image: "images/Tokyo.png",
+        image: "images/Tokyo.webp",
         images: [
-            "images/Tokyo.png",
+            "images/Tokyo.webp",
             "images/Tokyo2.webp",
             "images/Tokyo3.webp",
             "images/Tokyo4.webp"
@@ -1908,9 +1908,9 @@ const sets = [
         id: 4,
         category: "sets",
         price: 8600,
-        image: "images/Shanghai.png",
+        image: "images/Shanghai.webp",
         images: [
-            "images/Shanghai.png",
+            "images/Shanghai.webp",
             "images/Shangai2.webp",
             "images/Shangai3.webp"
         ],
@@ -1930,9 +1930,9 @@ const sets = [
         id: 5,
         category: "sets",
         price: 9900,
-        image: "images/HongKong.png",
+        image: "images/HongKong.webp",
         images: [
-            "images/HongKong.png",
+            "images/HongKong.webp",
             "images/HongKong2.webp",
             "images/HongKong3.webp",
             "images/HongKong4.webp"
@@ -1953,9 +1953,9 @@ const sets = [
         id: 6,
         category: "sets",
         price: 11900,
-        image: "images/Osaka.png",
+        image: "images/Osaka.webp",
         images: [
-            "images/Osaka.png",
+            "images/Osaka.webp",
             "images/Osaka2.webp",
             "images/Osaka3.webp",
             "images/Osaka4.webp"
@@ -1976,9 +1976,9 @@ const sets = [
         id: 8,
         category: "sets",
         price: 16900,
-        image: "images/Jakarta.png",
+        image: "images/Jakarta.webp",
         images: [
-            "images/Jakarta.png",
+            "images/Jakarta.webp",
             "images/Jakarta2.webp",
             "images/Jakarta3.webp"
         ],
@@ -1998,9 +1998,9 @@ const sets = [
         id: 9,
         category: "sets",
         price: 12700,
-        image: "images/Bangkok.png",
+        image: "images/Bangkok.webp",
         images: [
-            "images/Bangkok.png"
+            "images/Bangkok.webp"
         ],
         name: {
             ru: "BANGKOK",
@@ -2018,9 +2018,9 @@ const sets = [
         id: 10,
         category: "sets",
         price: 14500,
-        image: "images/Beijing.png",
+        image: "images/Beijing.webp",
         images: [
-            "images/Beijing.png",
+            "images/Beijing.webp",
             "images/Beijing2.webp",
             "images/Beijing3.webp"
         ],
@@ -2040,9 +2040,9 @@ const sets = [
         id: 11,
         category: "sets",
         price: 9900,
-        image: "images/Busan.png",
+        image: "images/Busan.webp",
         images: [
-            "images/Busan.png",
+            "images/Busan.webp",
             "images/Busan2.webp",
             "images/Busan3.webp",
             "images/Busan4.webp"
@@ -2063,9 +2063,9 @@ const sets = [
         id: 12,
         category: "sets",
         price: 8100,
-        image: "images/Kyoto.png",
+        image: "images/Kyoto.webp",
         images: [
-            "images/Kyoto.png",
+            "images/Kyoto.webp",
             "images/Kyoto.webp",
             "images/Kyoto2.webp",
             "images/Kyoto3.webp"
@@ -2086,9 +2086,9 @@ const sets = [
         id: 13,
         category: "sets",
         price: 13000,
-        image: "images/Suwon.png",
+        image: "images/Suwon.webp",
         images: [
-            "images/Suwon.png",
+            "images/Suwon.webp",
             "images/Suwon2.webp",
             "images/Suwon3.webp",
             "images/Suwon4.webp"
