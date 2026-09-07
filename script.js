@@ -542,8 +542,8 @@ const products = [
     id: 46,
     category: "wok",
     price: 3290,
-    image: "images/WokSeafoodBuckwheat.jpeg",
-    images: ["images/WokSeafoodBuckwheat.jpeg"],
+    image: "images/WokSeafoodBuckWheat.jpeg",
+    images: ["images/WokSeafoodBuckWheat.jpeg"],
     name: {
         ru: "Вок с морепродуктами и гречневой лапшой",
         kz: "Теңіз өнімдері мен қарақұмық кеспесі бар вок",
@@ -1979,7 +1979,8 @@ const sets = [
         image: "images/Jakarta.png",
         images: [
             "images/Jakarta.png",
-            "images/Jakarta2.webp"
+            "images/Jakarta2.webp",
+            "images/Jakarta3.webp"
         ],
         name: {
             ru: "JAKARTA",
@@ -2090,8 +2091,7 @@ const sets = [
             "images/Suwon.png",
             "images/Suwon2.webp",
             "images/Suwon3.webp",
-            "images/Suwon4.webp",
-            "images/Suwon5.webp"
+            "images/Suwon4.webp"
         ],
         name: {
             ru: "SUWON",
