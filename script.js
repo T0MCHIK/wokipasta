@@ -2410,6 +2410,7 @@ function renderProducts(
                 <img
                     class="product-image"
                     src="${product.image}"
+                    loading = 
                     alt="${escapeHtml(
                         getText(
                             product.name
@@ -2504,6 +2505,7 @@ function renderSets() {
             card.innerHTML = `
                 <img
                     src="${set.image}"
+                    loading="lazy"
                     alt="${escapeHtml(
                         getText(
                             set.name
@@ -3195,6 +3197,19 @@ function openProduct(
         getProductOptions(
             product
         );
+
+    currentImageIndex =
+        0;
+
+    if (!product) {
+        return;
+    }
+
+    currentProduct =
+        product;
+
+    currentImageIndex =
+        0;
 
     currentVariant =
         options.length
