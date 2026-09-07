@@ -7,7 +7,6 @@ let currentCategory = "all";
 let currentImageIndex = 0;
 let reviews = [];
 let currentVariant = null;
-const preloadedImages = new Map();
 
 /* UI */
 
@@ -1204,8 +1203,8 @@ const products = [
         id: 84,
         category: "pasta",
         price: 3090,
-        image: "images/PastaSeafoodTomato.jpeg",
-        images: ["images/PastaSeafoodTomato.jpeg"],
+        image: "images/PastaSeaFoodTomato.jpeg",
+        images: ["images/PastaSeaFoodTomato.jpeg"],
         name: {
             ru: "Паста с морепродуктами в томатном соусе",
             kz: "Томат соусындағы теңіз өнімдері пастасы",
@@ -4655,6 +4654,30 @@ function checkout() {
         message
     );
 }
+/* PRELOAD GALLERY */
+
+function preloadAllGalleryImages() {
+
+    const allImages = [
+        ...products.flatMap(
+            product => getProductImages(product)
+        ),
+        ...sets.flatMap(
+            set => getProductImages(set)
+        )
+    ];
+
+    [...new Set(allImages)].forEach(
+        src => {
+
+            const img =
+                new Image();
+
+            img.src =
+                src;
+        }
+    );
+}
 
 /* INIT */
 
@@ -4735,6 +4758,7 @@ document.addEventListener(
         );
 
         renderSets();
+        preloadAllGalleryImages();
 
         updateCart();
 
