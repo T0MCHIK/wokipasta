@@ -1911,8 +1911,8 @@ const sets = [
         image: "images/Shanghai.webp",
         images: [
             "images/Shanghai.webp",
-            "images/Shangai2.webp",
-            "images/Shangai3.webp"
+            "images/Shanghai2.webp",
+            "images/Shanghai3.webp"
         ],
         name: {
             ru: "SHANGHAI",
@@ -2065,7 +2065,6 @@ const sets = [
         price: 8100,
         image: "images/Kyoto.webp",
         images: [
-            "images/Kyoto.webp",
             "images/Kyoto.webp",
             "images/Kyoto2.webp",
             "images/Kyoto3.webp"
